@@ -401,9 +401,6 @@
                         '</div>' +
                         '</a>' +
                         '</div>' +
-                        '<div class="minor_label" style="margin-top:15px; text-align: center">' +
-                        filmStar +
-                        '</div>' +
                         '</div>';
                     temp += filmBox;
 

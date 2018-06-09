@@ -147,7 +147,7 @@ public class FilmDataDaoImpl implements FilmDataDao{
             hql = "from FilmDB f where f.country like :country and f.tags like :tag and f.onTime >= :start and f.onTime <= :ending order by f.score";
         else
             hql = "from FilmDB f where f.country not in :country and f.tags like :tag and f.onTime >= :start and f.onTime <= :ending order by f.score";
-        if( restriction.getScoreSort() == null || restriction.getScoreSort().equals(ScoreSort.HighToLow) )
+        if( restriction.getScoreSort() == null || restriction.getScoreSort().equals(ScoreSort.Descend) )
             hql +=" desc ";
         else
             hql +=" asc ";
