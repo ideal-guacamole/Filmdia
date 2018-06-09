@@ -61,7 +61,7 @@
     <!--css and js for the pagination bar-->
 
     <!--<link rel="stylesheet" href="../css/pagi.css" type="text/css">-->
-    <link rel="stylesheet" type="text/css" href="../css/pagi2.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="css/pagi2.css" media="screen"/>
 
     <link rel="stylesheet" href="css/user.css"/>
 </head>
@@ -635,7 +635,7 @@
                         var start = page * 10;
                         var end = start + 9;
 
-                        if (imdb_oscar == 0) {
+                        if (imdb_oscar === 0) {
                             $.ajax({
                                 type: 'post',
                                 url: '/film/getFilmByType.action',
@@ -691,7 +691,6 @@
                                                 '<a href="' + url + '">' + item.name + '</a>' +
                                                 '</td>' +
                                                 '<td>' + item.score + '</td>' +
-                                                '<td>' + 'a' + '</td>' +
                                                 '</tr>';
                                             add += temp;
                                             count++;
@@ -715,7 +714,7 @@
                     <div id="paginate_imdb"></div>
                 </div>
             </div>
-            <script type="text/javascript" src="../js/jquery.paginate.js"></script>
+            <script type="text/javascript" src="js/jquery.paginate.js"></script>
             <script type="text/javascript">
 
             </script>
@@ -730,12 +729,12 @@
 <script>
     $(window).load(function () {
 
-        var IMDb_O = 0;
+        var IMDb_O = 1;
         var imdb = document.getElementById('IMDb');
         var oscar = document.getElementById('Oscar');
         loadTable(0, IMDb_O);
         $("#paginate_imdb").paginate({
-            count: 25,
+            count: 10,
             start: 1,
             display: 15,
             border: false,
