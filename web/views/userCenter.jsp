@@ -1,3 +1,14 @@
+<%@ page import="entityVO.UserAccount" %>
+<%
+    UserAccount userAccount = (UserAccount) session.getAttribute("userAccount");
+    if (userAccount == null) {
+        UserAccount initAccount = new UserAccount();
+        initAccount.setUserID(0);
+        initAccount.setUserName("");
+        initAccount.setPassword("");
+        userAccount = initAccount;
+    }
+%>
 <%--
   Created by IntelliJ IDEA.
   User: Ferriswheel
