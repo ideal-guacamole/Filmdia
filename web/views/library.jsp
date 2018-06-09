@@ -252,8 +252,8 @@
             <span class="countryLabel">Others</span>
         </div>
         <div title="Sort" id="sortBox" class="filterBox">
-            <span class="sortLabel">HighToLow</span>
-            <span class="sortLabel">LowToHigh</span>
+            <span class="sortLabel">Descend</span>
+            <span class="sortLabel">Ascend</span>
         </div>
     </div>
     <!-- End of the filter -->

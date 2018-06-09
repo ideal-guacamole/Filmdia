@@ -1076,14 +1076,14 @@
                     <span>Text :</span>\
                 <textarea id="commentText" name="text" placeholder="Content of Your Review"></textarea>\
                     </label>\
-                    <label>\
                     <span>&nbsp;</span>\
-                <input id="commitBtn" type="button" class="button" value="Send"/>\
-                    </label>';
+                <input id="commitBtn" type="button" class="button" value="Send"/>';
                 var commentScore = document.getElementById('commentScore');
                 var commentSummary = document.getElementById('commentSummary');
                 var commentText = document.getElementById('commentText');
                 var commitBtn = document.getElementById('commitBtn');
+                commitBtn.style.float = "right";
+                commitBtn.style.marginRight = "10%";
                 var starBox = document.getElementById('starBox');
                 starBox.stars = 0;
                 var stars = starBox.getElementsByTagName('img');
@@ -1139,7 +1139,8 @@
                         }
                     }
                 });
-                commitBtn.onclick = function () {
+                commitBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
                     if (starBox.stars === 0) {
                         alert("Score is empty!");
                     }
@@ -1180,8 +1181,7 @@
                             }
                         });
                     }
-
-                }
+                });
             }
 
 
