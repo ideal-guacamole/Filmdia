@@ -27,20 +27,20 @@
     } </script>
     <!-- //Meta-Tags -->
     <!-- Custom-Theme-Files -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-    <link rel="stylesheet" href="../css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
     <!-- //Custom-Theme-Files -->
     <!-- Web-Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" type="text/css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
     <!-- Default-JavaScript-File -->
-    <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script src="js/ajax.js"></script>
-    <script src="../js/mylib.js"></script>
-    <script src="../js/responsiveslides.min.js"></script>
+    <script src="js/mylib.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
     <script>
         $(function () {
             $("#slider").responsiveSlides({
@@ -61,7 +61,7 @@
     <!--css and js for the pagination bar-->
 
     <!--<link rel="stylesheet" href="../css/pagi.css" type="text/css">-->
-    <link rel="stylesheet" type="text/css" href="css/pagi2.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="css/pagi3.css" media="screen"/>
 
     <link rel="stylesheet" href="css/user.css"/>
 </head>
