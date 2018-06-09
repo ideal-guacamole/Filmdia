@@ -139,11 +139,11 @@
 }
 
 #userHint1 {
-    top: 47%;
+    top: 32%;
 }
 
 #passwordHint1 {
-    top: 64%;
+    top: 49%;
 }
 
 .warning{
@@ -161,21 +161,25 @@
 }
 
 #signInWarning{
-    top: 31%;
+    top: 65%;
 }
 
 #signUpWarning{
-    top: 31%;
+    top: 76%;
 }
 
 #userHint2{
-    top: 47%;
+    top: 32%;
 }
 #passwordHint2{
-    top: 62%;
+    top: 47%;
 }
 #passwordHint3{
-    top: 77%;
+    top: 62%;
+}
+
+input.input-places::-webkit-input-placeholder{
+    font-size: 5px;
 }
 
 #forget {

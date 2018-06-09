@@ -1,4 +1,4 @@
-<%@ page import="entityVO.UserAccount" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Ferriswheel
   Date: 2017/6/5
@@ -6,16 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    UserAccount userAccount = (UserAccount) session.getAttribute("userAccount");
-    if(userAccount == null){
-        UserAccount initAccount = new UserAccount();
-        initAccount.setUserID(0);
-        initAccount.setUserName("");
-        initAccount.setPassword("");
-        userAccount = initAccount;
-    }
-%>
+
 <!DOCTYPE html>
 <html>
 <!-- Head -->
@@ -24,8 +15,15 @@
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="Premier Realty a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <meta name="keywords"
+          content="Premier Realty a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
     <!-- //Meta-Tags -->
     <!-- Custom-Theme-Files -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="all">
@@ -38,8 +36,8 @@
     <script src="../js/infographic.js"></script>
     <!-- //Custom-Theme-Files -->
     <!-- Web-Fonts -->
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" 	type="text/css">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" 				type="text/css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" type="text/css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
 </head>
 <!-- //Head -->
@@ -54,7 +52,8 @@
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -92,6 +91,7 @@
                             document.body.onclick = function () {
                                 divSuggestionResults.style.display = 'none';
                             };
+
                             function getResults() {
                                 var searchMsg = searchField.value;
                                 var aFilm = null;
@@ -109,7 +109,7 @@
                                                     var url = '../views/details.jsp';
                                                     url = setQueryString(url, 'filmID', item.filmID);
                                                     url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
-                                                    var tagLine = item.tagLine? item.tagLine : 'No tagline now...';
+                                                    var tagLine = item.tagLine ? item.tagLine : 'No tagline now...';
                                                     aFilm = '<a href=' + url + '><img src=' + item.posterURL +
                                                         '/><div class="suggestionResultsLabel"><span class="title">'
                                                         + item.name + '</span><div class="summary">' + tagLine +
@@ -156,7 +156,7 @@
                     <script src="../js/classie.js"></script>
                     <script src="../js/uisearch.js"></script>
                     <script>
-                        new UISearch( document.getElementById( 'sb-search' ) );
+                        new UISearch(document.getElementById('sb-search'));
                     </script>
                     <!-- //search-scripts -->
                 </nav>
@@ -178,19 +178,20 @@
                     <u>directors, stars, genres, awards and trailer hits on Youtube of the film</u>.</p>
 
                 <p>Using <span class="yellow">scikit-learn</span>, a tool for <span class="yellow">machine learning in
-                    Python</span>, we apply different algorithms below to building a mathematical model with those arguments. </p>
+                    Python</span>, we apply different algorithms below to building a mathematical model with those
+                    arguments. </p>
                 <p>
-                    <ul>
-                        <li>Linear regression</li>
-                        <li>Lasso regression</li>
-                        <li>K-Nearest Neighbors</li>
-                        <li>Polynomial regression</li>
-                    </ul>
+                <ul>
+                    <li>Linear regression</li>
+                    <li>Lasso regression</li>
+                    <li>K-Nearest Neighbors</li>
+                    <li>Polynomial regression</li>
+                </ul>
                 </p>
 
                 <p>The existing data will be divided into two parts for <span class="yellow">supervised learning</span>:
                     80% for training the model by pairing the input with expected output, and 20%
-                for testing the accuracy of the model and adjusting the parameters.
+                    for testing the accuracy of the model and adjusting the parameters.
                     With this model, we are able to predict the box office of the movies opening this week
                     or coming soon.</p>
             </div>
@@ -214,7 +215,8 @@
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="thisweek1_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt="IMAGE " />
+                                <img id="thisweek1_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt="IMAGE "/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="thisweek1_name">Storks</h6>
@@ -224,7 +226,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="thisweek2_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt="IMAGE" />
+                                <img id="thisweek2_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt="IMAGE"/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="thisweek2_name">Hopeless</h6>
@@ -234,7 +237,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="thisweek3_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt=" IMAGE" />
+                                <img id="thisweek3_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt=" IMAGE"/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="thisweek3_name">Mechanic</h6>
@@ -244,7 +248,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="thisweek4_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt=" " />
+                                <img id="thisweek4_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt=" "/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="thisweek4_name">Timeless</h6>
@@ -254,7 +259,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="thisweek5_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt=" IMAGE" />
+                                <img id="thisweek5_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt=" IMAGE"/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="thisweek5_name">Deadpool</h6>
@@ -264,7 +270,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="coming1_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt="IMAGE " />
+                                <img id="coming1_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt="IMAGE "/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="coming1_name">Warcraft</h6>
@@ -274,7 +281,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="coming2_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt="IMAGE " />
+                                <img id="coming2_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt="IMAGE "/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="coming2_name">Rambo 4</h6>
@@ -284,7 +292,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="coming3_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt="IMAGE " />
+                                <img id="coming3_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt="IMAGE "/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="coming3_name">Rambo 4</h6>
@@ -294,7 +303,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="coming4_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt="IMAGE " />
+                                <img id="coming4_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt="IMAGE "/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="coming4_name">Rambo 4</h6>
@@ -304,7 +314,8 @@
                         </div>
                         <div class="item">
                             <div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
-                                <img id="coming5_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive" alt="IMAGE " />
+                                <img id="coming5_pic" src="../images/posters/B005GSVFDW.jpg" class="img-responsive"
+                                     alt="IMAGE "/>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
                                         <h6 id="coming5_name">Rambo 4</h6>
@@ -333,97 +344,96 @@
                 <div class="star_title"><h4>Stars & Representatives Box Office:</h4></div>
                 <div class="star_info" id="star_info">
                     <%--<div class="director_info">--%>
-                        <%--<div class="directorBox">--%>
-                            <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                            <%--<h6>Morgan Freeman</h6>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
+                    <%--<div class="directorBox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>Morgan Freeman</h6>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
                     <%--</div>--%>
                     <%--<div class="director_info">--%>
-                        <%--<div class="directorBox">--%>
-                            <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                            <%--<h6>Morgan Freeman</h6>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
+                    <%--<div class="directorBox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>Morgan Freeman</h6>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
                     <%--</div>--%>
                     <%--<div class="director_info">--%>
-                        <%--<div class="directorBox">--%>
-                            <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                            <%--<h6>Morgan Freeman</h6>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="infobox">--%>
-                            <%--<div class="filmbox">--%>
-                                <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
-                                <%--<h6>$20122016</h6>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
+                    <%--<div class="directorBox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>Morgan Freeman</h6>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="infobox">--%>
+                    <%--<div class="filmbox">--%>
+                    <%--<img src="../images/posters/B005LAIHPE.jpg" alt="">--%>
+                    <%--<h6>$20122016</h6>--%>
+                    <%--</div>--%>
+                    <%--</div>--%>
                     <%--</div>--%>
                 </div>
-
 
 
                 <div id="predictChartBox">
@@ -454,66 +464,20 @@
 <%--//infoPane--%>
 
 <!--loginBox-->
-<div id="shield"></div>
-<div id="loginBox">
-    <input id="cancelBtn" type="button"/>
-    <!--<input id="warningBtn" type="button" value="密码错误" />-->
-    <img src="../images/user/logo.png" alt=""/>
-
-    <div id="initArea">
-        <input type="button" value="Sign In"/><br/><br/>
-        <div>Or</div>
-        <br/>
-        <input type="button" value="Sign Up">
-    </div>
-
-    <form id="signInForm" action="" method="post">
-        <input id="userText1" name="userName" type="text" />
-        <div class="hint" id="userHint1">Enter Your Username</div>
-        <input id="passwordText1" name="password" type="password" />
-        <div class="hint" id="passwordHint1">Enter Your Password</div>
-        <input id="signInSubmit" type="button" value="Sign In" />
-        <div class="warning" id="signInWarning"></div>
-        <div id="forget">Forgot your password?</div>
-        <div class="tab" id="toSignUp">Sign Up</div>
-    </form>
-
-    <form id="signUpForm" action="" method="post">
-        <input id="userText2" name="userName" type="text" />
-        <div class="hint" id="userHint2">Enter Your Username</div>
-        <input id="passwordText2" name="password" type="password" />
-        <div class="hint" id="passwordHint2">Enter Your Password</div>
-        <input id="passwordText3" type="password" />
-        <div class="hint" id="passwordHint3">Ensure Your Password</div>
-        <input id="signUpSubmit" type="button" value="Sign Up">
-        <div class="warning" id="signUpWarning"></div>
-        <div class="tab" id="toSignIn">Sign In</div>
-    </form>
-    <script src="../js/mylib.js"></script>
-    <script src="../js/user.js"></script>
-    <script>
-        if('<%=userAccount.getUserName()%>'!==''){
-            userFunction(true,'<%=userAccount.getUserName()%>');
-        }
-        else{
-            userFunction(false,'');
-        }
-    </script>
-
-</div>
+<jsp:include page="common/loginbox.jsp"></jsp:include>
 <!-- footer -->
 <%--<div class="footer w3-agile-1">--%>
-    <%--<div class="container">--%>
+<%--<div class="container">--%>
 
-        <%--<ul class="fb_icons2 agile-1">--%>
-            <%--<li><a class="fb" href="#"></a></li>--%>
-            <%--<li><a class="twit" href="#"></a></li>--%>
-            <%--<li><a class="goog" href="#"></a></li>--%>
-            <%--<li><a class="pin" href="#"></a></li>--%>
-            <%--<li><a class="drib" href="#"></a></li>--%>
-        <%--</ul>--%>
-    <%--</div>--%>
-    <%--<p class="copyright">© 2017 Filmdia. All Rights Reserved | Design by XYC, GZQ, XZH and LWY</p>--%>
+<%--<ul class="fb_icons2 agile-1">--%>
+<%--<li><a class="fb" href="#"></a></li>--%>
+<%--<li><a class="twit" href="#"></a></li>--%>
+<%--<li><a class="goog" href="#"></a></li>--%>
+<%--<li><a class="pin" href="#"></a></li>--%>
+<%--<li><a class="drib" href="#"></a></li>--%>
+<%--</ul>--%>
+<%--</div>--%>
+<%--<p class="copyright">© 2017 Filmdia. All Rights Reserved | Design by XYC, GZQ, XZH and LWY</p>--%>
 <%--</div>--%>
 <!-- footer -->
 

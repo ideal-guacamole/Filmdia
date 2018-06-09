@@ -295,10 +295,10 @@
 		</div>
 
 		<form id="signInForm" action="" method="post">
-			<input id="userText1" name="userName" type="text" value="Username">
-			<div class="hint" id="userHint1">Enter Your Username</div>
-			<input id="passwordText1" name="password" type="password" value="....">
-			<div class="hint" id="passwordHint1">Enter Your Password</div>
+			<input id="userText1" name="userName" type="text" value="Username" placeholder="Input your username" class="input-places">
+			<div class="hint" id="userHint1">Username</div>
+			<input id="passwordText1" name="password" type="password" value="...." placeholder="Input your password" class="input-places">
+			<div class="hint" id="passwordHint1">Password</div>
 			<input id="signInSubmit" type="button" value="Sign In">
 			<div class="warning" id="signInWarning"></div>
 			<div id="forget">Forgot your password?</div>
@@ -306,12 +306,12 @@
 		</form>
 
 		<form id="signUpForm" action="" method="post">
-			<input id="userText2" name="userName" type="text" value="Username">
-			<div class="hint" id="userHint2">Enter Your Username</div>
-			<input id="passwordText2" name="password" type="password" value="....">
-			<div class="hint" id="passwordHint2">Enter Your Password</div>
-			<input id="passwordText3" type="password" value="....">
-			<div class="hint" id="passwordHint3">Ensure Your Password</div>
+			<input id="userText2" name="userName" type="text" value="Username" placeholder="Pick a username" class="input-places">
+			<div class="hint" id="userHint2">Username</div>
+			<input id="passwordText2" name="password" type="password" value="...." placeholder="Use at least 6 and at most 12 characters" class="input-places">
+			<div class="hint" id="passwordHint2">Password</div>
+			<input id="passwordText3" type="password" value="...." placeholder="Input your password again" class="input-places">
+			<div class="hint" id="passwordHint3">Password</div>
 			<input id="signUpSubmit" type="button" value="Sign Up">
 			<div class="warning" id="signUpWarning"></div>
 			<div class="tab" id="toSignIn">Sign In</div>

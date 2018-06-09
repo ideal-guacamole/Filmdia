@@ -1,4 +1,3 @@
-<%@ page import="entityVO.UserAccount" %>
 <%--
   Created by IntelliJ IDEA.
   User: Ferriswheel
@@ -7,16 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    UserAccount userAccount = (UserAccount) session.getAttribute("userAccount");
-    if(userAccount == null){
-        UserAccount initAccount = new UserAccount();
-        initAccount.setUserID(0);
-        initAccount.setUserName("");
-        initAccount.setPassword("");
-        userAccount = initAccount;
-    }
-%>
 <!DOCTYPE html>
 <html>
 <!-- Head -->
@@ -30,6 +19,7 @@
     <script type="application/x-javascript"> addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
     }, false);
+
     function hideURLbar() {
         window.scrollTo(0, 1);
     } </script>
@@ -106,6 +96,7 @@
                             document.body.onclick = function () {
                                 divSuggestionResults.style.display = 'none';
                             };
+
                             function getResults() {
                                 var searchMsg = searchField.value;
                                 var aFilm = null;
@@ -123,7 +114,7 @@
                                                     var url = '../views/details.jsp';
                                                     url = setQueryString(url, 'filmID', item.filmID);
                                                     url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
-                                                    var tagLine = item.tagLine? item.tagLine : 'No tagline now...';
+                                                    var tagLine = item.tagLine ? item.tagLine : 'No tagline now...';
                                                     aFilm = '<a href=' + url + '><img src=' + item.posterURL +
                                                         '/><div class="suggestionResultsLabel"><span class="title">'
                                                         + item.name + '</span><div class="summary">' + tagLine +
@@ -287,53 +278,7 @@
 <a id="returnToPick" href="#top" onclick="javascript:resetFilter()">Pick Again</a>
 
 <!--loginBox-->
-<div id="shield"></div>
-<div id="loginBox">
-    <input id="cancelBtn" type="button"/>
-    <!--<input id="warningBtn" type="button" value="密码错误" />-->
-    <img src="../images/user/logo.png" alt=""/>
-
-    <div id="initArea">
-        <input type="button" value="Sign In"/><br/><br/>
-        <div>Or</div>
-        <br/>
-        <input type="button" value="Sign Up">
-    </div>
-
-    <form id="signInForm" action="" method="post">
-        <input id="userText1" name="userName" type="text" />
-        <div class="hint" id="userHint1">Enter Your Username</div>
-        <input id="passwordText1" name="password" type="password" />
-        <div class="hint" id="passwordHint1">Enter Your Password</div>
-        <input id="signInSubmit" type="button" value="Sign In" />
-        <div class="warning" id="signInWarning"></div>
-        <div id="forget">Forgot your password?</div>
-        <div class="tab" id="toSignUp">Sign Up</div>
-    </form>
-
-    <form id="signUpForm" action="" method="post">
-        <input id="userText2" name="userName" type="text" />
-        <div class="hint" id="userHint2">Enter Your Username</div>
-        <input id="passwordText2" name="password" type="password" />
-        <div class="hint" id="passwordHint2">Enter Your Password</div>
-        <input id="passwordText3" type="password" />
-        <div class="hint" id="passwordHint3">Ensure Your Password</div>
-        <input id="signUpSubmit" type="button" value="Sign Up">
-        <div class="warning" id="signUpWarning"></div>
-        <div class="tab" id="toSignIn">Sign In</div>
-    </form>
-    <script src="../js/mylib.js"></script>
-    <script src="../js/user.js"></script>
-    <script>
-        if('<%=userAccount.getUserName()%>'!==''){
-            userFunction(true,'<%=userAccount.getUserName()%>');
-        }
-        else{
-            userFunction(false,'');
-        }
-    </script>
-
-</div>
+<jsp:include page="common/loginbox.jsp"></jsp:include>
 
 <!-- footer -->
 <div class="footer w3-agile-1" style="position: absolute; width:100%; margin-top: 120px">
@@ -536,7 +481,7 @@
                         tag: restriction.tag,
                         scoreSort: restriction.scoreSort
                     },
-                    success:function (data) {
+                    success: function (data) {
                         console.log(data);
                         $("#pagination").paginate({
                             count: data,

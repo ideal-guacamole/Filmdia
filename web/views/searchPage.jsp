@@ -1,4 +1,4 @@
-<%@ page import="entityVO.UserAccount" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: xyc
   Date: 17-5-22
@@ -6,16 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    UserAccount userAccount = (UserAccount) session.getAttribute("userAccount");
-    if(userAccount == null){
-        UserAccount initAccount = new UserAccount();
-        initAccount.setUserID(0);
-        initAccount.setUserName("");
-        initAccount.setPassword("");
-        userAccount = initAccount;
-    }
-%>
+
 <!DOCTYPE html>
 <html>
 <!-- Head -->
@@ -227,53 +218,7 @@
     </div>
 </div>
 <!--/ w3l-1 -->
-<div id="shield"></div>
-<div id="loginBox">
-    <input id="cancelBtn" type="button"/>
-    <!--<input id="warningBtn" type="button" value="密码错误" />-->
-    <img src="../images/user/logo.png" alt=""/>
-
-    <div id="initArea">
-        <input type="button" value="Sign In"/><br/><br/>
-        <div>Or</div>
-        <br/>
-        <input type="button" value="Sign Up">
-    </div>
-
-    <form id="signInForm" action="" method="post">
-        <input id="userText1" name="userName" type="text" />
-        <div class="hint" id="userHint1">Enter Your Username</div>
-        <input id="passwordText1" name="password" type="password" />
-        <div class="hint" id="passwordHint1">Enter Your Password</div>
-        <input id="signInSubmit" type="button" value="Sign In" />
-        <div class="warning" id="signInWarning"></div>
-        <div id="forget">Forgot your password?</div>
-        <div class="tab" id="toSignUp">Sign Up</div>
-    </form>
-
-    <form id="signUpForm" action="" method="post">
-        <input id="userText2" name="userName" type="text" />
-        <div class="hint" id="userHint2">Enter Your Username</div>
-        <input id="passwordText2" name="password" type="password" />
-        <div class="hint" id="passwordHint2">Enter Your Password</div>
-        <input id="passwordText3" type="password" />
-        <div class="hint" id="passwordHint3">Ensure Your Password</div>
-        <input id="signUpSubmit" type="button" value="Sign Up">
-        <div class="warning" id="signUpWarning"></div>
-        <div class="tab" id="toSignIn">Sign In</div>
-    </form>
-    <script src="../js/mylib.js"></script>
-    <script src="../js/user.js"></script>
-    <script>
-        if('<%=userAccount.getUserName()%>'!==''){
-            userFunction(true,'<%=userAccount.getUserName()%>');
-        }
-        else{
-            userFunction(false,'');
-        }
-    </script>
-
-</div>
+<jsp:include page="common/loginbox.jsp"></jsp:include>
 <!-- footer -->
 <div class="footer w3-agile-1" style="position: absolute; width:100%; margin-top: 120px">
 

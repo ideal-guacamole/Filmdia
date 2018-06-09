@@ -1,4 +1,4 @@
-<%@ page import="entityVO.UserAccount" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: mac
@@ -7,16 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    UserAccount userAccount = (UserAccount) session.getAttribute("userAccount");
-    if(userAccount == null){
-        UserAccount initAccount = new UserAccount();
-        initAccount.setUserID(0);
-        initAccount.setUserName("");
-        initAccount.setPassword("");
-        userAccount = initAccount;
-    }
-%>
+
 <!DOCTYPE html>
 <html>
 <!-- Head -->
@@ -30,6 +21,7 @@
     <script type="application/x-javascript"> addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
     }, false);
+
     function hideURLbar() {
         window.scrollTo(0, 1);
     } </script>
@@ -126,6 +118,7 @@
                             document.body.onclick = function () {
                                 divSuggestionResults.style.display = 'none';
                             };
+
                             function getResults() {
                                 var searchMsg = searchField.value;
                                 var aFilm = null;
@@ -143,7 +136,7 @@
                                                     var url = '../views/details.jsp';
                                                     url = setQueryString(url, 'filmID', item.filmID);
                                                     url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
-                                                    var tagLine = item.tagLine? item.tagLine : 'No tagline now...';
+                                                    var tagLine = item.tagLine ? item.tagLine : 'No tagline now...';
                                                     aFilm = '<a href=' + url + '><img src=' + item.posterURL +
                                                         '/><div class="suggestionResultsLabel"><span class="title">'
                                                         + item.name + '</span><div class="summary">' + tagLine +
@@ -333,7 +326,8 @@
                                         <div class="info-content">
                                             <h4 id="thisweek_film1_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="thisweek_film1_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="thisweek_film1_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -350,7 +344,8 @@
                                         <div class="info-content">
                                             <h4 id="thisweek_film2_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="thisweek_film2_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="thisweek_film2_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -367,7 +362,8 @@
                                         <div class="info-content">
                                             <h4 id="thisweek_film3_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="thisweek_film3_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="thisweek_film3_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -384,7 +380,8 @@
                                         <div class="info-content">
                                             <h4 id="thisweek_film4_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="thisweek_film4_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="thisweek_film4_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -401,7 +398,8 @@
                                         <div class="info-content">
                                             <h4 id="thisweek_film5_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="thisweek_film5_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="thisweek_film5_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -423,7 +421,8 @@
                                         <div class="info-content">
                                             <h4 id="latest_film1_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="latest_film1_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="latest_film1_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -440,7 +439,8 @@
                                         <div class="info-content">
                                             <h4 id="latest_film2_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="latest_film2_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="latest_film2_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -457,7 +457,8 @@
                                         <div class="info-content">
                                             <h4 id="latest_film3_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="latest_film3_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="latest_film3_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -474,7 +475,8 @@
                                         <div class="info-content">
                                             <h4 id="latest_film4_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="latest_film4_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="latest_film4_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -491,7 +493,8 @@
                                         <div class="info-content">
                                             <h4 id="latest_film5_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="latest_film5_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="latest_film5_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -513,7 +516,8 @@
                                         <div class="info-content">
                                             <h4 id="coming_film1_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="coming_film1_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="coming_film1_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -530,7 +534,8 @@
                                         <div class="info-content">
                                             <h4 id="coming_film2_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="coming_film2_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="coming_film2_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -547,7 +552,8 @@
                                         <div class="info-content">
                                             <h4 id="coming_film3_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="coming_film3_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="coming_film3_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -564,7 +570,8 @@
                                         <div class="info-content">
                                             <h4 id="coming_film4_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="coming_film4_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="coming_film4_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -581,7 +588,8 @@
                                         <div class="info-content">
                                             <h4 id="coming_film5_name">Premier Realty</h4>
                                             <span class="separator"></span>
-                                            <p id="coming_film5_summary">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                            <p id="coming_film5_summary">Ut enim ad minima veniam, quis nostrum
+                                                exercitationem ullam corporis suscipit
                                                 laboriosam</p>
                                         </div>
                                     </div>
@@ -594,8 +602,10 @@
         </div>
         <!-- End of the cinemainfo -->
 
-        <h3 style="font-weight: bold" id="top"><span id="IMDb" title="IMDb Top 250 Chart">IMDb</span> and <span id="Oscar" title="Oscar Best Picture Chart">Oscar</span> Top Films</h3>
-        <p class="ttt">Chart of the top 250 films on IMDb and Best Picture Oscar each year.(Click the light blue title to switch)</p>
+        <h3 style="font-weight: bold" id="top"><span id="IMDb" title="IMDb Top 250 Chart">IMDb</span> and <span
+                id="Oscar" title="Oscar Best Picture Chart">Oscar</span> Top Films</h3>
+        <p class="ttt">Chart of the top 250 films on IMDb and Best Picture Oscar each year.(Click the light blue title
+            to switch)</p>
         <div class="bs-docs-example">
             <table id="toptable" class="table table-hover">
                 <colgroup>
@@ -613,88 +623,88 @@
                 </tr>
                 </thead>
                 <tbody id="tablebody">
-                    <script>
+                <script>
 
 
-                        function loadTable(page, imdb_oscar) {
-                            var table_body = document.getElementById('tablebody');
-                            var add = '';
-                            var url = 'views/details.jsp';
-                            var temp = '';
-                            var count = 0;  //count the number of movie shows in a page, max 10
-                            var start = page*10;
-                            var end = start+9;
+                    function loadTable(page, imdb_oscar) {
+                        var table_body = document.getElementById('tablebody');
+                        var add = '';
+                        var url = 'views/details.jsp';
+                        var temp = '';
+                        var count = 0;  //count the number of movie shows in a page, max 10
+                        var start = page * 10;
+                        var end = start + 9;
 
-                            if(imdb_oscar==0){
-                                $.ajax({
-                                    type: 'post',
-                                    url: '/film/getFilmByType.action',
-                                    data: {
-                                        filmType: 'Top250'
-                                    },
-                                    success: function (data) {
-                                        $.each(data, function (i, item) {
-                                            if (count < 10 && i>=start && i<=end) {
-                                                url = setQueryString(url, 'filmID', item.filmID);
-                                                url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
-                                                temp = '' +
-                                                    '<tr>' +
-                                                    '<td>' +
-                                                    '<a href="' + url + '">' +
-                                                    '<img style="width: 46px; height: 67px" src=' + item.posterURL +'>' +
-                                                    '</a>' +
-                                                    '</td>'+
-                                                    '<td>' +
-                                                    (i+1) + ". " +
-                                                    '<a href="' + url + '">' + item.name + '</a>' +
-                                                    '</td>' +
-                                                    '<td>' + item.score + '</td>' +
-                                                    '<td>' + 'a' + '</td>'+
-                                                    '</tr>';
-                                                add += temp;
-                                                count++;
-                                            }
-                                        });
-                                        table_body.innerHTML = add;
-                                    }
-                                });
-                            }else {
-                                $.ajax({
-                                    type: 'post',
-                                    url: '/film/getFilmByType.action',
-                                    data: {
-                                        filmType: 'Oscar'
-                                    },
-                                    success: function (data) {
-                                        $.each(data, function (i, item) {
-                                            if (count < 10 && i>=start && i<=end) {
-                                                url = setQueryString(url, 'filmID', item.filmID);
-                                                url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
-                                                temp = '' +
-                                                    '<tr>' +
-                                                    '<td>' +
-                                                    '<a href="' + url + '">' +
-                                                    '<img style="width: 46px; height: 67px" src=' + item.posterURL +'>' +
-                                                    '</a>' +
-                                                    '</td>'+
-                                                    '<td>' +
-                                                    (i+1) + ". " +
-                                                    '<a href="' + url + '">' + item.name + '</a>' +
-                                                    '</td>' +
-                                                    '<td>' + item.score + '</td>' +
-                                                    '<td>' + 'a' + '</td>'+
-                                                    '</tr>';
-                                                add += temp;
-                                                count++;
-                                            }
-                                        });
-                                        table_body.innerHTML = add;
-                                    }
-                                });
-                            }
-
+                        if (imdb_oscar == 0) {
+                            $.ajax({
+                                type: 'post',
+                                url: '/film/getFilmByType.action',
+                                data: {
+                                    filmType: 'Top250'
+                                },
+                                success: function (data) {
+                                    $.each(data, function (i, item) {
+                                        if (count < 10 && i >= start && i <= end) {
+                                            url = setQueryString(url, 'filmID', item.filmID);
+                                            url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
+                                            temp = '' +
+                                                '<tr>' +
+                                                '<td>' +
+                                                '<a href="' + url + '">' +
+                                                '<img style="width: 46px; height: 67px" src=' + item.posterURL + '>' +
+                                                '</a>' +
+                                                '</td>' +
+                                                '<td>' +
+                                                (i + 1) + ". " +
+                                                '<a href="' + url + '">' + item.name + '</a>' +
+                                                '</td>' +
+                                                '<td>' + item.score + '</td>' +
+                                                '<td>' + 'a' + '</td>' +
+                                                '</tr>';
+                                            add += temp;
+                                            count++;
+                                        }
+                                    });
+                                    table_body.innerHTML = add;
+                                }
+                            });
+                        } else {
+                            $.ajax({
+                                type: 'post',
+                                url: '/film/getFilmByType.action',
+                                data: {
+                                    filmType: 'Oscar'
+                                },
+                                success: function (data) {
+                                    $.each(data, function (i, item) {
+                                        if (count < 10 && i >= start && i <= end) {
+                                            url = setQueryString(url, 'filmID', item.filmID);
+                                            url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
+                                            temp = '' +
+                                                '<tr>' +
+                                                '<td>' +
+                                                '<a href="' + url + '">' +
+                                                '<img style="width: 46px; height: 67px" src=' + item.posterURL + '>' +
+                                                '</a>' +
+                                                '</td>' +
+                                                '<td>' +
+                                                (i + 1) + ". " +
+                                                '<a href="' + url + '">' + item.name + '</a>' +
+                                                '</td>' +
+                                                '<td>' + item.score + '</td>' +
+                                                '<td>' + 'a' + '</td>' +
+                                                '</tr>';
+                                            add += temp;
+                                            count++;
+                                        }
+                                    });
+                                    table_body.innerHTML = add;
+                                }
+                            });
                         }
-                    </script>
+
+                    }
+                </script>
                 </tbody>
             </table>
         </div>
@@ -706,7 +716,7 @@
                     <div id="paginate_imdb"></div>
                 </div>
             </div>
-            <script type="text/javascript" src="../js/jquery.paginate.js" ></script>
+            <script type="text/javascript" src="../js/jquery.paginate.js"></script>
             <script type="text/javascript">
 
             </script>
@@ -726,16 +736,16 @@
         var oscar = document.getElementById('Oscar');
         loadTable(0, IMDb_O);
         $("#paginate_imdb").paginate({
-            count       : 25,
-            start       : 1,
-            display     : 15,
-            border                  : false,
-            text_color              : '#79B5E3',
-            background_color        : 'none',
-            text_hover_color        : '#2573AF',
-            background_hover_color  : 'none',
-            images      : false,
-            mouse       : 'press',
+            count: 25,
+            start: 1,
+            display: 15,
+            border: false,
+            text_color: '#79B5E3',
+            background_color: 'none',
+            text_hover_color: '#2573AF',
+            background_hover_color: 'none',
+            images: false,
+            mouse: 'press',
             onChange: function (page_index) {
                 loadTable(page_index - 1, IMDb_O);
                 location.href = '#top';
@@ -746,16 +756,16 @@
             IMDb_O = 0;
             loadTable(0, IMDb_O);
             $("#paginate_imdb").paginate({
-                count       : 25,
-                start       : 1,
-                display     : 15,
-                border                  : false,
-                text_color              : '#79B5E3',
-                background_color        : 'none',
-                text_hover_color        : '#2573AF',
-                background_hover_color  : 'none',
-                images      : false,
-                mouse       : 'press',
+                count: 25,
+                start: 1,
+                display: 15,
+                border: false,
+                text_color: '#79B5E3',
+                background_color: 'none',
+                text_hover_color: '#2573AF',
+                background_hover_color: 'none',
+                images: false,
+                mouse: 'press',
                 onChange: function (page_index) {
                     loadTable(page_index - 1, IMDb_O);
                     location.href = '#top';
@@ -766,23 +776,22 @@
             IMDb_O = 1;
             loadTable(0, IMDb_O);
             $("#paginate_imdb").paginate({
-                count       : 10,
-                start       : 1,
-                display     : 15,
-                border                  : false,
-                text_color              : '#79B5E3',
-                background_color        : 'none',
-                text_hover_color        : '#2573AF',
-                background_hover_color  : 'none',
-                images      : false,
-                mouse       : 'press',
+                count: 10,
+                start: 1,
+                display: 15,
+                border: false,
+                text_color: '#79B5E3',
+                background_color: 'none',
+                text_hover_color: '#2573AF',
+                background_hover_color: 'none',
+                images: false,
+                mouse: 'press',
                 onChange: function (page_index) {
                     loadTable(page_index - 1, IMDb_O);
                     location.href = '#top';
                 }
             });
         }
-
 
 
     });
@@ -803,60 +812,12 @@
     <p class="copyright">© 2017 Filmdia. All Rights Reserved | Design by XYC, GZQ, XZH and LWY</p>
 </div>
 
-<!--loginBox-->
-<div id="shield"></div>
-<div id="loginBox">
-    <input id="cancelBtn" type="button"/>
-    <!--<input id="warningBtn" type="button" value="密码错误" />-->
-    <img src="../images/user/logo.png" alt=""/>
-
-    <div id="initArea">
-        <input type="button" value="Sign In"/><br/><br/>
-        <div>Or</div>
-        <br/>
-        <input type="button" value="Sign Up">
-    </div>
-
-    <form id="signInForm" action="" method="post">
-        <input id="userText1" name="userName" type="text" />
-        <div class="hint" id="userHint1">Enter Your Username</div>
-        <input id="passwordText1" name="password" type="password" />
-        <div class="hint" id="passwordHint1">Enter Your Password</div>
-        <input id="signInSubmit" type="button" value="Sign In" />
-        <div class="warning" id="signInWarning"></div>
-        <div id="forget">Forgot your password?</div>
-        <div class="tab" id="toSignUp">Sign Up</div>
-    </form>
-
-    <form id="signUpForm" action="" method="post">
-        <input id="userText2" name="userName" type="text" />
-        <div class="hint" id="userHint2">Enter Your Username</div>
-        <input id="passwordText2" name="password" type="password" />
-        <div class="hint" id="passwordHint2">Enter Your Password</div>
-        <input id="passwordText3" type="password" />
-        <div class="hint" id="passwordHint3">Ensure Your Password</div>
-        <input id="signUpSubmit" type="button" value="Sign Up">
-        <div class="warning" id="signUpWarning"></div>
-        <div class="tab" id="toSignIn">Sign In</div>
-    </form>
-    <script src="js/mylib.js"></script>
-    <script src="js/user.js"></script>
-    <script>
-        if('<%=userAccount.getUserName()%>'!==''){
-            userFunction(true,'<%=userAccount.getUserName()%>');
-        }
-        else{
-            userFunction(false,'');
-        }
-    </script>
-
-</div>
+<jsp:include page="views/common/loginbox.jsp"></jsp:include>
 
 <script type="text/javascript" src="js/index.js"></script>
 
 <!-- footer -->
 <!--FlexSlider2-->
-
 
 
 <!--End-slider-script-->
