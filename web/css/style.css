@@ -1036,6 +1036,28 @@ span.glyphicon {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
+.info-box .caption_overlay {
+	padding: 5px 0;
+}
+
+.info-box .caption_overlay {
+	background-color: rgba(0,0,0,0.7);
+	bottom: 0;
+	color: #fff;
+	-moz-osx-font-smoothing: grayscale;
+	position: absolute;
+	-webkit-font-smoothing: antialiased;
+	width: 100%;
+	z-index: 2;
+}
+
+.info-box .caption_overlay .primary {
+	font-size: 15px;
+}
+
+.info-box .caption_overlay a:link, .info-box .caption_overlay a:active, .info-box .caption_overlay a:hover, .info-box .caption_overlay a:visited {
+	color: #fff;
+}
 .separator {
     display: block;
     position: relative;
@@ -1225,7 +1247,7 @@ span.glyphicon {
 }
 .content-grid-effect {
     box-shadow: 2px 2px 12px 6px #DCDCDC;
-    padding: 7px 7px;
+    /*padding: 7px 7px;*/
 }
 .info-content h4{
 	color:#fff;

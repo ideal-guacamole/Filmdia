@@ -389,14 +389,18 @@
                         '<div class="content-grid-effect slow-zoom vertical text-center">' +
                         '<a href="' + url + '" class="b-link-stripe b-animate-go  swipebox">' +
                         '<div class="img-box">' +
-                        '<img src=' + filmImgUrl +
-                        ' alt="image" class="img-responsive zoom-img">' +
+                        '<img src=' + filmImgUrl + ' alt="image" class="img-responsive zoom-img">' +
                         '</div>' +
                         '<div class="info-box">' +
                         '<div class="info-content">' +
                         '<h4>' + filmName + '</h4>' +
                         '<span class="separator"></span>' +
                         '<p style="text-align: left">' + filmSummary + '</p>' +
+                        '</div>' +
+                        '<div class="caption_overlay">' +
+                        '<div class="primary">' +
+                        '<a href="' + url + '">' + filmName + '</a>' +
+                        '</div>' +
                         '</div>' +
                         '</div>' +
                         '</a>' +
@@ -595,11 +599,13 @@
                         '<span class="separator"></span>' +
                         '<p style="text-align: left">' + filmSummary + '</p>' +
                         '</div>' +
+                        '<div class="caption_overlay">' +
+                        '<div class="primary">' +
+                            '<a href="' + url + '">' + filmName + '</a>' +
+                        '</div>' +
+                        '</div>' +
                         '</div>' +
                         '</a>' +
-                        '</div>' +
-                        '<div class="minor_label" style="margin-top:15px; text-align: center">' +
-                        filmStar +
                         '</div>' +
                         '</div>';
                     temp += filmBox;
