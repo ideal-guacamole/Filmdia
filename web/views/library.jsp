@@ -371,8 +371,8 @@
                     var filmStar = '';
                     filmName = item.name;
                     filmSummary = item.summary;
-                    if (filmSummary.length >= 90) {
-                        filmSummary = filmSummary.substring(0, 90);
+                    if (filmSummary.length >= 150) {
+                        filmSummary = filmSummary.substring(0, 150);
                         filmSummary += '...';
                     }
                     filmScore = Math.round(item.score);
@@ -394,8 +394,6 @@
                         '</div>' +
                         '<div class="info-box">' +
                         '<div class="info-content">' +
-                        '<h4>' + filmName + '</h4>' +
-                        '<span class="separator"></span>' +
                         '<p style="text-align: left">' + filmSummary + '</p>' +
                         '</div>' +
                         '<div class="caption_overlay">' +
