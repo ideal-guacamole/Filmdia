@@ -12,7 +12,7 @@ public class Path {
         if (path.contains("ROOT")) {
             path = path.split("ROOT")[0] + "ROOT/";
         } else {
-            path = path.split("Filmdia_Iteration_III")[0] + "Filmdia_Iteration_III/";
+            path = path.split("Filmdia")[0] + "Filmdia/";
         }
 //        DebugOutput.output(path + '\n');
         return path;

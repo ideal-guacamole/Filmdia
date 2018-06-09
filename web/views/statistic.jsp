@@ -323,6 +323,15 @@
         window.onload = function () {
             var bannerDiv = document.getElementById('banner');
             var h1Arr = bannerDiv.getElementsByTagName('h1');
+            makeEachYearScore();
+            makeScatter();
+            makePieChartInfoForEachYearTopTagTop5();
+            makePieChartInfoForHighScoreTagTop10();
+            makeStackChartInfoForTagAndGross();
+            makeStackChartInfoForTagAndScore();
+            makeLineChartInfoForDoubanAndIMDB();
+            makeLineChartInfoForEachYearScore();
+            makeScatterChartForYTB();
             setTimeout(function () {
                 h1Arr[0].style.cssText = "opacity: 1;text-indent: 200px";
                 setTimeout(function () {
@@ -333,15 +342,6 @@
                             h1Arr[3].style.cssText = "opacity: 1;text-indent: 200px";
                             setTimeout(function () {
                                 h1Arr[4].style.cssText = "opacity: 1;text-indent: 200px";
-                                makeEachYearScore();
-                                makeScatter();
-                                makePieChartInfoForEachYearTopTagTop5();
-                                makePieChartInfoForHighScoreTagTop10();
-                                makeStackChartInfoForTagAndGross();
-                                makeStackChartInfoForTagAndScore();
-                                makeLineChartInfoForDoubanAndIMDB();
-                                makeLineChartInfoForEachYearScore();
-                                makeScatterChartForYTB();
                             },1000);
                         },1000);
                     },1000);
