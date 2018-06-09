@@ -375,7 +375,11 @@
                         filmSummary = filmSummary.substring(0, 150);
                         filmSummary += '...';
                     }
-                    filmScore = Math.round(item.score);
+//                    filmScore = Math.round(item.score);
+                    filmScore = item.score;
+                    if (filmScore === 0) {
+                        filmScore = '';
+                    }
                     for (var j = 0; j < filmScore / 2; j++) {
                         filmStar += star;
                     }
@@ -398,7 +402,7 @@
                         '</div>' +
                         '<div class="caption_overlay">' +
                         '<div class="primary">' +
-                        '<a href="' + url + '">' + filmName + '</a>' +
+                        '<a href="' + url + '">' + filmName + '<span style="color: orange">'+'&nbsp;'+filmScore+'</span>' + '</a>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
@@ -575,7 +579,11 @@
                         filmSummary = filmSummary.substring(0, 150);
                         filmSummary += '...';
                     }
-                    filmScore = Math.round(item.score);
+//                    filmScore = Math.round(item.score);
+                    filmScore = item.score;
+                    if (filmScore === 0) {
+                        filmScore = '';
+                    }
                     for (var j = 0; j < filmScore / 2; j++) {
                         filmStar += star;
                     }
@@ -598,7 +606,7 @@
                         '</div>' +
                         '<div class="caption_overlay">' +
                         '<div class="primary">' +
-                            '<a href="' + url + '">' + filmName + '</a>' +
+                        '<a href="' + url + '">' + filmName + '<span style="color: orange">'+'&nbsp;'+filmScore+'</span>' + '</a>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +

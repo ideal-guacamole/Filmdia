@@ -1217,6 +1217,8 @@ span.glyphicon {
 
 .info-box .caption_overlay .primary {
     font-size: 15px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .info-box .caption_overlay a:link, .info-box .caption_overlay a:active, .info-box .caption_overlay a:hover, .info-box .caption_overlay a:visited {
