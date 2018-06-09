@@ -263,7 +263,7 @@
         <div id="filmContainer"></div>
 
         <div class="clearfix"></div>
-        <div style="position: absolute;width: 90%; padding-top: 20px">
+        <div style="position: absolute;width: 90%; padding-top: 20px; margin: 0 auto; left: 0; right: 0;">
             <div class="content">
                 <div class="demo" style="background: rgba(247,247,247,.1); border-color: rgba(247,247,247,.3);">
                     <div id="pagination"></div>
@@ -571,8 +571,8 @@
                     var filmStar = '';
                     filmName = item.name;
                     filmSummary = item.summary;
-                    if (filmSummary.length >= 90) {
-                        filmSummary = filmSummary.substring(0, 90);
+                    if (filmSummary.length >= 150) {
+                        filmSummary = filmSummary.substring(0, 150);
                         filmSummary += '...';
                     }
                     filmScore = Math.round(item.score);
@@ -594,8 +594,6 @@
                         '</div>' +
                         '<div class="info-box">' +
                         '<div class="info-content">' +
-                        '<h4>' + filmName + '</h4>' +
-                        '<span class="separator"></span>' +
                         '<p style="text-align: left">' + filmSummary + '</p>' +
                         '</div>' +
                         '<div class="caption_overlay">' +
