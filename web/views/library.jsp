@@ -209,6 +209,7 @@
         <div title="Year" id="yearBox" class="filterBox">
             <table>
                 <tr>
+                    <td><span class="yearLabel">2018</span></td>
                     <td><span class="yearLabel">2017</span></td>
                     <td><span class="yearLabel">2016</span></td>
                     <td><span class="yearLabel">2015</span></td>
