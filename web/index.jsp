@@ -619,7 +619,7 @@
                     <th>Poster</th>
                     <th>Rank&Title</th>
                     <th>Rating</th>
-                    <th>Fav</th>
+                    <%--<th>Fav</th>--%>
                 </tr>
                 </thead>
                 <tbody id="tablebody">
@@ -659,7 +659,6 @@
                                                 '<a href="' + url + '">' + item.name + '</a>' +
                                                 '</td>' +
                                                 '<td>' + item.score + '</td>' +
-                                                '<td>' + 'a' + '</td>' +
                                                 '</tr>';
                                             add += temp;
                                             count++;

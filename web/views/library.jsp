@@ -275,7 +275,7 @@
     </div>
 </div>
 <!--/ w3l-1 -->
-<a id="returnToPick" href="#top" onclick="javascript:resetFilter()">Pick Again</a>
+<%--<a id="returnToPick" href="#top" onclick="javascript:resetFilter()">Pick Again</a>--%>
 
 <!--loginBox-->
 <jsp:include page="common/loginbox.jsp"></jsp:include>
