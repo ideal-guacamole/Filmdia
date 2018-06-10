@@ -34,9 +34,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 11px;
 }
 .tab-right .col-md-4 {
-	height: 240px;
+	/*height: 240px;*/
+	position: relative;
 }
 
+.tab-right .col-md-4 .content-grid-effect {
+	position: absolute;
+}
+.deleteBtn {
+	position: absolute;
+}
 p{
 	margin:0;
 }
@@ -657,6 +664,8 @@ h1 {
 	color: rgba(255,255,255,.4);
 	text-align: center;
 	cursor: pointer;
+	top: 88%;
+	left: 30%;
 }
 
 .review_box {

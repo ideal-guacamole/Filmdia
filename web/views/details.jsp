@@ -1165,6 +1165,7 @@
                             score: starBox.stars,
                             userInfo_userID: '<%=userAccount.getUserID()%>'
                         };
+                        alert('!!!..');
                         $.ajax({
                             type: 'post',
                             url: '/user/addPersonalReview.action',

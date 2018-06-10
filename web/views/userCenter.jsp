@@ -310,23 +310,27 @@
                             <div class="w3l-sign-in">
 
                                 <form action="#" method="post">
-                                    <input id="originalPassword" type="password" class="password" name="password-original" placeholder="Original Password"
+                                    <input id="originalPassword" type="password" class="password"
+                                           name="password-original" placeholder="Original Password"
                                            required="">
-                                    <input id="newPassword" type="password" class="password" name="password-new" placeholder="New Password"
+                                    <input id="newPassword" type="password" class="password" name="password-new"
+                                           placeholder="New Password"
                                            required="">
-                                    <input id="confirmPassword" type="password" class="password" name="password-confirm" placeholder="Confirm Password" required="">
+                                    <input id="confirmPassword" type="password" class="password" name="password-confirm"
+                                           placeholder="Confirm Password" required="">
                                     <ul class="w3agile">
                                         <li>
                                             <input type="checkbox" id="brand1" value="">
                                             <label for="brand1"><span></span>Remember me</label>
                                         </li>
                                     </ul>
-                                    <input id="confirmSubmit" type="submit" value="Confirm" style="float: right; margin-right: 8%">
+                                    <input id="confirmSubmit" type="submit" value="Confirm"
+                                           style="float: right; margin-right: 8%">
                                     <div class="clear"></div>
                                 </form>
 
                                 <script>
-                                    $("#confirmSubmit").click(function() {
+                                    $("#confirmSubmit").click(function () {
                                         var originalPassword = document.getElementById('originalPassword');
                                         var newPassword = document.getElementById('newPassword');
                                         var confirmPassword = document.getElementById('confirmPassword');
@@ -409,6 +413,10 @@
     var filmBox = '';
     var tempBox = '';
     var favid = '';
+    var filmImgUrl = null;
+    var filmName = null;
+    var filmSummary = null;
+    var filmScore = null;
     var url = 'details.jsp';
     $(window).load(function () {
         getFav();
@@ -426,18 +434,34 @@
                     Favorite.innerHTML = '';
                     favid = item.favoriteID;
                     url = setQueryString(url, 'filmID', item.filmID);
+
+                    filmName = item.filmName;
+                    filmSummary = item.summary;
+                    if (filmSummary.length >= 150) {
+                        filmSummary = filmSummary.substring(0, 150);
+                        filmSummary += '...';
+                    }
+                    filmScore = item.score;
+                    if (filmScore === 0) {
+                        filmScore = '';
+                    }
+
+                    filmImgUrl = item.posterURL;
                     tempBox = '' +
                         '<div class="col-md-4 gal-left gal_mar">' +
                         '<div class="content-grid-effect slow-zoom vertical text-center">' +
                         '<a href="' + url + '" class="b-link-stripe b-animate-go  swipebox">' +
-                        '<div class="img-box"> ' +
-                        '<img src=' + item.posterURL + ' alt="image" class="img-responsive zoom-img">' +
+                        '<div class="img-box">' +
+                        '<img src=' + filmImgUrl + ' alt="image" class="img-responsive zoom-img">' +
                         '</div>' +
                         '<div class="info-box">' +
                         '<div class="info-content">' +
-                        '<h4>' + item.filmName + '</h4>' +
-                        '<span class="separator"></span>' +
-                        '<p style="max-height: 145px">' + item.summary + '</p>' +
+                        '<p style="text-align: left">' + filmSummary + '</p>' +
+                        '</div>' +
+                        '<div class="caption_overlay">' +
+                        '<div class="primary">' +
+                        '<a href="' + url + '">' + filmName + '<span style="color: orange">' + '&nbsp;' + filmScore + '</span>' + '</a>' +
+                        '</div>' +
                         '</div>' +
                         '</div>' +
                         '</a>' +
@@ -462,18 +486,25 @@
                     Recommeds.innerHTML = '';
                     url = setQueryString(url, 'filmID', item.filmID);
                     url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
+                    filmScore = item.score;
+                    if (filmScore === 0) {
+                        filmScore = '';
+                    }
                     temprecoBox = '' +
                         '<div class="col-md-4 gal-left gal_mar">' +
                         '<div class="content-grid-effect slow-zoom vertical text-center">' +
                         '<a href="' + url + '" class="b-link-stripe b-animate-go  swipebox">' +
-                        '<div class="img-box"> ' +
+                        '<div class="img-box">' +
                         '<img src=' + item.posterURL + ' alt="image" class="img-responsive zoom-img">' +
                         '</div>' +
                         '<div class="info-box">' +
                         '<div class="info-content">' +
-                        '<h4>' + item.name + '</h4>' +
-                        '<span class="separator"></span>' +
-                        '<p style="max-height: 145px">' + item.summary + '</p>' +
+                        '<p style="text-align: left">' + item.summary + '</p>' +
+                        '</div>' +
+                        '<div class="caption_overlay">' +
+                        '<div class="primary">' +
+                        '<a href="' + url + '">' + item.name + '<span style="color: orange">' + '&nbsp;' + filmScore + '</span>' + '</a>' +
+                        '</div>' +
                         '</div>' +
                         '</div>' +
                         '</a>' +
