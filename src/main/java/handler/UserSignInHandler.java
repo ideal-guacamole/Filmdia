@@ -61,4 +61,17 @@ public class UserSignInHandler {
         map.put("userAccount",account);
     }
 
+    @RequestMapping(value = "/changePassword")
+    public @ResponseBody Map<String,String> changePassword(String username, String originalPassword, String newPassword) {
+        boolean check = userSignInService.checkPassword(username, originalPassword);
+        Map<String,String> back = new HashMap<>();
+        if(check) {
+            userSignInService.changePassword(username, newPassword);
+            back.put("result","success");
+        }
+        else {
+            back.put("result","fail");
+        }
+        return back;
+    }
 }

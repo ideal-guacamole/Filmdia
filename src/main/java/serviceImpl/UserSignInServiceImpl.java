@@ -34,4 +34,9 @@ public class UserSignInServiceImpl implements UserSignInService {
     public int getUserID(String userName) {
         return userAccountDao.getUserID(userName);
     }
+
+    @Override
+    public void changePassword(String username, String password) {
+        userAccountDao.changePassword(username, password);
+    }
 }

@@ -28,4 +28,11 @@ public interface UserSignInService {
      * @return 用户ID
      */
     public int getUserID(String userName);
+
+    /**
+     * 根据用户输入的新密码，修改原密码
+     * @param username
+     * @param password
+     */
+    void changePassword(String username, String password);
 }

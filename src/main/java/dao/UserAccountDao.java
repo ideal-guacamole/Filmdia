@@ -26,4 +26,11 @@ public interface UserAccountDao {
      * @return 用户ID
      */
     public int getUserID(String userName);
+
+    /**
+     * 根据用户输入的新密码，修改原来的密码
+     * @param username
+     * @param password
+     */
+    void changePassword(String username, String password);
 }

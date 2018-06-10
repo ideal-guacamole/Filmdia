@@ -310,19 +310,55 @@
                             <div class="w3l-sign-in">
 
                                 <form action="#" method="post">
-                                    <input type="password" class="password" name="password" placeholder="Password"
+                                    <input id="originalPassword" type="password" class="password" name="password-original" placeholder="Original Password"
                                            required="">
-                                    <input type="password" class="password" name="password-confirm"
-                                           placeholder="Confirm Password" required="">
+                                    <input id="newPassword" type="password" class="password" name="password-new" placeholder="New Password"
+                                           required="">
+                                    <input id="confirmPassword" type="password" class="password" name="password-confirm" placeholder="Confirm Password" required="">
                                     <ul class="w3agile">
                                         <li>
                                             <input type="checkbox" id="brand1" value="">
                                             <label for="brand1"><span></span>Remember me</label>
                                         </li>
                                     </ul>
-                                    <input type="submit" value="Confirm">
+                                    <input id="confirmSubmit" type="submit" value="Confirm" style="float: right; margin-right: 8%">
                                     <div class="clear"></div>
                                 </form>
+
+                                <script>
+                                    $("#confirmSubmit").click(function() {
+                                        var originalPassword = document.getElementById('originalPassword');
+                                        var newPassword = document.getElementById('newPassword');
+                                        var confirmPassword = document.getElementById('confirmPassword');
+
+                                        if (newPassword.value !== confirmPassword.value) {
+                                            alert("The password and the confirmation password are inconsistent!");
+                                        }
+                                        else {
+                                            var data = {
+                                                username: username,
+                                                originalPassword: originalPassword.value,
+                                                newPassword: newPassword.value
+                                            };
+                                            $.ajax({
+                                                type: 'post',
+                                                url: '/user/changePassword.action',
+                                                data: data,
+                                                //请求成功后的回调函数
+                                                success: function (data) {
+                                                    if (data.result === 'success') {
+                                                        alert("Password has been updated successfully!");
+                                                        window.location.reload(true);
+                                                    }
+                                                    else {
+                                                        alert("Wrong original password!");
+                                                    }
+                                                }
+                                            });
+                                        }
+                                        return false;
+                                    });
+                                </script>
                             </div>
                         </div>
                         <%--Reset password end--%>
@@ -367,6 +403,7 @@
     var Favorite = document.getElementById('Favorite');
     var Recommeds = document.getElementById('Recommends');
     var accountID = <%=userAccount.getUserID()%>;
+    var username = "<%=userAccount.getUserName()%>";
     var recoBox = '';
     var temprecoBox = '';
     var filmBox = '';

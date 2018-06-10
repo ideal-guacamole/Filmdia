@@ -68,4 +68,20 @@ public class UserAccountDaoImpl implements UserAccountDao {
         session.close();
         return userID;
     }
+
+    @Override
+    public void changePassword(String username, String password) {
+        Session session = getSession();
+        Query q = session.createQuery("from UserAccount ua where ua.userName = :name");
+        q.setParameter("name",username);
+
+        UserAccount userAccountPO = (UserAccount) q.getResultList().get(0);
+        userAccountPO.setPassword(desUtils.en(password));
+
+        session.beginTransaction();
+        session.update(userAccountPO);
+        session.getTransaction().commit();
+        session.close();
+    }
+
 }
