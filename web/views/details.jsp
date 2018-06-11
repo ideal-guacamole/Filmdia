@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="../css/details.css" type="text/css" media="all">
     <link rel="stylesheet" href="../css/Detail_Tab.css" type="text/css" media="all">
     <link rel="stylesheet" href="../css/user.css"/>
+    <link rel="stylesheet" href="../css/spinner.css"/>
     <script src="../js/mylib.js"></script>
     <script type="text/javascript" src="../js/Detail_Tab.js"></script>
     <script src="../js/echarts.js"></script>
@@ -364,7 +365,26 @@
             <ul class="cf">
                 <li class="ml0">
                     <div id="reviewBox" class="reviews">
-
+                        <div class="spinner" id="spinner">
+                            <div class="spinner-container container1">
+                                <div class="circle1"></div>
+                                <div class="circle2"></div>
+                                <div class="circle3"></div>
+                                <div class="circle4"></div>
+                            </div>
+                            <div class="spinner-container container2">
+                                <div class="circle1"></div>
+                                <div class="circle2"></div>
+                                <div class="circle3"></div>
+                                <div class="circle4"></div>
+                            </div>
+                            <div class="spinner-container container3">
+                                <div class="circle1"></div>
+                                <div class="circle2"></div>
+                                <div class="circle3"></div>
+                                <div class="circle4"></div>
+                            </div>
+                        </div>
                     </div>
                 </li>
             </ul>
