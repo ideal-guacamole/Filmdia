@@ -5,7 +5,7 @@
 .pb10{padding-bottom:10px}
 .mt10{margin-top:10px}
 /*main*/
-.latestinfo{width:980px;margin:50px auto 100px;background:#fff;box-shadow:0 0 10px #ccc;}
+.latestinfo{width:80%;margin:50px auto 100px;background:#fff;box-shadow:0 0 10px #ccc;}
 .latestinfo .title{border-bottom: 3px solid #e7e7e7;padding-bottom:20px;}
 .latestinfo .title h2{ font-size: 20px;font-family: "microsoft yahei";}
 .latestinfo .title-list{ position: relative; top: 9px;}
