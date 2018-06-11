@@ -39,7 +39,7 @@ var signUpBtn = document.getElementById('signUpSubmit');
 
 var timer = null;
 
-function userFunction(userState,userName) {
+function userFunction(userState, userName) {
     userImg.isSignIn = userState;
     userImg.user = userName;
 
@@ -131,8 +131,13 @@ function userFunction(userState,userName) {
 
     signUpBtn.onclick = signUp;
 }
+
 function signUp() {
-    if (passwordText2.value !== passwordText3.value) {
+    if (userText2.value === '') {
+        signUpWarning.innerHTML = 'Please pick a Username'
+    } else if (passwordText2.value === '' ) {
+        signUpWarning.innerHTML = 'Please input password'
+    } else if (passwordText2.value !== passwordText3.value) {
         signUpWarning.innerHTML = 'Inconsistent Passwords!';
     }
     else {
@@ -168,6 +173,7 @@ function signUp() {
         });
     }
 }
+
 //进入登录
 function enterSignIn() {
     initArea.style.display = 'none';
@@ -225,14 +231,15 @@ function signOut() {
 }
 
 function showUnderBox() {
-    if(userImg.isSignIn && userImg.user != "") {
+    if (userImg.isSignIn && userImg.user != "") {
         underBoxSpan.innerHTML = userImg.user;
         clearInterval(timer);
         underBox.style.display = 'block';
     }
 }
+
 function hideUnderBox() {
-    if(userImg.isSignIn && userImg.user != "") {
+    if (userImg.isSignIn && userImg.user != "") {
         timer = setTimeout(function () {
             underBox.style.display = 'none';
         }, 200);
