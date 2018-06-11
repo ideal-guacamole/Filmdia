@@ -211,7 +211,7 @@ h3 {
 }
 
 .Storyline .storyline_form {
-	height: 180px;
+	/*height: 180px;*/
 	border: 2px solid #e7e7e7;
 	margin-top: 20px;
 	font-size: 13px;
