@@ -352,6 +352,7 @@ function splitCatForFav(list) {
 }
 
 //添加到用户的已收藏
+var add_fav = document.getElementById('add_fav');
 function addFav(userid) {
     if(userid==0) {
         alert('Please sign in first.');
@@ -366,6 +367,8 @@ function addFav(userid) {
         success: function (data) {
             if(data.result === 'success'){
                 alert('Successfully added!\nYou can check it in User Center.');
+                add_fav.setAttribute("disabled", "true");
+                add_fav.innerHTML = "Added to Favorite";
             }else {
                 alert('You have already added it!');
             }
