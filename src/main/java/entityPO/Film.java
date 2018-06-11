@@ -95,12 +95,12 @@ public class Film {
             Collections.addAll(entry, filmDB.getCast().split("/"));
 
             for (String oneCast : entry) {
-                if (oneCast.split(":").length == 2)
+                if (oneCast.split(":").length == 2) {
                     cast.put(oneCast.split(":")[0], oneCast.split(":")[1]);
+                }
             }
         }
         this.cast = cast;
-
     }
 
     public int getFilmID() {
