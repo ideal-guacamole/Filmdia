@@ -22,7 +22,7 @@ img{ border:none;}
 .product-wrap .product li{ float: left; display: inline;}
 .product-wrap .product li.ml0{margin-left:0px;}
 .product-wrap .product li a.imgwrap{ display: block; width: 226px; height: 200px; background: #fff; text-align:center;}
-.product-wrap .product li p{padding-left: 15px;color: #666666;line-height: 22px;}
+.product-wrap .product li p{color: #666666;line-height: 22px;}
 .product-wrap .product li p a{ color: #666666; text-decoration: none;}
 .product-wrap .product li p a:hover{ color: #073763; text-decoration: none;}
 
@@ -215,6 +215,7 @@ h3 {
 	border: 2px solid #e7e7e7;
 	margin-top: 20px;
 	font-size: 13px;
+	padding: 1em;
 }
 .Storyline .storyline_form .storyline_part {
 	margin-top: 20px;
@@ -228,7 +229,7 @@ h3 {
 	display: inline-block;
 	line-height: 22px;
 	margin-top: 12px;
-	margin-left: 10px;
+	/*margin-left: 10px;*/
 }
 
 /*Review*/
