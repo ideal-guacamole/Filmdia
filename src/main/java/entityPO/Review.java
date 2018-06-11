@@ -38,7 +38,6 @@ public class Review {
     }
 
     @Id
-    @GeneratedValue
     public int getReviewID() {
         return reviewID;
     }

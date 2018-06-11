@@ -30,6 +30,7 @@
     <script type="application/x-javascript"> addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
     }, false);
+
     function hideURLbar() {
         window.scrollTo(0, 1);
     } </script>
@@ -116,6 +117,7 @@
                             document.body.onclick = function () {
                                 divSuggestionResults.style.display = 'none';
                             };
+
                             function getResults() {
                                 var searchMsg = searchField.value;
                                 var aFilm = null;
@@ -209,8 +211,9 @@
                 </span></label>
                 <label class="rating_label" style="color: #fff">Your Rating:
                 </label>
-                <br />
-                <div style="text-align: center;font-size: 20px;line-height: 50px;color: #8c94ff;font-weight: bold"><em id="userScore">No Rating yet</em></div>
+                <br/>
+                <div style="text-align: center;font-size: 20px;line-height: 50px;color: #8c94ff;font-weight: bold"><em
+                        id="userScore">No Rating yet</em></div>
                 <!-- <div id="demo6" class="demo"></div>
                 <script type="text/javascript">
                     $('#demo6').rater('../js/ratingsdemo.php', {maxvalue:10, style: 'basic', curvalue:0});
@@ -480,16 +483,16 @@
                     success: function (data) {
                         reviewNum = data;
                         var radarData = [];
-                        for(var i=0;i<film.tags.length;i++){
+                        for (var i = 0; i < film.tags.length; i++) {
                             $.ajax({
                                 type: 'post',
                                 url: '/filmChart/getRadarChartInfo.action',
-                                data: {tag:film.tags[i],year:film.onTime.substr(0,4)},
+                                data: {tag: film.tags[i], year: film.onTime.substr(0, 4)},
                                 success: function (data) {
                                     radarData.push(data);
-                                    if(radarData.length === film.tags.length){
+                                    if (radarData.length === film.tags.length) {
                                         var radarChart = echarts.init(radarBox);
-                                        var str = 'Average in '+film.tags[0];
+                                        var str = 'Average in ' + film.tags[0];
                                         var option = {
                                             title: {
                                                 text: 'General Figure'
@@ -497,9 +500,9 @@
                                             tooltip: {},
                                             legend: {
                                                 selectedMode: 'single',
-                                                selected:{
+                                                selected: {
                                                     'This Film': true,
-                                                    str:true
+                                                    str: true
                                                 },
                                                 data: [],
                                                 left: 'left',
@@ -507,55 +510,53 @@
                                                 orient: 'vertical'
                                             },
                                             scale: 'true',
-                                            radar: {
-
-                                            },
+                                            radar: {},
                                             series: []
                                         };
                                         var maxGross = 0;
                                         var maxBudget = 0;
                                         var maxReviewNumber = 0;
                                         var maxRatingNum = 0;
-                                        for(var i=0;i<radarData.length;i++){
-                                            if(maxGross < radarData[i].gross){
+                                        for (var i = 0; i < radarData.length; i++) {
+                                            if (maxGross < radarData[i].gross) {
                                                 maxGross = radarData[i].gross;
                                             }
-                                            if(maxGross < film.gross){
+                                            if (maxGross < film.gross) {
                                                 maxGross = film.gross;
                                             }
-                                            if(maxBudget < radarData[i].budget){
+                                            if (maxBudget < radarData[i].budget) {
                                                 maxBudget = radarData[i].budget;
                                             }
-                                            if(maxBudget < film.budget){
+                                            if (maxBudget < film.budget) {
                                                 maxBudget = film.budget;
                                             }
-                                            if(maxReviewNumber < radarData[i].reviewNumber){
+                                            if (maxReviewNumber < radarData[i].reviewNumber) {
                                                 maxReviewNumber = radarData[i].reviewNumber;
                                             }
-                                            if(maxReviewNumber < reviewNum){
+                                            if (maxReviewNumber < reviewNum) {
                                                 maxReviewNumber = reviewNum;
                                             }
-                                            if(maxRatingNum < radarData[i].ratingNum){
+                                            if (maxRatingNum < radarData[i].ratingNum) {
                                                 maxRatingNum = radarData[i].ratingNum;
                                             }
-                                            if(maxRatingNum < film.ratingNum){
+                                            if (maxRatingNum < film.ratingNum) {
                                                 maxRatingNum = film.ratingNum;
                                             }
                                             option.legend.data.push(
                                                 'Average in ' + film.tags[i]
                                             );
                                             option.series.push({
-                                                name: 'Average in '+ film.tags[i],
+                                                name: 'Average in ' + film.tags[i],
                                                 type: 'radar',
                                                 symbolSize: '8',
                                                 data: [
                                                     {
-                                                        value: [film.score,film.gross,film.budget,reviewNum,film.runtime,film.ratingNum],
+                                                        value: [film.score, film.gross, film.budget, reviewNum, film.runtime, film.ratingNum],
                                                         name: 'This Film'
                                                     },
                                                     {
-                                                        value: [radarData[i].score,radarData[i].gross,radarData[i].budget,radarData[i].reviewNumber,radarData[i].runtime,radarData[i].ratingNum],
-                                                        name: 'Average in '+ film.tags[i]
+                                                        value: [radarData[i].score, radarData[i].gross, radarData[i].budget, radarData[i].reviewNumber, radarData[i].runtime, radarData[i].ratingNum],
+                                                        name: 'Average in ' + film.tags[i]
                                                     }
                                                 ]
                                             })
@@ -563,11 +564,17 @@
                                         option.radar = {
                                             indicator: [
                                                 {name: 'Score', max: 10},
-                                                {name: 'Gross', max: Math.round(maxGross * (Math.random()+1))},
-                                                {name: 'Budget',max: Math.round(maxBudget * (Math.random()+1))},
-                                                {name: 'Review Number', max: Math.round(maxReviewNumber * (Math.random()+1))},
+                                                {name: 'Gross', max: Math.round(maxGross * (Math.random() + 1))},
+                                                {name: 'Budget', max: Math.round(maxBudget * (Math.random() + 1))},
+                                                {
+                                                    name: 'Review Number',
+                                                    max: Math.round(maxReviewNumber * (Math.random() + 1))
+                                                },
                                                 {name: 'Runtime', max: 180},
-                                                {name: 'Rating Number',max: Math.round(maxRatingNum * (Math.random()+1))}
+                                                {
+                                                    name: 'Rating Number',
+                                                    max: Math.round(maxRatingNum * (Math.random() + 1))
+                                                }
                                             ]
                                         };
                                         radarChart.setOption(option);
@@ -582,6 +589,7 @@
                 });
 
             }
+
             //评论分布地图
             function makeReviewMap() {
                 var mapBox = document.getElementById('mapBox');
@@ -637,6 +645,7 @@
                     }
                 });
             }
+
             //评分分布
             function makeScoreNum() {
                 var scoreNumBox = document.getElementById('scoreNumBox');
@@ -681,6 +690,7 @@
                     }
                 });
             }
+
             //分数增长
             function makeScoreFluctuation() {
                 var scoreFluctuationBox = document.getElementById('scoreFluctuationBox');
@@ -708,7 +718,7 @@
                             legend: {
                                 data: ['Score']
                             },
-                            dataZoom:{
+                            dataZoom: {
                                 type: 'slider',
                                 xAxisIndex: 0
                             },
@@ -739,6 +749,7 @@
                     }
                 });
             }
+
             //评论数增长
             function makeReviewFluctuationByDay() {
                 var reviewFluctuationBox = document.getElementById('reviewFluctuationBox');
@@ -768,7 +779,7 @@
                             legend: {
                                 data: ['ReviewNumByDay']
                             },
-                            dataZoom:{
+                            dataZoom: {
                                 type: 'slider',
                                 xAxisIndex: 0
                             },
@@ -797,6 +808,7 @@
                     }
                 });
             }
+
             function makeReviewFluctuationByMonth() {
                 var reviewFluctuationBox = document.getElementById('reviewFluctuationBox');
                 var monthData = [];
@@ -825,7 +837,7 @@
                             legend: {
                                 data: ['ReviewNumByMonth']
                             },
-                            dataZoom:{
+                            dataZoom: {
                                 type: 'slider',
                                 xAxisIndex: 0
                             },
@@ -853,6 +865,7 @@
                     }
                 });
             }
+
             function makeReviewFluctuationByQuarter() {
                 var reviewFluctuationBox = document.getElementById('reviewFluctuationBox');
                 var quarterData = [];
@@ -881,7 +894,7 @@
                             legend: {
                                 data: ['ReviewNumByQuarter']
                             },
-                            dataZoom:{
+                            dataZoom: {
                                 type: 'slider',
                                 xAxisIndex: 0
                             },
@@ -909,6 +922,7 @@
                     }
                 });
             }
+
             //关键字分布
             function makeCommentWords() {
                 var commentWordsBox = document.getElementById('commentWordsBox');
@@ -976,6 +990,7 @@
                     }
                 });
             }
+
             //描述长度分布
             function makeDescriptionLength() {
                 var descriptionLengthBox = document.getElementById('descriptionLengthBox');
@@ -1061,13 +1076,12 @@
             var commentBox = document.getElementById('commentForm');
 
 
-
             //如果用户未登录则提示登陆
-            if('<%=userAccount.getUserName()%>'===""){
+            if ('<%=userAccount.getUserName()%>' === "") {
                 commentBox.innerHTML = '<span style="font-size: 20px">Please Sign In First.</span>';
             }
 
-            else{
+            else {
                 //展示添加评论界面
                 commentBox.innerHTML = '<h1>Add Your Comment\
                     <span>Please fill all the texts in the fields.</span>\
@@ -1107,15 +1121,15 @@
                 var starBox = document.getElementById('starBox');
                 starBox.stars = 0;
                 var stars = starBox.getElementsByTagName('img');
-                for(var i = 0;i<stars.length;i++){
-                    stars[i].index = i+1;
+                for (var i = 0; i < stars.length; i++) {
+                    stars[i].index = i + 1;
                     stars[i].onclick = function () {
-                        var j=0;
-                        for(;j<this.index;j++){
+                        var j = 0;
+                        for (; j < this.index; j++) {
                             stars[j].src = '../images/star-small.png';
                         }
-                        for(var k =0;k<(10-this.index);k++){
-                            stars[j+k].src = '../images/star-small-dark.png';
+                        for (var k = 0; k < (10 - this.index); k++) {
+                            stars[j + k].src = '../images/star-small-dark.png';
                         }
                         starBox.stars = j;
                     }
@@ -1128,13 +1142,25 @@
                     contentType: 'application/json',
                     data: '<%=userAccount.getUserID()%>',
                     success: function (data) {
-                        if (data != null && data.length !== 0 && data[0].imdb_filmID === imdb_filmID) {
-                            document.getElementById('userScore').innerHTML = data[0].score;
+                        if (data === null || data.length === 0) {
+                            return false;
+                        }
+
+                        var beCommented = false;
+                        var thisComment;
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].imdb_filmID === imdb_filmID) {
+                                beCommented = true;
+                                thisComment = data[i];
+                            }
+                        }
+                        if (beCommented) {
+                            document.getElementById('userScore').innerHTML = thisComment.score;
                             var stars = '';
-                            for (var j = 0; j < data[0].score; j++) {
+                            for (var j = 0; j < thisComment.score; j++) {
                                 stars += '<img style="width: 18px" src="../images/star-small.png" />';
                             }
-                            for (var j = 0; j < (10 - data[0].score); j++) {
+                            for (var j = 0; j < (10 - thisComment.score); j++) {
                                 stars += '<img style="width: 18px" src="../images/star-small-dark.png" />';
                             }
                             var reviewDiv = '<form action="" method="post" class="basic-grey">\
@@ -1144,15 +1170,15 @@
                                     <span>Score :</span>\
                                 </label>\
                                 <div id="starBox" style="height: 40px;display: inline-block;padding-top: 8px">\
-                                '+stars+'\
+                                ' + stars + '\
                                 </div>\
                                 <label>\
                                     <span>Summary :</span>\
-                                    <label style="color: black;line-height: 35px">'+data[0].summary+'</label>\
+                                    <label style="color: black;line-height: 35px">' + thisComment.summary + '</label>\
                                 </label>\
                                 <label>\
                                     <span>Text :</span>\
-                                    <div style="color: black;width: 500px;margin-left: 180px;height: 200px;line-height: 35px;">' + data[0].text + '</div>\
+                                    <div style="color: black;width: 500px;margin-left: 180px;height: 200px;line-height: 35px;">' + thisComment.text + '</div>\
                                 </label>\
                             </form>';
                             commentBox.parentNode.innerHTML = reviewDiv;
@@ -1185,18 +1211,17 @@
                             score: starBox.stars,
                             userInfo_userID: '<%=userAccount.getUserID()%>'
                         };
-                        alert('!!!..');
                         $.ajax({
                             type: 'post',
                             url: '/user/addPersonalReview.action',
                             contentType: 'application/json',
-                            data:  JSON.stringify(review),
+                            data: JSON.stringify(review),
                             success: function (data) {
-                                if(data.result === 'success'){
+                                if (data.result === 'success') {
                                     alert('Comment Success!');
                                     window.location.reload(true);
                                 }
-                                else{
+                                else {
                                     alert('Comment Failed!');
                                 }
                             }
