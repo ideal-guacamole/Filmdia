@@ -41,11 +41,11 @@ public class ReviewDataDaoImpl implements ReviewDataDao {
         q.setParameter("id",imdb_filmID);
         q.setMaxResults(n);
         List<Review> reviewList = q.getResultList();
-        q = session.createQuery("from Review r where r.imdb_filmID = :id and r.userInfo_userID != null ");
-        q.setParameter("id",imdb_filmID);
-        List<Review> userReviewList = q.getResultList();
+//        q = session.createQuery("from Review r where r.imdb_filmID = :id and r.userInfo_userID != null ");
+//        q.setParameter("id",imdb_filmID);
+//        List<Review> userReviewList = q.getResultList();
         session.close();
-        reviewList.addAll(userReviewList);
+//        reviewList.addAll(userReviewList);
         return reviewList;
     }
 

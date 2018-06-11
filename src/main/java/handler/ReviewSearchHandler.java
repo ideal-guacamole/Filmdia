@@ -27,12 +27,14 @@ public class ReviewSearchHandler {
 
     @RequestMapping("/getReviews")
     public @ResponseBody List<ReviewVO> getReviews(@RequestBody String imdb_filmID){
+//        System.out.println(System.currentTimeMillis());
         if(imdb_filmID.contains("=")){
             imdb_filmID = imdb_filmID.substring(0,imdb_filmID.length()-1);
         }
         List<ReviewVO> reviewVOList = new ArrayList<>();
-        for(Review review : reviewSearchService.getReviews(imdb_filmID,80))
+        for(Review review : reviewSearchService.getReviews(imdb_filmID,10))
             reviewVOList.add(new ReviewVO(review));
+//        System.out.println(System.currentTimeMillis());
         return reviewVOList;
     }
 
