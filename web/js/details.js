@@ -253,6 +253,7 @@ if(name=='null') {
 
 
 //加载评论
+var spinner = document.getElementById('spinner');
 var reviewBox = document.getElementById('reviewBox');
 var review = '';
 var reviewNum = 0;
@@ -262,8 +263,11 @@ $.ajax({
     contentType: 'application/json;charset=utf-8',
     data: imdb_filmID,
     success: function (data) {
+        spinner.style.display = 'none';
+        spinner.style.visibility = 'hidden';
         putReviews(data);
         reviewNum = data.length;
+
     }
 });
 
@@ -292,6 +296,7 @@ function putReviews(data) {
     }
     num += 10;
     reviewBox.innerHTML += review;
+
     var lock = false;
     var finish = false;
     reviewBox.parentNode.parentNode.parentNode.onscroll = function () {
