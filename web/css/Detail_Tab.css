@@ -260,23 +260,23 @@ h3 {
 .reviews {
 	position: relative;
 	margin-top: 120px;
-	width: 900px;
-	left: 120px;
+	width: 950px;
+	left: 90px;
 }
 .review_part {
 	position: relative;
-	margin-top: 30px;
-	margin-bottom: 30px;
-	width: 900px;
-	border: 2px solid #eee;
+	width: 950px;
+	border-width: 2px 0 0 0;
+	border-style: solid;
+	border-color: #eee;
 }
 .review_part .review_title {
 	position: relative;
 	left: 20px;
-	width: 900px;
+	width: 950px;
 	height: 30px;
 	line-height: 30px;
-	padding-top: 10px;
+	padding-top: 15px;
 }
 .review_part .review_userName{
 	top: 10px;
@@ -286,7 +286,7 @@ h3 {
 	color: #124587;
 }
 .review_part .review_summary {
-	margin: 5px 0px 0px 20px;
+	margin: 25px 0px 0px 20px;
 	font-weight: bold; 
 	display: block;
 	font-size:14px;
@@ -294,7 +294,12 @@ h3 {
 
 .review_part .review_text {
 	font-size: 13px;
-	margin: 10px 0 20px 7px;
+	margin: 10px 20px 0px 20px;
+}
+
+.review_part .review_footer {
+	margin: 20px 0px 20px 10px;
+
 }
 
 /*Write Comment*/
