@@ -137,8 +137,10 @@ function userFunction(userState, userName) {
 function signUp() {
     if (userText2.value === '') {
         signUpWarning.innerHTML = 'Please pick a Username'
-    } else if (passwordText2.value === '' ) {
+    } else if (passwordText2.value === '') {
         signUpWarning.innerHTML = 'Please input password'
+    } else if (passwordText2.value.length < 6 || passwordText2.value.length > 12) {
+        signUpWarning.innerHTML = 'password should be at least 6 and at most 12 characters'
     } else if (passwordText2.value !== passwordText3.value) {
         signUpWarning.innerHTML = 'Inconsistent Passwords!';
     }

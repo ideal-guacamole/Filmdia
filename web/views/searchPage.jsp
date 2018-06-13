@@ -29,14 +29,15 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="../css/swipebox.css">
     <link rel="stylesheet" href="../css/searchPage.css" type="text/css">
+    <link rel="stylesheet" href="../css/user.css"/>
     <!-- //Custom-Theme-Files -->
     <!-- Web-Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" type="text/css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
     <!-- Default-JavaScript-File -->
-    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/mylib.js"></script>
     <!-- The pagination bar -->
     <link rel="stylesheet" type="text/css" href="../css/pagi2.css" media="screen"/>
@@ -50,6 +51,7 @@
 <!--</div>-->
 
 <!-- Header -->
+
 <div class="header w3layouts-1">
     <!-- Top-Bar -->
     <div class="top-bar w3-1">
@@ -189,32 +191,6 @@
         </div>
         <div class="clearfix"></div>
 
-        <!--The pagination bar-->
-        <%--<div id="paginationBar" style="position: absolute;width: 80%; padding-top: 20px">--%>
-        <%--<div class="content">--%>
-        <%--<div class="demo" style="background: rgba(247,247,247,.1); border-color: rgba(247,247,247,.3);">--%>
-        <%--<div id="demo4"></div>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--<script type="text/javascript" src="../js/jquery.paginate.js"></script>--%>
-        <%--<script type="text/javascript">--%>
-        <%--$(function () {--%>
-        <%--$("#demo4").paginate({--%>
-        <%--count: 25,--%>
-        <%--start: 1,--%>
-        <%--display: 15,--%>
-        <%--border: false,--%>
-        <%--text_color: '#79B5E3',--%>
-        <%--background_color: 'none',--%>
-        <%--text_hover_color: '#2573AF',--%>
-        <%--background_hover_color: 'none',--%>
-        <%--images: false,--%>
-        <%--mouse: 'press'--%>
-        <%--});--%>
-        <%--});--%>
-        <%--</script>--%>
-        <%--</div>--%>
-        <!--End of the pagination bar-->
     </div>
 </div>
 <!--/ w3l-1 -->
@@ -223,7 +199,7 @@
 <jsp:include page="common/footer.jsp"></jsp:include>
 <!-- footer -->
 <!-- swipe box js -->
-<script src="../js/jquery.swipebox.min.js"></script>
+<script src="../js/lib/jquery.swipebox.min.js"></script>
 <script type="text/javascript">
     jQuery(function ($) {
         $(".swipebox").swipebox();
@@ -294,14 +270,14 @@
                     var searchItem =
                         '<div class="search_item">' +
                         '<hr>' +
-                        '<a href=' + detailUrl + '><img src=' + item.posterURL + ' alt="" /></a>' +
+                        '<a href=' + detailUrl + '><img src=' + item.posterURL + ' alt="" />' +
                         '<div class="search_item-info">' +
-                        '<a href=' + detailUrl + ' class="search_item-filmName" id="filmName">' + filmName + '</a>' +
+                        '<div class="search_item-filmName" id="filmName">' + filmName + '</div>' +
                         '<span class="search_item-onTime">' + item.onTime + '</span>' +
                         '<span class="search_item-actors">' + genre + '</span>' +
                         '<span class="search_item-summary">' + item.summary + '</span>' +
-                        '</div>' +
-                        '</div>';
+                        '</div></a>' +
+                        '</a>';
                     tempInnerHtml += searchItem;
                 });
             }

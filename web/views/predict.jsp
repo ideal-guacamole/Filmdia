@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../css/predict.css"/>
     <link rel="stylesheet" href="../css/button.css" type="text/css" media="all">
     <script src="../js/ajax.js"></script>
-    <script src="../js/echarts.js"></script>
+    <script src="../js/lib/echarts.js"></script>
     <script src="../js/infographic.js"></script>
     <!-- //Custom-Theme-Files -->
     <!-- Web-Fonts -->
@@ -466,9 +466,9 @@
 <!--loginBox-->
 <jsp:include page="common/loginbox.jsp"></jsp:include>
 <jsp:include page="common/footer.jsp"></jsp:include>
-<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/lib/jquery-1.11.1.min.js"></script>
 <link href="../css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
-<script src="../js/owl.carousel.js"></script>
+<script src="../js/lib/owl.carousel.js"></script>
 <script src="../js/predict.js"></script>
 <script src="../js/search.js"></script>
 

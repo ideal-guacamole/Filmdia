@@ -337,8 +337,8 @@ a:focus, a:hover {
     font-family: FontAwesome;
     visibility: visible;
     display: block;
-    width: 0;
-    height: 0;
+    width: 10px;
+    height: 10px;
     display: inline-block;
     background: #fff;
     border: none;

@@ -44,8 +44,8 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
     <!-- Default-JavaScript-File -->
-    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
 
     <!-- Own css and js-->
     <link rel="stylesheet" href="../css/details.css" type="text/css" media="all">
@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="../css/spinner.css"/>
     <script src="../js/mylib.js"></script>
     <script type="text/javascript" src="../js/Detail_Tab.js"></script>
-    <script src="../js/echarts.js"></script>
+    <script src="../js/lib/echarts.js"></script>
     <script src="../js/world.js"></script>
     <!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
 
@@ -243,186 +243,172 @@
     </div>
     <div class="product-wrap" style="background: rgba(255,255,255,1);">
         <!--Specific-->
-        <div class="product showing">
-            <ul class="cf">
-                <li class="ml0">
-                    <!-- base Info -->
-                    <div class="info_line1">
-                        <span class="country_label">Country: </span><label id="country" class="Country"></label>
-                        <span class="language_label">Gross: </span><label id="language" class="Language"></label>
-                        <span class="runtime_label">Runtime: </span><label id="runtime" class="Runtime"></label>
-                    </div>
-                    <!-- base Info -->
-                    <!-- Cast -->
-                    <div id="castBox" class="Cast left">
-                        <h3>Cast</h3>
-                        <table class="table table-hover" id="castTable">
-                            <colgroup>
-                                <col class="Pic">
-                                <col class="Name">
-                                <col class="Role">
-                            </colgroup>
-                            <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Name</th>
-                                <th>Role</th>
-                            </tr>
-                            </thead>
-                            <tbody id="casttbody">
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Cast end-->
+        <div id="spec" class="product showing">
 
-                    <!-- Storyline -->
-                    <div class="Storyline left">
-                        <h3>Storyline</h3>
-                        <div class="storyline_form">
-                            <div class="storyline_part">
-                                <p id="storyline">A naval war ship encounters an alien armada and faces the biggest
-                                    threat mankind has
-                                    ever faced. If they lose, the world could face a major extinction event and an alien
-                                    invasion. Will humans win this alien war, what are the aliens doing here, and what
-                                    do they want? Based on the Hasbro naval war game. </p>
-                            </div>
-                            <div class="tagline_part">
-                                <label for="storyLine_tagLine">Tagline: </label>
-                                <span id="storyLine_tagLine" class="Tagline">The battle for Earth begins at sea.</span>
-                            </div>
-                            <div class="keyword_part">
-                                <label for="storyLine_keywords">Plot Keywords: </label>
-                                <span id="storyLine_keywords" class="ScripteKeywords">oahuhawaii | hawaii | alien | naval | ship </span>
-                            </div>
-                        </div>
-                    </div>
-                    <%--Storyline end--%>
+            <!-- base Info -->
+            <div class="info_line1">
+                <span class="country_label">Country: </span><label id="country" class="Country"></label>
+                <span class="language_label">Gross(USA): </span><label id="language" class="Language"></label>
+                <span class="runtime_label">Runtime: </span><label id="runtime" class="Runtime"></label>
+            </div>
+            <!-- base Info -->
+            <!-- Cast -->
+            <div id="castBox" class="Cast left">
+                <h3>Cast</h3>
+                <table class="table table-hover" id="castTable">
+                    <colgroup>
+                        <col class="Pic">
+                        <col class="Name">
+                        <col class="Role">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                    </tr>
+                    </thead>
+                    <tbody id="casttbody">
+                    </tbody>
+                </table>
+            </div>
+            <!-- Cast end-->
 
-                    <!-- Details -->
-                    <div class="Details right">
-                        <h3>Details</h3>
-                        <div class="detail_form">
-                            <span>Language: <label id="detail_language" class="Language"></label></span>
-                            <span>Release Date:
+            <!-- Storyline -->
+            <div class="Storyline left">
+                <h3>Storyline</h3>
+                <div class="storyline_form">
+                    <div class="storyline_part">
+                        <p id="storyline">A naval war ship encounters an alien armada and faces the biggest
+                            threat mankind has
+                            ever faced. If they lose, the world could face a major extinction event and an alien
+                            invasion. Will humans win this alien war, what are the aliens doing here, and what
+                            do they want? Based on the Hasbro naval war game. </p>
+                    </div>
+                    <div class="tagline_part">
+                        <label for="storyLine_tagLine">Tagline: </label>
+                        <span id="storyLine_tagLine" class="Tagline">The battle for Earth begins at sea.</span>
+                    </div>
+                    <div class="keyword_part">
+                        <label for="storyLine_keywords">Plot Keywords: </label>
+                        <span id="storyLine_keywords"
+                              class="ScripteKeywords">oahuhawaii | hawaii | alien | naval | ship </span>
+                    </div>
+                </div>
+            </div>
+            <%--Storyline end--%>
+
+            <!-- Details -->
+            <div class="Details right">
+                <h3>Details</h3>
+                <div class="detail_form">
+                    <span>Language: <label id="detail_language" class="Language"></label></span>
+                    <span>Release Date:
                                 <label id="detail_onTime" class="OnTime"></label></span>
-                            <span>Trailer Online: <label id="detail_watchUrl" class="OnTime"><a
-                                    href=""></a></label></span>
+                    <span>Trailer Online: <label id="detail_watchUrl" class="OnTime"><a
+                            href=""></a></label></span>
+                </div>
+            </div>
+            <!-- Details end-->
+
+            <%--Core Members--%>
+            <div class="CoreMembers right">
+                <h3>Core Members</h3>
+                <div class="detail_form">
+                    <div class="coresgroup">
+                        <div class="cores">
+                            <img id="director_pic" src="../images/posters/B005CA4SJW.jpg"
+                                 style="width:70px; height: 105px;">
+                            <div id="director_name" class="name">John Williams(Dir)</div>
+                        </div>
+                        <div class="cores">
+                            <img id="star1_pic" src="../images/posters/B005CA4SJW.jpg"
+                                 style="width:70px; height: 105px;">
+                            <div id="star1_name" class="name">John Williams</div>
+                        </div>
+                        <div class="cores">
+                            <img id="star2_pic" src="../images/posters/B005CA4SJW.jpg"
+                                 style="width:70px; height: 105px;">
+                            <div id="star2_name" class="name">John William</div>
+                        </div>
+                        <div class="cores">
+                            <img id="star3_pic" src="../images/posters/B005CA4SJW.jpg"
+                                 style="width:70px; height: 105px;">
+                            <div id="star3_name" class="name">John Williams</div>
                         </div>
                     </div>
-                    <!-- Details end-->
+                </div>
+            </div>
+            <%--Core Members end--%>
 
-                    <%--Core Members--%>
-                    <div class="CoreMembers right">
-                        <h3>Core Members</h3>
-                        <div class="detail_form">
-                            <div class="coresgroup">
-                                <div class="cores">
-                                    <img id="director_pic" src="../images/posters/B005CA4SJW.jpg"
-                                         style="width:70px; height: 105px;">
-                                    <div id="director_name" class="name">John Williams(Dir)</div>
-                                </div>
-                                <div class="cores">
-                                    <img id="star1_pic" src="../images/posters/B005CA4SJW.jpg"
-                                         style="width:70px; height: 105px;">
-                                    <div id="star1_name" class="name">John Williams</div>
-                                </div>
-                                <div class="cores">
-                                    <img id="star2_pic" src="../images/posters/B005CA4SJW.jpg"
-                                         style="width:70px; height: 105px;">
-                                    <div id="star2_name" class="name">John William</div>
-                                </div>
-                                <div class="cores">
-                                    <img id="star3_pic" src="../images/posters/B005CA4SJW.jpg"
-                                         style="width:70px; height: 105px;">
-                                    <div id="star3_name" class="name">John Williams</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <%--Core Members end--%>
+            <%--Box office--%>
+            <div class="BoxOffice right">
+                <h3>Box Office</h3>
+                <div class="detail_form">
+                    <span>Worldwide Gross: <label id="box_worldGross"></label></span>
+                    <span>Gross(USA): <label id="box_gross"></label></span>
+                    <span>Budget: <label id="box_budget"></label></span>
+                </div>
+            </div>
+            <%--Box office end--%>
 
-                    <%--Box office--%>
-                    <div class="BoxOffice right">
-                        <h3>Box Office</h3>
-                        <div class="detail_form">
-                            <span>Worldwide Gross: <label id="box_worldGross"></label></span>
-                            <span>Gross: <label id="box_gross"></label></span>
-                            <span>Budget: <label id="box_budget"></label></span>
-                        </div>
-                    </div>
-                    <%--Box office end--%>
-
-
-                </li>
-                <li>
-                </li>
-                <li>
-                </li>
-                <li>
-                </li>
-            </ul>
+            <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
         </div>
 
         <!--Reviews-->
-        <div id="product" class="product">
-            <ul class="cf">
-                <li class="ml0">
-                    <div id="reviewBox" class="reviews">
-                        <div class="spinner" id="spinner">
-                            <div class="spinner-container container1">
-                                <div class="circle1"></div>
-                                <div class="circle2"></div>
-                                <div class="circle3"></div>
-                                <div class="circle4"></div>
-                            </div>
-                            <div class="spinner-container container2">
-                                <div class="circle1"></div>
-                                <div class="circle2"></div>
-                                <div class="circle3"></div>
-                                <div class="circle4"></div>
-                            </div>
-                            <div class="spinner-container container3">
-                                <div class="circle1"></div>
-                                <div class="circle2"></div>
-                                <div class="circle3"></div>
-                                <div class="circle4"></div>
-                            </div>
-                        </div>
+        <div id="reviews" class="product">
+            <div id="reviewBox" class="reviews">
+                <div class="spinner" id="spinner">
+                    <div class="spinner-container container1">
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                        <div class="circle3"></div>
+                        <div class="circle4"></div>
                     </div>
-                </li>
-            </ul>
+                    <div class="spinner-container container2">
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                        <div class="circle3"></div>
+                        <div class="circle4"></div>
+                    </div>
+                    <div class="spinner-container container3">
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                        <div class="circle3"></div>
+                        <div class="circle4"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
         </div>
 
         <!--Graphs-->
         <div id="graph" class="product">
-            <ul class="cf">
-                <li class="ml0">
-                    <section id="radarBox">
-                    </section>
-                    <section id="mapBox">
-                    </section>
-                    <section id="scoreNumBox">
-                    </section>
-                    <section id="scoreFluctuationBox">
-                    </section>
-                    <section id="reviewFluctuationBox">
-                    </section>
-                    <button
-                            style="margin-bottom:20px;margin-left:470px;width: 80px;text-align: center;height: 30px;display: inline-block"
-                            value="Day" onclick="javascript:makeReviewFluctuationByDay()">Day
-                    </button>
-                    <button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"
-                            value="Month" onclick="javascript:makeReviewFluctuationByMonth()">Month
-                    </button>
-                    <button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"
-                            value="Quarter" onclick="javascript:makeReviewFluctuationByQuarter()">Quarter
-                    </button>
-                    <section id="commentWordsBox">
-                    </section>
-                    <section id="descriptionLengthBox">
-                    </section>
-                </li>
-            </ul>
+            <section id="radarBox">
+            </section>
+            <section id="mapBox">
+            </section>
+            <section id="scoreNumBox">
+            </section>
+            <section id="scoreFluctuationBox">
+            </section>
+            <section id="reviewFluctuationBox">
+            </section>
+            <button
+                    style="margin-bottom:20px;margin-left:470px;width: 80px;text-align: center;height: 30px;display: inline-block"
+                    value="Day" onclick="javascript:makeReviewFluctuationByDay()">Day
+            </button>
+            <button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"
+                    value="Month" onclick="javascript:makeReviewFluctuationByMonth()">Month
+            </button>
+            <button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"
+                    value="Quarter" onclick="javascript:makeReviewFluctuationByQuarter()">Quarter
+            </button>
+            <section id="commentWordsBox">
+            </section>
+            <section id="descriptionLengthBox">
+            </section>
+            <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
         </div>
 
         <%--Script for Graphs--%>
@@ -1062,14 +1048,9 @@
 
         <!--Write Reviews-->
         <div id="comment" class="product">
-            <ul class="cf">
-                <li class="ml0">
-
-                    <form id="commentForm" action="" method="post" class="basic-grey">
-                    </form>
-
-                </li>
-            </ul>
+            <form id="commentForm" action="" method="post" class="basic-grey">
+            </form>
+            <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
         </div>
         <%--Script for User Review--%>
         <script>
@@ -1232,6 +1213,7 @@
 
 
         </script>
+        <%--<div style="font: 0px/0px sans-serif;clear: both;display: block"></div>--%>
     </div>
 </div>
 
@@ -1242,7 +1224,7 @@
 <script src="../js/details.js"></script>
 
 <!-- footer -->
-<jsp:include page="common/footer.jsp"></jsp:include>
+<%--<jsp:include page="common/footer.jsp"></jsp:include>--%>
 </body>
 <!-- //Body -->
 </html>
