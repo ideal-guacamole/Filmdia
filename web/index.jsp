@@ -688,7 +688,7 @@
         });
     });
 </script>
-<script src="js/search_index.js"></script>
+<script src="js/search.js"></script>
 </body>
 <!-- //Body -->
 </html>

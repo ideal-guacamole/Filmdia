@@ -4,7 +4,7 @@
 var searchField = document.getElementById('searchField');
 var searchBtn = document.getElementById('searchBtn');
 searchBtn.onclick = search;
-document.onkeyup = function () {
+searchField.onkeyup = function () {
     if (event.keyCode === 13) {
         search();
     }
