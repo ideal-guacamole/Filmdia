@@ -81,7 +81,7 @@
     height: 41px;
     position: absolute;
     left: 12.5%;
-    border: none;
+    border-style: none;
     background: white;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -90,6 +90,10 @@
     color: black;
     font-size: 17px;
     text-align: center;
+}
+
+#userText1:focus, #passwordText1:focus, #signInSubmit:focus, #userText2:focus, #passwordText2:focus,#passwordText3:focus, #signUpSubmit:focus {
+    outline: none;
 }
 
 #userText1 {
@@ -123,7 +127,13 @@
 }
 
 #initArea input:hover, #signInSubmit:hover, #signUpSubmit:hover {
-    font-size: 22px;
+    background: #63a7e6;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#signInSubmit:focus, #signUpSubmit:focus {
+    background: #63a7e6;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .hint {
@@ -150,7 +160,6 @@
 .warning{
     width: 400px;
     height: 20px;
-    font-size: 20px;
     position: absolute;
     left: 50%;
     margin-left: -200px;
@@ -166,7 +175,7 @@
 }
 
 #signUpWarning{
-    top: 76%;
+    top: 76.8%;
 }
 
 #userHint2{

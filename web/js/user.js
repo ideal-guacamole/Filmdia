@@ -107,6 +107,18 @@ function userFunction(userState, userName) {
 
 
     function signIn() {
+        if(userText1.value === "") {
+            signInWarning.innerHTML = 'The username cannot be empty';
+            return false;
+        }
+
+        if(passwordText1.value === "") {
+            signInWarning.innerHTML = 'The password cannot be empty';
+            return false;
+        }
+
+        signInBtn.value = "Signing In...";
+
         var userAccount = {
             userName: userText1.value,
             password: passwordText1.value
@@ -123,17 +135,25 @@ function userFunction(userState, userName) {
                     userImg.user = userText1.value;
                     underBoxSpan.innerHTML = userText1.value;
                     signInWarning.innerHTML = '';
-                    alert("Sign In Successfully!");
-                    doOpacity(loginBox, 0.1, 0, function () {
-                        loginBox.style.display = 'none';
-                    });
-                    doOpacity(shield, 0.1, 0, function () {
-                        shield.style.display = 'none';
-                    });
-                    window.location.reload(true);
+
+                    setTimeout(function () {
+                        doOpacity(loginBox, 0.1, 0, function () {
+                            loginBox.style.display = 'none';
+                        });
+                        doOpacity(shield, 0.1, 0, function () {
+                            shield.style.display = 'none';
+                        });
+                        window.location.reload(true);
+                    }, 500)
                 }
                 else {
-                    signInWarning.innerHTML = 'Sign In Failed';
+
+                    setTimeout(function () {
+                        signInWarning.innerHTML = 'Username and password do not match';
+
+                        signInBtn.value = "Sign In";
+                    }, 500)
+
                 }
             }
         });
@@ -144,15 +164,17 @@ function userFunction(userState, userName) {
 
 function signUp() {
     if (userText2.value === '') {
-        signUpWarning.innerHTML = 'Please pick a Username'
-    } else if (passwordText2.value === '') {
-        signUpWarning.innerHTML = 'Please input password'
+        signUpWarning.innerHTML = 'The username cannot be empty';
+    } else if (passwordText2.value === '' || passwordText3.value === '') {
+        signUpWarning.innerHTML = 'The password cannot be empty';
     } else if (passwordText2.value.length < 6 || passwordText2.value.length > 12) {
-        signUpWarning.innerHTML = 'password should be at least 6 and at most 12 characters'
+        signUpWarning.innerHTML = 'The password is invalid'
     } else if (passwordText2.value !== passwordText3.value) {
-        signUpWarning.innerHTML = 'Inconsistent Passwords!';
+        signUpWarning.innerHTML = 'Inconsistent passwords';
     }
     else {
+        signUpBtn.value = "Signing Up...";
+
         signUpWarning.innerHTML = '';
         var userAccount = {
             userName: userText2.value,
@@ -169,17 +191,25 @@ function signUp() {
                     userImg.user = userText2.value;
                     underBoxSpan.innerHTML = userText2.value;
                     signUpWarning.innerHTML = '';
-                    alert("Sign Up Successfully!");
-                    doOpacity(loginBox, 0.1, 0, function () {
-                        loginBox.style.display = 'none';
-                    });
-                    doOpacity(shield, 0.1, 0, function () {
-                        shield.style.display = 'none';
-                    });
-                    window.location.reload(true);
+
+                    setTimeout(function () {
+                        alert("Sign Up Successfully!");
+                        doOpacity(loginBox, 0.1, 0, function () {
+                            loginBox.style.display = 'none';
+                        });
+                        doOpacity(shield, 0.1, 0, function () {
+                            shield.style.display = 'none';
+                        });
+                        window.location.reload(true);
+                    }, 500)
+
                 }
                 else {
-                    signUpWarning.innerHTML = 'Sign Up Failed';
+                    setTimeout(function () {
+                        signUpWarning.innerHTML = 'Sign Up Failed';
+
+                        signUpBtn.value = "Sign Up";
+                    }, 500)
                 }
             }
         });
@@ -243,7 +273,7 @@ function signOut() {
 }
 
 function showUnderBox() {
-    if (userImg.isSignIn && userImg.user != "") {
+    if (userImg.isSignIn && userImg.user !== "") {
         underBoxSpan.innerHTML = userImg.user;
         clearInterval(timer);
         underBox.style.display = 'block';
@@ -251,7 +281,7 @@ function showUnderBox() {
 }
 
 function hideUnderBox() {
-    if (userImg.isSignIn && userImg.user != "") {
+    if (userImg.isSignIn && userImg.user !== "") {
         timer = setTimeout(function () {
             underBox.style.display = 'none';
         }, 200);

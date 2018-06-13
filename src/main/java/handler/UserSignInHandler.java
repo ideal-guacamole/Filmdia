@@ -32,7 +32,11 @@ public class UserSignInHandler {
             map.put("userAccount",userAccount);
         }
         else {
+            userAccount.setUserID(0);
+            userAccount.setUserName("");
+            userAccount.setPassword("");
             back.put("result","fail");
+            map.put("userAccount",userAccount);
         }
         return back;
     }

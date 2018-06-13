@@ -41,7 +41,7 @@
                placeholder="Use at least 6 and at most 12 characters" class="input-places"/>
         <div class="hint" id="passwordHint2">Password</div>
         <input id="passwordText3" type="password" placeholder="Input your password again" class="input-places"/>
-        <div class="hint" id="passwordHint3">Password</div>
+        <div class="hint" id="passwordHint3">Confirm Password</div>
         <input id="signUpSubmit" type="button" value="Sign Up">
         <div class="warning" id="signUpWarning"></div>
         <div class="tab" id="toSignIn">Sign In</div>
