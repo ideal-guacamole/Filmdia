@@ -36,9 +36,9 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
     <!-- Default-JavaScript-File -->
-    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/echarts.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/lib/echarts.js"></script>
     <script type="text/javascript" src="../js/infographic.js"></script>
     <script type="text/javascript" src="../js/dark.js"></script>
     <script type="text/javascript" src="../js/dataTool.js"></script>
@@ -195,7 +195,7 @@
     <li><a href="#chart9">Click & Gross</a></li>
 
 </ul>
-<script type="text/javascript" src="../js/jquery.smooth-scroll.js"></script>
+<script type="text/javascript" src="../js/lib/jquery.smooth-scroll.js"></script>
 <script>
     $('a').smoothScroll({
         speed: 1000

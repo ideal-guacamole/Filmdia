@@ -44,8 +44,8 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
     <!-- Default-JavaScript-File -->
-    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
 
     <!-- Own css and js-->
     <link rel="stylesheet" href="../css/details.css" type="text/css" media="all">
@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="../css/spinner.css"/>
     <script src="../js/mylib.js"></script>
     <script type="text/javascript" src="../js/Detail_Tab.js"></script>
-    <script src="../js/echarts.js"></script>
+    <script src="../js/lib/echarts.js"></script>
     <script src="../js/world.js"></script>
     <!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
 

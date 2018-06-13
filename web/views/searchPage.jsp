@@ -35,8 +35,8 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
     <!-- Default-JavaScript-File -->
-    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/mylib.js"></script>
     <!-- The pagination bar -->
     <link rel="stylesheet" type="text/css" href="../css/pagi2.css" media="screen"/>
@@ -223,7 +223,7 @@
 <jsp:include page="common/footer.jsp"></jsp:include>
 <!-- footer -->
 <!-- swipe box js -->
-<script src="../js/jquery.swipebox.min.js"></script>
+<script src="../js/lib/jquery.swipebox.min.js"></script>
 <script type="text/javascript">
     jQuery(function ($) {
         $(".swipebox").swipebox();

@@ -36,11 +36,11 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
     <!-- Default-JavaScript-File -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/mylib.js"></script>
-    <script src="js/responsiveslides.min.js"></script>
+    <script src="js/lib/responsiveslides.min.js"></script>
     <script>
         $(function () {
             $("#slider").responsiveSlides({
@@ -714,7 +714,7 @@
                     <div id="paginate_imdb"></div>
                 </div>
             </div>
-            <script type="text/javascript" src="js/jquery.paginate.js"></script>
+            <script type="text/javascript" src="js/lib/jquery.paginate.js"></script>
             <script type="text/javascript">
 
             </script>

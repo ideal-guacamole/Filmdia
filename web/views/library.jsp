@@ -36,8 +36,8 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css">
     <!-- //Web-Fonts -->
     <!-- Default-JavaScript-File -->
-    <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
     <script src="../js/mylib.js"></script>
 
     <!-- The pagination bar -->
@@ -269,7 +269,7 @@
                     <div id="pagination"></div>
                 </div>
             </div>
-            <script type="text/javascript" src="../js/jquery.paginate.js"></script>
+            <script type="text/javascript" src="../js/lib/jquery.paginate.js"></script>
 
         </div>
         <!--End of the pagination bar-->
@@ -285,7 +285,7 @@
 
 
 <!-- swipe box js -->
-<script src="../js/jquery.swipebox.min.js"></script>
+<script src="../js/lib/jquery.swipebox.min.js"></script>
 <script type="text/javascript">
     jQuery(function ($) {
         $(".swipebox").swipebox();
