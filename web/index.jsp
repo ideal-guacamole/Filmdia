@@ -1,4 +1,3 @@
-
 <%--
   Created by IntelliJ IDEA.
   User: mac
@@ -492,9 +491,9 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th>Poster</th>
-                    <th>Rank&Title</th>
-                    <th>Rating</th>
+                    <th style="text-align: center">Poster</th>
+                    <th style="text-align: center">Rank&Title</th>
+                    <th style="text-align: center">Rating</th>
                     <%--<th>Fav</th>--%>
                 </tr>
                 </thead>
@@ -524,17 +523,17 @@
                                             url = setQueryString(url, 'filmID', item.filmID);
                                             url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
                                             temp = '' +
-                                                '<tr>' +
-                                                '<td>' +
+                                                '<tr style="cursor: pointer" onclick="location.href=\'' + url + '\';">' +
+                                                '<td style="text-align: center;" >' +
                                                 '<a href="' + url + '">' +
-                                                '<img style="width: 46px; height: 67px" src=' + item.posterURL + '>' +
+                                                '<img style="width: 46px; height: 67px;" src=' + item.posterURL + '>' +
                                                 '</a>' +
                                                 '</td>' +
                                                 '<td>' +
                                                 (i + 1) + ". " +
                                                 '<a href="' + url + '">' + item.name + '</a>' +
                                                 '</td>' +
-                                                '<td>' + item.score + '</td>' +
+                                                '<td style="text-align: center">' + item.score + '</td>' +
                                                 '</tr>';
                                             add += temp;
                                             count++;
@@ -556,17 +555,17 @@
                                             url = setQueryString(url, 'filmID', item.filmID);
                                             url = setQueryString(url, 'imdb_filmID', item.imdb_filmID);
                                             temp = '' +
-                                                '<tr>' +
-                                                '<td>' +
+                                                '<tr style="cursor: pointer" onclick="location.href=\'' + url + '\';">' +
+                                                '<td style="text-align: center;">' +
                                                 '<a href="' + url + '">' +
-                                                '<img style="width: 46px; height: 67px" src=' + item.posterURL + '>' +
+                                                '<img style="width: 46px; height: 67px;" src=' + item.posterURL + '>' +
                                                 '</a>' +
                                                 '</td>' +
                                                 '<td>' +
                                                 (i + 1) + ". " +
                                                 '<a href="' + url + '">' + item.name + '</a>' +
                                                 '</td>' +
-                                                '<td>' + item.score + '</td>' +
+                                                '<td style="text-align: center">' + item.score + '</td>' +
                                                 '</tr>';
                                             add += temp;
                                             count++;
