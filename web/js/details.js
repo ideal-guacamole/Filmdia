@@ -123,21 +123,16 @@ if(name=='null') {
             score.innerHTML = film.score;
             favorite.score = film.score;
             country.innerHTML = film.country;
-            language.innerHTML = '$'+film.gross;
-            runtime.innerHTML = film.runtime + 'min';
+            language.innerHTML = film.gross === 0 ? 'None' : '$'+film.gross;
+            runtime.innerHTML = film.runtime === 0 ? 'None' : film.runtime + 'min';
             detail_language.innerHTML = film.language;
             detail_onTime.innerHTML = film.onTime;
             detail_watchUrl.innerHTML = '<a href="' + film.filmWatchURL + '">Click Here to Watch!</a>';
 
 
-            if(film.worldwideGross!=0){
-                box_worldGross.innerHTML = ' $'+film.worldwideGross;
-            }else{
-                box_worldGross.innerHTML = ' unknown';
-            }
-
-            box_gross.innerHTML = ' $'+film.gross;
-            box_budget.innerHTML = ' $'+film.budget;
+            box_worldGross.innerHTML = film.worldwideGross === 0 ? 'None' : ' $'+film.worldwideGross;
+            box_gross.innerHTML = film.gross === 0 ? 'None' : ' $'+film.gross;
+            box_budget.innerHTML = film.budget === 0 ? 'None' : ' $'+film.budget;
 
             //cast table
             castMap = film.cast;
