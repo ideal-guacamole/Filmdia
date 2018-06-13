@@ -189,32 +189,6 @@
         </div>
         <div class="clearfix"></div>
 
-        <!--The pagination bar-->
-        <%--<div id="paginationBar" style="position: absolute;width: 80%; padding-top: 20px">--%>
-        <%--<div class="content">--%>
-        <%--<div class="demo" style="background: rgba(247,247,247,.1); border-color: rgba(247,247,247,.3);">--%>
-        <%--<div id="demo4"></div>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--<script type="text/javascript" src="../js/jquery.paginate.js"></script>--%>
-        <%--<script type="text/javascript">--%>
-        <%--$(function () {--%>
-        <%--$("#demo4").paginate({--%>
-        <%--count: 25,--%>
-        <%--start: 1,--%>
-        <%--display: 15,--%>
-        <%--border: false,--%>
-        <%--text_color: '#79B5E3',--%>
-        <%--background_color: 'none',--%>
-        <%--text_hover_color: '#2573AF',--%>
-        <%--background_hover_color: 'none',--%>
-        <%--images: false,--%>
-        <%--mouse: 'press'--%>
-        <%--});--%>
-        <%--});--%>
-        <%--</script>--%>
-        <%--</div>--%>
-        <!--End of the pagination bar-->
     </div>
 </div>
 <!--/ w3l-1 -->
@@ -294,14 +268,14 @@
                     var searchItem =
                         '<div class="search_item">' +
                         '<hr>' +
-                        '<a href=' + detailUrl + '><img src=' + item.posterURL + ' alt="" /></a>' +
+                        '<a href=' + detailUrl + '><img src=' + item.posterURL + ' alt="" />' +
                         '<div class="search_item-info">' +
-                        '<a href=' + detailUrl + ' class="search_item-filmName" id="filmName">' + filmName + '</a>' +
+                        '<div class="search_item-filmName" id="filmName">' + filmName + '</div>' +
                         '<span class="search_item-onTime">' + item.onTime + '</span>' +
                         '<span class="search_item-actors">' + genre + '</span>' +
                         '<span class="search_item-summary">' + item.summary + '</span>' +
-                        '</div>' +
-                        '</div>';
+                        '</div></a>' +
+                        '</a>';
                     tempInnerHtml += searchItem;
                 });
             }
