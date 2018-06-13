@@ -249,7 +249,7 @@
                     <!-- base Info -->
                     <div class="info_line1">
                         <span class="country_label">Country: </span><label id="country" class="Country"></label>
-                        <span class="language_label">Gross: </span><label id="language" class="Language"></label>
+                        <span class="language_label">Gross(USA): </span><label id="language" class="Language"></label>
                         <span class="runtime_label">Runtime: </span><label id="runtime" class="Runtime"></label>
                     </div>
                     <!-- base Info -->
@@ -346,7 +346,7 @@
                         <h3>Box Office</h3>
                         <div class="detail_form">
                             <span>Worldwide Gross: <label id="box_worldGross"></label></span>
-                            <span>Gross: <label id="box_gross"></label></span>
+                            <span>Gross(USA): <label id="box_gross"></label></span>
                             <span>Budget: <label id="box_budget"></label></span>
                         </div>
                     </div>
