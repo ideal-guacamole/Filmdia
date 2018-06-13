@@ -277,7 +277,7 @@
                         '<span class="search_item-actors">' + genre + '</span>' +
                         '<span class="search_item-summary">' + item.summary + '</span>' +
                         '</div></a>' +
-                        '</a>';
+                        '</div>';
                     tempInnerHtml += searchItem;
                 });
             }
