@@ -11,9 +11,9 @@ var underBox = document.getElementById('userUnderBox');
 var underBoxSignOut = underBox.getElementsByTagName('a')[2];
 var underBoxSpan = underBox.getElementsByTagName('span')[0];
 
-var initArea = document.getElementById('initArea');
-var initInputArr = initArea.getElementsByTagName('Input');
-var initDiv = initArea.getElementsByTagName('div')[0];
+// var initArea = document.getElementById('initArea');
+// var initInputArr = initArea.getElementsByTagName('Input');
+// var initDiv = initArea.getElementsByTagName('div')[0];
 
 var cancelBtn = document.getElementById('cancelBtn');
 
@@ -48,31 +48,41 @@ function userFunction(userState, userName) {
         if (!userImg.isSignIn) {
             loginBox.style.display = 'block';
             shield.style.display = 'block';
+            // doOpacity(shield, 0.1, 0.7, function () {
+            //     doOpacity(loginBox, 1, 1)
+            // });
+            // shield.style.opacity = 0.7;
+            // loginBox.style.opacity = 1;
 
-            initArea.style.display = 'block';
-            signInForm.style.display = 'none';
-            signUpForm.style.display = 'none';
-            initInputArr[0].style.opacity = 0;
-            initInputArr[1].style.opacity = 0;
-            initDiv.style.opacity = 0;
+            //
+            // // initArea.style.display = 'block';
+            // signInForm.style.display = 'block';
+            // signUpForm.style.display = 'none';
+            // initInputArr[0].style.opacity = 1;
+            // initInputArr[1].style.opacity = 0;
+            // initDiv.style.opacity = 0;
 
             doOpacity(shield, 0.1, 0.7, function () {
-                doOpacity(loginBox, 0.1, 1, function () {
-                    setTimeout(function () {
-                        doOpacity(initInputArr[0], 0.6, 1, function () {
-                            setTimeout(function () {
-                                doOpacity(initDiv, 0.6, 1, function () {
-                                    setTimeout(function () {
-                                        doOpacity(initInputArr[1], 0.6, 1);
-                                    });
-                                }, 100);
-                            }, 100);
-                        });
-                    }, 100);
-                });
+                doOpacity(loginBox, 0.2, 1
+                    // , function () {
+                    // setTimeout(function () {
+                    //     doOpacity(signInForm, 0.6, 1, function () {
+                    //         setTimeout(function () {
+                    //             doOpacity(initDiv, 0.6, 1, function () {
+                    //                 setTimeout(function () {
+                    //                     doOpacity(initInputArr[1], 0.6, 1);
+                    //                 });
+                    //             }, 100);
+                    //         }, 100);
+                    //     });
+                    // }, 100);
+                // }
+                );
             });
 
-            cancelBtn.onclick = function () {
+            enterSignIn();
+
+            shield.onclick = function () {
                 doOpacity(loginBox, 0.1, 0, function () {
                     loginBox.style.display = 'none';
                 });
@@ -87,10 +97,10 @@ function userFunction(userState, userName) {
     underBox.onmouseover = showUnderBox;
     underBox.onmouseout = hideUnderBox;
 
-    initInputArr[0].onclick = enterSignIn;
+    // initInputArr[0].onclick = enterSignIn;
     toSignUp.onclick = enterSignUp;
 
-    initInputArr[1].onclick = enterSignUp;
+    // initInputArr[1].onclick = enterSignUp;
     toSignIn.onclick = enterSignIn;
 
     signInBtn.onclick = signIn;
@@ -178,11 +188,11 @@ function signUp() {
 
 //进入登录
 function enterSignIn() {
-    initArea.style.display = 'none';
+    // initArea.style.display = 'none';
     signUpForm.style.display = 'none';
     signInForm.style.display = 'block';
-    signInForm.style.opacity = 0;
-    doOpacity(signInForm, 0.1, 1);
+    signInForm.style.opacity = 1;
+    // doOpacity(signInForm, 0.1, 1);
 
     userText1.isEdit = false;
     passwordText1.isEdit = false;
@@ -197,11 +207,11 @@ function enterSignIn() {
 
 //进入注册
 function enterSignUp() {
-    initArea.style.display = 'none';
+    // initArea.style.display = 'none';
     signInForm.style.display = 'none';
     signUpForm.style.display = 'block';
-    signUpForm.style.opacity = 0;
-    doOpacity(signUpForm, 0.1, 1);
+    signUpForm.style.opacity = 1;
+    // doOpacity(signUpForm, 0.1, 1);
 
     userText2.isEdit = false;
     passwordText2.isEdit = false;

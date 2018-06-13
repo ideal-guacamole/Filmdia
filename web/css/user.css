@@ -12,7 +12,7 @@
 
 #loginBox {
     width: 400px;
-    height: 500px;
+    height: 450px;
     margin: auto;
     position: fixed;
     left: 50%;
@@ -22,8 +22,9 @@
     z-index: 12;
     opacity: 0;
     background: url("../images/user/loginBg.png");
+    /*background-color: white;*/
     display: none;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 
 #cancelBtn {
@@ -76,15 +77,15 @@
 }
 
 #userText1, #passwordText1, #signInSubmit, #userText2, #passwordText2,#passwordText3, #signUpSubmit {
-    width: 250px;
+    width: 75%;
     height: 41px;
     position: absolute;
-    left: 19%;
+    left: 12.5%;
     border: none;
     background: white;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     font-family: BlizzardGlobal;
     color: black;
     font-size: 17px;
@@ -185,7 +186,7 @@ input.input-places::-webkit-input-placeholder{
 #forget {
     position: absolute;
     width: 200px;
-    bottom: 16%;
+    bottom: 14%;
     left: 50%;
     margin-left: -100px;
     height: 20px;
@@ -197,7 +198,7 @@ input.input-places::-webkit-input-placeholder{
 }
 
 #forget:hover ,.tab:hover{
-    cursor: default;
+    cursor: pointer;
     color: #e3e3e3;
 }
 

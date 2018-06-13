@@ -12,16 +12,16 @@
 <!--loginBox-->
 <div id="shield"></div>
 <div id="loginBox">
-    <input id="cancelBtn" type="button"/>
+    <%--<input id="cancelBtn" type="button"/>--%>
     <!--<input id="warningBtn" type="button" value="密码错误" />-->
     <img src="../../images/user/logo.png" alt=""/>
 
-    <div id="initArea">
-        <input type="button" value="Sign In"/><br/><br/>
-        <div>Or</div>
-        <br/>
-        <input type="button" value="Sign Up">
-    </div>
+    <%--<div id="initArea">--%>
+        <%--<input type="button" value="Sign In"/><br/><br/>--%>
+        <%--<div>Or</div>--%>
+        <%--<br/>--%>
+        <%--<input type="button" value="Sign Up">--%>
+    <%--</div>--%>
 
     <form id="signInForm" action="" method="post">
         <input id="userText1" name="userName" type="text" placeholder="Input your username" class="input-places"/>
