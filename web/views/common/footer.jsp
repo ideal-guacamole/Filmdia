@@ -1,4 +1,3 @@
-<!-- footer -->
 <div class="footer w3-agile-1">
     <div class="container">
 
@@ -10,6 +9,5 @@
             <li><a class="drib" href="#"></a></li>
         </ul>
     </div>
-    <p class="copyright">© 2018 Filmdia HCI work. All Rights Reserved | Design by GZQ, CYF, LQ and LWY</p>
+    <p class="copyright">2018 Filmdia HCI work. Design by GZQ, CYF, LQ and LWY.</p>
 </div>
-<!-- footer -->

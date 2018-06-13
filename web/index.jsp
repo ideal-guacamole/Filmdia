@@ -795,27 +795,11 @@
     });
 </script>
 
-<!-- footer -->
-<div class="footer w3-agile-1">
-    <div class="container">
-
-        <ul class="fb_icons2 agile-1">
-            <li><a class="fb" href="#"></a></li>
-            <li><a class="twit" href="#"></a></li>
-            <li><a class="goog" href="#"></a></li>
-            <li><a class="pin" href="#"></a></li>
-            <li><a class="drib" href="#"></a></li>
-        </ul>
-    </div>
-    <p class="copyright">© 2017 Filmdia. All Rights Reserved | Design by XYC, GZQ, XZH and LWY</p>
-</div>
+<jsp:include page="views/common/footer.jsp"></jsp:include>
 
 <jsp:include page="views/common/loginbox.jsp"></jsp:include>
 
 <script type="text/javascript" src="js/index.js"></script>
-
-<!-- footer -->
-<!--FlexSlider2-->
 
 
 <!--End-slider-script-->

@@ -263,7 +263,7 @@
         <div id="filmContainer"></div>
 
         <div class="clearfix"></div>
-        <div style="position: absolute;width: 90%; padding-top: 20px; margin: 0 auto; left: 0; right: 0;">
+        <div>
             <div class="content">
                 <div class="demo" style="background: rgba(247,247,247,.1); border-color: rgba(247,247,247,.3);">
                     <div id="pagination"></div>
