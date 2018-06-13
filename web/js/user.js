@@ -49,26 +49,28 @@ function userFunction(userState, userName) {
             loginBox.style.display = 'block';
             shield.style.display = 'block';
 
-            initArea.style.display = 'block';
-            signInForm.style.display = 'none';
-            signUpForm.style.display = 'none';
-            initInputArr[0].style.opacity = 0;
-            initInputArr[1].style.opacity = 0;
-            initDiv.style.opacity = 0;
+            enterSignIn();
+            //
+            // initArea.style.display = 'block';
+            // signInForm.style.display = 'none';
+            // signUpForm.style.display = 'none';
+            // initInputArr[0].style.opacity = 0;
+            // initInputArr[1].style.opacity = 0;
+            // initDiv.style.opacity = 0;
 
             doOpacity(shield, 0.1, 0.7, function () {
                 doOpacity(loginBox, 0.1, 1, function () {
-                    setTimeout(function () {
-                        doOpacity(initInputArr[0], 0.6, 1, function () {
-                            setTimeout(function () {
-                                doOpacity(initDiv, 0.6, 1, function () {
-                                    setTimeout(function () {
-                                        doOpacity(initInputArr[1], 0.6, 1);
-                                    });
-                                }, 100);
-                            }, 100);
-                        });
-                    }, 100);
+                    // setTimeout(function () {
+                    //     doOpacity(initInputArr[0], 0.6, 1, function () {
+                    //         setTimeout(function () {
+                    //             doOpacity(initDiv, 0.6, 1, function () {
+                    //                 setTimeout(function () {
+                    //                     doOpacity(initInputArr[1], 0.6, 1);
+                    //                 });
+                    //             }, 100);
+                    //         }, 100);
+                    //     });
+                    // }, 100);
                 });
             });
 
