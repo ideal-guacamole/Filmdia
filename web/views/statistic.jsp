@@ -397,20 +397,26 @@
                                 type: 'slider',
                                 xAxisIndex: 0,
                                 start: 0,
-                                end: 17
+                                end: 17,
+                                bottom: -5
                             },
                             {
                                 type: 'slider',
-                                yAxisIndex: 0
+                                yAxisIndex: 0,
+                                left: 5,
+                                width: 30
+//                                top: 0
                             }
                         ],
                         grid: {
                             left: '12%'
                         },
                         xAxis: {
+                            name: 'Click Times',
                             type: 'value'
                         },
                         yAxis: {
+                            name: 'Money($)',
                             type: 'value'
                         },
                         series: {
@@ -710,6 +716,7 @@
                             timeline: {
                                 axisType: 'category',
                                 orient: 'vertical',
+                                autoPlay: true,
                                 inverse: true,
                                 playInterval: 1000,
                                 left: null,
@@ -977,6 +984,7 @@
                         xAxis: [
                             {
                                 type: 'category',
+                                name: 'Tag',
                                 axisTick: {
                                     alignWithLabel: true
                                 },
@@ -1052,6 +1060,7 @@
                         },
                         xAxis: [
                             {
+                                name: 'Tag',
                                 type: 'category',
                                 axisTick: {
                                     alignWithLabel: true
@@ -1114,6 +1123,7 @@
                             trigger: 'axis'
                         },
                         xAxis: {
+                            name: 'Tag',
                             type: 'category',
                             axisTick: {
                                 alignWithLabel: true
@@ -1121,6 +1131,7 @@
                             data: tags
                         },
                         yAxis: {
+                            name: 'Score',
                             type: 'value'
                         },
                         series: [
@@ -1171,6 +1182,7 @@
                         },
                         backgroundColor: '#606060',
                         xAxis: {
+                            name: 'Year',
                             type: 'category',
                             axisTick: {
                                 alignWithLabel: true
@@ -1179,9 +1191,11 @@
                         },
                         yAxis: [
                             {
+                                name: 'Score',
                                 type: 'value'
                             },
                             {
+                                name: 'Variance',
                                 type: 'value'
                             }
                         ],
