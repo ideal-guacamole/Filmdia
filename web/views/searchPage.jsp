@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="../css/swipebox.css">
     <link rel="stylesheet" href="../css/searchPage.css" type="text/css">
+    <link rel="stylesheet" href="../css/user.css"/>
     <!-- //Custom-Theme-Files -->
     <!-- Web-Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" type="text/css">
@@ -50,6 +51,7 @@
 <!--</div>-->
 
 <!-- Header -->
+
 <div class="header w3layouts-1">
     <!-- Top-Bar -->
     <div class="top-bar w3-1">
