@@ -9,7 +9,7 @@
 .latestinfo .title{border-bottom: 3px solid #e7e7e7;padding-bottom:20px;}
 .latestinfo .title h2{ font-size: 20px;font-family: "microsoft yahei";}
 .latestinfo .title-list{ position: relative; top: 9px;}
-.latestinfo .title-list li{ width: 166px; line-height: 20px; text-align: center; float: left; display: inline;}
+.latestinfo .title-list li{ width: 21.5em; line-height: 20px; text-align: center; float: left; display: inline;}
 .latestinfo .title-list li.on{ color: #073763; font-weight: bold;}
 .latestinfo .title-list p{position:absolute;top:31px;left:0px;width:166px;height:7px;border-top: 3px solid #073763; overflow: hidden; text-align: center;}
 .latestinfo .title-list b{display:inline-block;width:0;height:0;margin-top:-3px;border-style:solid dashed dashed dashed;border-width:9px;border-color: #073763 #fff #fff #fff;overflow: hidden;zoom: 1;font-size: 0;}
