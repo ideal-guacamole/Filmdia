@@ -470,9 +470,6 @@
 <link href="../css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
 <script src="../js/owl.carousel.js"></script>
 <script src="../js/predict.js"></script>
-<script>
-
-</script>
 <script src="../js/search.js"></script>
 
 </body>
