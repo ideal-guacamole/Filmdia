@@ -220,10 +220,7 @@
 <!--/ w3l-1 -->
 <jsp:include page="common/loginbox.jsp"></jsp:include>
 <!-- footer -->
-<div class="footer w3-agile-1" style="position: absolute; width:100%; margin-top: 120px">
-
-    <p class="copyright">© 2017 Premier Realty. All Rights Reserved | Design by XYC, GZQ, XZH and LWY</p></p>
-</div>
+<jsp:include page="common/footer.jsp"></jsp:include>
 <!-- footer -->
 <!-- swipe box js -->
 <script src="../js/jquery.swipebox.min.js"></script>

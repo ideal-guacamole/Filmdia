@@ -384,21 +384,7 @@
 <!--loginBox-->
 <jsp:include page="common/loginbox.jsp"></jsp:include>
 
-<!-- footer -->
-<div class="footer w3-agile-1">
-    <div class="container">
-
-        <ul class="fb_icons2 agile-1">
-            <li><a class="fb" href="#"></a></li>
-            <li><a class="twit" href="#"></a></li>
-            <li><a class="goog" href="#"></a></li>
-            <li><a class="pin" href="#"></a></li>
-            <li><a class="drib" href="#"></a></li>
-        </ul>
-    </div>
-    <p class="copyright">© 2017 Filmdia. All Rights Reserved | Design by XYC, GZQ, XZH and LWY</p>
-</div>
-<!-- footer -->
+<jsp:include page="common/footer.jsp"></jsp:include>
 
 <script src="../js/search.js"></script>
 
