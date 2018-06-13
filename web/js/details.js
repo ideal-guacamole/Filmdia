@@ -53,8 +53,6 @@ var favorite = {
     summary: null
 };
 
-
-
 //split the tags and keywords
 function split1(list, obj) {
     var str = '';
@@ -293,23 +291,56 @@ function putReviews(data) {
         var helpfulnessArray = data[i].helpfulness.split("/");
         var like = helpfulnessArray[0];
         var dislike = helpfulnessArray[1] - helpfulnessArray[0];
+        var fullContentText = data[i].text;
+        var smallContentText;
+        if(fullContentText.length > 700) {
+            smallContentText = data[i].text.substr(0, 700) + '... ';
 
-        review += '' +
-            '<div class="review_part">\n' +
-            '  <div class="review_title">\n' +
-            '    <span class="review_userName">' + data[i].userName + '</span>\n' +
-            '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-            '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
-            '  </div>\n' +
-            '  <span class="review_summary">' + data[i].summary + '</span>\n' +
-            '  <p class="review_text">' + data[i].text + '</p>\n' +
-            '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-            '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
-            '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-            '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
-            '    <span>' + dislike + '</span>\n' +
-            '  </div>  \n' +
-            '</div>';
+            review += '' +
+                '<div class="review_part">\n' +
+                '  <div class="review_title">\n' +
+                '    <span class="review_userName">' + data[i].userName + '</span>\n' +
+                '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
+                '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                '  </div>\n' +
+                '  <span class="review_summary">' + data[i].summary + '</span>\n' +
+                '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '(\n' +
+                '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >unfold</a> )\n' +
+                '  </div>\n' +
+                '  <div class="review_text" id="fullContent' + i +'" style="display:none">' + fullContentText + '(\n' +
+                '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >fold</a> )\n' +
+                '  </div>\n' +
+                '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
+                '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
+                '    <span>' + dislike + '</span>\n' +
+                '  </div>  \n' +
+                '</div>';
+        }else {
+            smallContentText = fullContentText;
+
+            review += '' +
+                '<div class="review_part">\n' +
+                '  <div class="review_title">\n' +
+                '    <span class="review_userName">' + data[i].userName + '</span>\n' +
+                '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
+                '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                '  </div>\n' +
+                '  <span class="review_summary">' + data[i].summary + '</span>\n' +
+                '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '\n' +
+                '  </div>\n' +
+                '  <div class="review_text" id="fullContent' + i +'" style="display:none">' + fullContentText + '\n' +
+                '  </div>\n' +
+                '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
+                '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
+                '    <span>' + dislike + '</span>\n' +
+                '  </div>  \n' +
+                '</div>';
+        }
+
     }
     num += 10;
     reviewBox.innerHTML += review;
@@ -333,26 +364,73 @@ function putReviews(data) {
                 for (var j = 0; j < data[i].score; j++) {
                     filmStar += star;
                 }
-                review += '<div class="review_part">' +
-                    '<div class="review_title">' +
-                    '<span class="review_userName">' + data[i].userName + '</span>' +
-                    '<span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;<b style="font-size: larger">Date:</b>&nbsp;&nbsp;' + data[i].time + '</span>' +
-                    '<span>&nbsp;&nbsp;&nbsp;&nbsp;<b style="font-size: larger">Helpfulness:</b>&nbsp;&nbsp; '+data[i].helpfulness+'</span>'+
-                    '<div style="display:inline-block;position:' +
-                    ' absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar +'</div>' +
-                    '</div> ' +
-                    '<hr> ' +
-                    '<span class="review_summary">' + data[i].summary + '</span>' +
-                    '<p class="review_text">' +
-                    data[i].text +
-                    '</p>' +
-                    '</div>';
+
+                var helpfulnessArray = data[i].helpfulness.split("/");
+                var like = helpfulnessArray[0];
+                var dislike = helpfulnessArray[1] - helpfulnessArray[0];
+                var fullContentText = data[i].text;
+                var smallContentText;
+                if(fullContentText.length > 700) {
+                    smallContentText = data[i].text.substr(0, 700) + '... ';
+
+                    review += '' +
+                        '<div class="review_part">\n' +
+                        '  <div class="review_title">\n' +
+                        '    <span class="review_userName">' + data[i].userName + '</span>\n' +
+                        '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
+                        '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                        '  </div>\n' +
+                        '  <span class="review_summary">' + data[i].summary + '</span>\n' +
+                        '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '(\n' +
+                        '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >unfold</a> )\n' +
+                        '  </div>\n' +
+                        '  <div class="review_text" id="fullContent' + i +'" style="display:none">' + fullContentText + '(\n' +
+                        '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >fold</a> )\n' +
+                        '  </div>\n' +
+                        '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                        '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
+                        '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                        '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
+                        '    <span>' + dislike + '</span>\n' +
+                        '  </div>  \n' +
+                        '</div>';
+                }else {
+                    smallContentText = fullContentText;
+
+                    review += '' +
+                        '<div class="review_part">\n' +
+                        '  <div class="review_title">\n' +
+                        '    <span class="review_userName">' + data[i].userName + '</span>\n' +
+                        '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
+                        '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                        '  </div>\n' +
+                        '  <span class="review_summary">' + data[i].summary + '</span>\n' +
+                        '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '\n' +
+                        '  </div>\n' +
+                        '  <div class="review_text" id="fullContent' + i +'" style="display:none">' + fullContentText + '\n' +
+                        '  </div>\n' +
+                        '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                        '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
+                        '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                        '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
+                        '    <span>' + dislike + '</span>\n' +
+                        '  </div>  \n' +
+                        '</div>';
+                }
             }
             num += 10;
             reviewBox.innerHTML += review;
             lock = false;
         }
     }
+}
+
+function expend(i) {
+    var fullContent = document.getElementById('fullContent' + i);
+    var smallContent = document.getElementById('smallContent' + i);
+
+    fullContent.style.display=(fullContent.style.display==='none')?'':'none';
+    smallContent.style.display=(smallContent.style.display==='none')?'':'none';
 }
 
 //Category
