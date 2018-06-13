@@ -3,8 +3,8 @@ body{ font-size:12px;}
 img{ border:none;}
 /*public*/
 .fr{display:inline;float:left}
-.cf:after{content:"";clear:both;display:block;height:0;overflow:hidden}
-.cf{zoom:1}
+/*.cf:after{content:"";clear:both;display:block;height:0;overflow:hidden}*/
+/*.cf{zoom:1}*/
 .pb10{padding-bottom:10px}
 .mt10{margin-top:10px}
 /*main*/
@@ -15,10 +15,24 @@ img{ border:none;}
 .tab_group .title-list li{ color: #fff; width: 146px; line-height: 50px; text-align: center; float: left; display: inline;}
 .tab_group .title-list li.on{ color: #000; font-weight: bold; background: #fff;}
 .tab_group .title-list p{position:absolute;top:0px;left:0px;width:146px;height:7px;border-top: 3px solid #073763; overflow: hidden; text-align: center;}
-.product{ height: 1250px; position: relative; overflow-y: scroll; display: none; margin-top: 0px;}
+.product{ position: relative; display: none; margin-top: 0px;}
+.product::before, .product::after {
+	content: "";
+	clear: both;
+	display: block;
+	height: 0;
+	overflow: hidden;
+}
 .product ul{ position: absolute; left: 0px;}
 .product-wrap {height: 100%;}
-.product-wrap .showing{ display: block; max-height: 1250px;}
+/*.product-warp::before, .product-wrap::after {*/
+	/*content: "";*/
+	/*clear: both;*/
+	/*display: block;*/
+	/*height: 0;*/
+	/*overflow: hidden;*/
+/*}*/
+.product-wrap .showing{ display: block;}
 .product-wrap .product li{ float: left; display: inline;}
 .product-wrap .product li.ml0{margin-left:0px;}
 .product-wrap .product li a.imgwrap{ display: block; width: 226px; height: 200px; background: #fff; text-align:center;}
@@ -28,7 +42,7 @@ img{ border:none;}
 
 /*Spec*/
 #spec {
-	overflow-y: hidden;
+	/*overflow-y: hidden;*/
 }
 .info_line1 {
 	position: absolute;
@@ -37,7 +51,7 @@ img{ border:none;}
 	height: 40px;
 	line-height: 40px;
 	font-size: 13px;
-	margin: 30px auto 0;
+	margin: 30px auto;
 	left: 0;
 	right: 0;
 	border-radius: 2px;
@@ -75,14 +89,14 @@ img{ border:none;}
 .left {
 	position: relative;
 	float: left;
-	top: 50px;
 	left: 4.3%;
 	width: 650px;
 }
 .Cast {
 	position: relative;
 	float: left;
-	top: 100px;
+	/*top: 100px;*/
+	margin-top: 9%;
 	width: 700px;
 }
 #castTable {
@@ -129,16 +143,18 @@ h3 {
 }
 
 .right {
-    position: absolute;
+    position: relative;
     float: right;
-    top: -466px;
     right: 4.5%;
     width: 310px;
 }
 .Details {
-    /*position: absolute;*/
-    top: 100px;
-    /*left: 770px;*/
+    /*position: relative;*/
+    /*!*top: 100px;*!*/
+    /*!*left: 770px;*!*/
+	/*margin-top: 9%;*/
+	position: relative;
+	margin-top: -28%;
 }
 .Details .detail_form {
 	border: 2px solid #e7e7e7;
@@ -154,9 +170,10 @@ h3 {
 }
 
 .CoreMembers {
-    top: 320px;
+    /*top: 320px;*/
     float: right;
     /*left: 770px;*/
+	margin-top: -10.5%;
 }
 .CoreMembers .detail_form {
 	border: 2px solid #e7e7e7;
@@ -194,8 +211,10 @@ h3 {
 
 .BoxOffice {
     float: right;
-    left: 770px;
-    top: 710px;
+    /*left: 770px;*/
+    /*top: 710px;*/
+	margin-top: 3%;
+	margin-bottom: 50px;
 }
 .BoxOffice .detail_form {
 	border: 2px solid #e7e7e7;
@@ -210,7 +229,9 @@ h3 {
 	margin-left: 10px;
 }
 .Storyline {
-    top: 180px;
+    /*top: 180px;*/
+	margin-top: 2%;
+	margin-bottom: 50px;
 }
 
 .Storyline .storyline_form {
@@ -245,6 +266,7 @@ h3 {
 .review_part {
 	position: relative;
 	margin-top: 30px;
+	margin-bottom: 30px;
 	width: 900px;
 	border: 2px solid #eee;
 }
