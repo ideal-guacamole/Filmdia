@@ -243,7 +243,7 @@
     </div>
     <div class="product-wrap" style="background: rgba(255,255,255,1);">
         <!--Specific-->
-        <div class="product showing">
+        <div id="spec" class="product showing">
             <ul class="cf">
                 <li class="ml0">
                     <!-- base Info -->
