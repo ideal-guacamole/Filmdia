@@ -259,9 +259,8 @@ h3 {
 /*Review*/
 .reviews {
 	position: relative;
-	margin-top: 120px;
+	margin: 10px auto;
 	width: 950px;
-	left: 90px;
 }
 .review_part {
 	position: relative;
@@ -282,7 +281,7 @@ h3 {
 	top: 10px;
 	left: 10px;
 	font-weight: bold;
-	font-size:16px;
+	font-size:13px;
 	color: #124587;
 }
 .review_part .review_summary {
@@ -302,6 +301,27 @@ h3 {
 
 }
 
+#sort_option {
+	display: block;
+	font-size: 13px;
+	font-weight: bold;
+	position: relative;
+	margin-left: 100px;
+	margin-top: -20px;
+	color: #37a;
+}
+#sort_option li {
+	float: left;
+}
+#sort_option>li:not(.dropdown):not(:last-of-type):after {
+	color: #111;
+	content: "/";
+	padding: 0 4px;
+}
+#sort_option .selected_sort a{
+	color: #111;
+	cursor: default;
+}
 /*Write Comment*/
 
 /* Basic Grey */

@@ -452,7 +452,11 @@
                 }
 
             </script>
-
+            <ul id="sort_option">
+                <li class="selected_sort"><a href="">Helpfulness</a></li>
+                <li><a href="">Release Date</a></li>
+                <span class="glyphicon glyphicon-sort" style="color: #37a; margin-left:15px; font-size: 12px"></span>
+            </ul>
             <div id="reviewBox" class="reviews">
                 <div class="spinner" id="spinner">
                     <div class="spinner-container container1">
@@ -474,6 +478,7 @@
                         <div class="circle4"></div>
                     </div>
                 </div>
+
             </div>
             <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
         </div>

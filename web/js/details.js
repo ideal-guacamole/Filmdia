@@ -317,9 +317,9 @@ function putReviews(data) {
                 '  </div>\n' +
                 '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                 '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
-                '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                '    <span style="font-size: 11px;">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                 '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
-                '    <span>' + dislike + '</span>\n' +
+                '    <span style="font-size: 11px;">' + dislike + '</span>\n' +
                 '  </div>  \n' +
                 '</div>';
         }else {
@@ -339,9 +339,9 @@ function putReviews(data) {
                 '  </div>\n' +
                 '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                 '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
-                '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                '    <span style="font-size: 11px;">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                 '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
-                '    <span>' + dislike + '</span>\n' +
+                '    <span style="font-size: 11px;">' + dislike + '</span>\n' +
                 '  </div>  \n' +
                 '</div>';
         }
