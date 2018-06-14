@@ -3,4 +3,4 @@ target
 classes
 *.iml
 web/WEB-INF
-out
+out/artifacts/Filmdia_war_exploded
