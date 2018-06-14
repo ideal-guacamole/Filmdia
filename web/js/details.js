@@ -271,7 +271,6 @@ function putReviews(data) {
     for(var i=num;i<num+10;i++) {
         var filmStar = '';
         var j = 0;
-        console.log(data[i].score)
         for (; j < data[i].score; j++) {
             filmStar += star;
         }
@@ -294,10 +293,9 @@ function putReviews(data) {
         //                   data[i].text +
         //               '</p>' +
         //           '</div>';
-
         var helpfulnessArray = data[i].helpfulness.split("/");
-        var like = helpfulnessArray[0];
-        var dislike = helpfulnessArray[1] - helpfulnessArray[0];
+        var like = helpfulnessArray[0].replace(/,/g,"");
+        var dislike = helpfulnessArray[1].replace(/,/g,"") - like;
         var fullContentText = data[i].text;
         var smallContentText;
         if(fullContentText.length > 700) {
