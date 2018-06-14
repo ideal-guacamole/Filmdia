@@ -266,8 +266,8 @@ $.ajax({
 
 function putReviews(data) {
     var num = 0;
-    var star = '<img style="width: 22px" src="../images/star-small.png" />';
-    var star_dark = '<img style="width: 22px" src="../images/star-small-dark.png" />';
+    var star = '<img style="width: 17px" src="../images/star-small.png" />';
+    var star_dark = '<img style="width: 17px" src="../images/star-small-dark.png" />';
     for(var i=num;i<num+10;i++) {
         var filmStar = '';
         var j = 0;
@@ -306,7 +306,7 @@ function putReviews(data) {
                 '  <div class="review_title">\n' +
                 '    <span class="review_userName">' + data[i].userName + '</span>\n' +
                 '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-                '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                '    <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
                 '  </div>\n' +
                 '  <span class="review_summary">' + data[i].summary + '</span>\n' +
                 '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '(\n' +
@@ -330,7 +330,7 @@ function putReviews(data) {
                 '  <div class="review_title">\n' +
                 '    <span class="review_userName">' + data[i].userName + '</span>\n' +
                 '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-                '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                '    <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
                 '  </div>\n' +
                 '  <span class="review_summary">' + data[i].summary + '</span>\n' +
                 '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '\n' +
