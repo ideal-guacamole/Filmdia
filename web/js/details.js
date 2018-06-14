@@ -267,10 +267,17 @@ $.ajax({
 function putReviews(data) {
     var num = 0;
     var star = '<img style="width: 22px" src="../images/star-small.png" />';
+    var star_dark = '<img style="width: 22px" src="../images/star-small-dark.png" />';
     for(var i=num;i<num+10;i++) {
         var filmStar = '';
-        for (var j = 0; j < data[i].score; j++) {
+        var j = 0;
+        console.log(data[i].score)
+        for (; j < data[i].score; j++) {
             filmStar += star;
+        }
+        while (j < 10) {
+            filmStar += star_dark;
+            j++;
         }
         // review += '<div class="review_part">' +
         //               '<div class="review_title">' +
