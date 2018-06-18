@@ -47,13 +47,62 @@ public class ReviewSearchServiceImpl implements ReviewSearchService{
 
     @Override
     public List<Review> getReviews(String imdb_filmID, int n) {
-        return reviewDataDao.getReviews(imdb_filmID,n);
+        if(buf_reviewList == null||!buf_filmID.equals(imdb_filmID)) {
+            buf_reviewList = reviewDataDao.getReviews(imdb_filmID, n);
+            buf_filmID = imdb_filmID;
+        }
+        return buf_reviewList;
     }
 
     @Override
     public List<Review> getReviews(String imdb_filmID, ReviewSort reviewSort) {
         if(!buf_filmID.equals(imdb_filmID)){
             buf_reviewList = reviewDataDao.getReviews(imdb_filmID);
+            buf_filmID = imdb_filmID;
+        }
+
+        if(reviewSort.equals(ReviewSort.MostHelpful)) {
+            //按helpfulness 从大到小排序
+            Collections.sort(buf_reviewList, (o1, o2) -> {
+                int[] a1 = new int[2];
+                int[] a2 = new int[2];
+                for(int i=0;i<2;i++) {
+                    a1[i] = Integer.parseInt(o1.getHelpfulness().split("/")[i]);
+                    a2[i] = Integer.parseInt(o2.getHelpfulness().split("/")[i]);
+                }
+                Double a1_ = 0.0;
+                Double a2_ = 0.0;
+                if(a1[1] != 0)
+                    a1_ = ((double)a1[0]) / a1[1];
+                if(a2[1] != 0)
+                    a2_ = ((double)a2[0]) / a2[1];
+
+                //权重计算
+                a1_ = a1_ * VALUE_WEIGHT + a1[1] * NUM_WEIGHT;
+                a2_ = a2_ * VALUE_WEIGHT + a2[1] * NUM_WEIGHT;
+
+                return a2_.compareTo(a1_);
+            });
+        }else{
+            Collections.sort(buf_reviewList, (o1, o2) -> {
+                LocalDate a = o1.getTime();
+                LocalDate b = o2.getTime();
+
+                if(reviewSort.equals(ReviewSort.Oldest))
+                    return a.compareTo(b);
+                else
+                    return b.compareTo(a);
+
+            });
+        }
+
+        return buf_reviewList;
+    }
+
+    @Override
+    public List<Review> getReviews(String imdb_filmID, ReviewSort reviewSort, int n) {
+        if(!buf_filmID.equals(imdb_filmID)){
+            buf_reviewList = reviewDataDao.getReviews(imdb_filmID, n);
             buf_filmID = imdb_filmID;
         }
 

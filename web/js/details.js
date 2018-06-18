@@ -70,7 +70,7 @@ function split1(list, obj) {
 function split2(list, obj) {
     var str = '';
     $.each(list, function (i, item) {
-        if(i%2 == 0){
+        if (i % 2 == 0) {
             if (i !== list.length - 2) {
                 str += item + ' | ';
             }
@@ -87,7 +87,7 @@ function split2(list, obj) {
 function split3(list, obj) {
     var str = '';
     $.each(list, function (i, item) {
-        if(i%2 == 0){
+        if (i % 2 == 0) {
             if (i !== list.length - 2) {
                 str += item + ' | ';
             }
@@ -99,7 +99,7 @@ function split3(list, obj) {
     obj.innerHTML = str;
 }
 
-if(name=='null') {
+if (name == 'null') {
     //加载电影详情(电影库电影)
     $.ajax({
         type: 'post',
@@ -121,21 +121,21 @@ if(name=='null') {
             score.innerHTML = film.score;
             favorite.score = film.score;
             country.innerHTML = film.country;
-            language.innerHTML = film.gross === 0 ? 'None' : '$'+film.gross;
+            language.innerHTML = film.gross === 0 ? 'None' : '$' + film.gross;
             runtime.innerHTML = film.runtime === 0 ? 'None' : film.runtime + 'min';
             detail_language.innerHTML = film.language;
             detail_onTime.innerHTML = film.onTime;
             detail_watchUrl.innerHTML = '<a href="' + film.filmWatchURL + '">Click Here to Watch!</a>';
 
 
-            box_worldGross.innerHTML = film.worldwideGross === 0 ? 'None' : ' $'+film.worldwideGross;
-            box_gross.innerHTML = film.gross === 0 ? 'None' : ' $'+film.gross;
-            box_budget.innerHTML = film.budget === 0 ? 'None' : ' $'+film.budget;
+            box_worldGross.innerHTML = film.worldwideGross === 0 ? 'None' : ' $' + film.worldwideGross;
+            box_gross.innerHTML = film.gross === 0 ? 'None' : ' $' + film.gross;
+            box_budget.innerHTML = film.budget === 0 ? 'None' : ' $' + film.budget;
 
             //cast table
             castMap = film.cast;
             //遍历cast这个map
-            for(var key in castMap){
+            for (var key in castMap) {
                 var rowNum = castTable.rows.length;
                 var newRow = castTable.insertRow(rowNum);
                 var col1 = newRow.insertCell(0); //pic
@@ -164,7 +164,7 @@ if(name=='null') {
             storyline.innerHTML = film.storyline;
         }
     });
-}else {
+} else {
     //加载电影详情(首页影院信息电影)
     $.ajax({
         type: 'post',
@@ -186,27 +186,27 @@ if(name=='null') {
             score.innerHTML = film.score;
             favorite.score = film.score;
             country.innerHTML = film.country;
-            language.innerHTML = '$'+film.gross;
+            language.innerHTML = '$' + film.gross;
             runtime.innerHTML = film.runtime + 'min';
             detail_language.innerHTML = film.language;
             detail_onTime.innerHTML = film.onTime;
             detail_watchUrl.innerHTML = '<a href="' + film.filmWatchURL + '">Click Here to Watch!</a>';
 
-            if(film.worldwideGross!=0){
-                box_worldGross.innerHTML = ' $'+film.worldwideGross;
-            }else{
+            if (film.worldwideGross != 0) {
+                box_worldGross.innerHTML = ' $' + film.worldwideGross;
+            } else {
                 box_worldGross.innerHTML = ' unknown';
             }
 
-            box_gross.innerHTML = ' $'+film.gross;
-            box_budget.innerHTML = ' $'+film.budget;
+            box_gross.innerHTML = ' $' + film.gross;
+            box_budget.innerHTML = ' $' + film.budget;
 
             //cast table
             castMap = film.cast;
             //遍历cast这个map
             var i = 1;
             var add = '';
-            for(var key in castMap){
+            for (var key in castMap) {
                 // var rowNum = castTable.rows.length;
                 // var newRow = castTable.insertRow(rowNum);
                 // var col1 = newRow.insertCell(0); //pic
@@ -216,10 +216,10 @@ if(name=='null') {
                 // var col3 = newRow.insertCell(2); //role
                 // col3.innerHTML = castMap[key];
                 add = '<tr>' +
-                      '<td>' + i + '</td>' +
-                      '<td>' + key + '</td>>' +
-                      '<td>' + castMap[key] + '</td>' +
-                      '</tr>>';
+                    '<td>' + i + '</td>' +
+                    '<td>' + key + '</td>>' +
+                    '<td>' + castMap[key] + '</td>' +
+                    '</tr>>';
                 casttbody += add
             }
 
@@ -244,7 +244,6 @@ if(name=='null') {
 }
 
 
-
 //加载评论
 var spinner = document.getElementById('spinner');
 var reviewBox = document.getElementById('reviewBox');
@@ -258,17 +257,68 @@ $.ajax({
     success: function (data) {
         spinner.style.display = 'none';
         spinner.style.visibility = 'hidden';
+        review = '';
         putReviews(data);
         reviewNum = data.length;
-
     }
+});
+
+//评论排序
+var helpfulness_btn = document.getElementById('helpfulness_btn');
+var release_btn = document.getElementById('release_btn');
+var reviewSort = null;
+helpfulness_btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    reviewSort = 'MostHelpful';
+    $.ajax({
+        type: 'post',
+        url: '/review/getSortedReviews.action',
+        data: {
+            imdb_filmID: imdb_filmID,
+            reviewSort: reviewSort,
+        },
+        success: function (data) {
+            spinner.style.display = 'none';
+            spinner.style.visibility = 'hidden';
+            reviewBox.innerHTML = '';
+            review = '';
+            putReviews(data);
+            reviewNum = data.length;
+            helpfulness_btn.className = "selected_sort";
+            release_btn.className = "";
+            console.log(data);
+        }
+    });
+});
+release_btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    reviewSort = 'Latest';
+    $.ajax({
+        type: 'post',
+        url: '/review/getSortedReviews.action',
+        data: {
+            imdb_filmID: imdb_filmID,
+            reviewSort: reviewSort,
+        },
+        success: function (data) {
+            spinner.style.display = 'none';
+            spinner.style.visibility = 'hidden';
+            reviewBox.innerHTML = '';
+            review = '';
+            putReviews(data);
+            reviewNum = data.length;
+            release_btn.className = "selected_sort";
+            helpfulness_btn.className = "";
+            console.log(data);
+        }
+    });
 });
 
 function putReviews(data) {
     var num = 0;
     var star = '<img style="width: 17px" src="../images/star-small.png" />';
     var star_dark = '<img style="width: 17px" src="../images/star-small-dark.png" />';
-    for(var i=num;i<num+10;i++) {
+    for (var i = num; i < num + 10; i++) {
         var filmStar = '';
         var j = 0;
         for (; j < data[i].score; j++) {
@@ -278,27 +328,12 @@ function putReviews(data) {
             filmStar += star_dark;
             j++;
         }
-        // review += '<div class="review_part">' +
-        //               '<div class="review_title">' +
-        //                   '<span class="review_userName">' + data[i].userName + '</span>' +
-        //                   '<span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;<b style="font-size: larger">Date:</b>&nbsp;&nbsp;' + data[i].time + '</span>' +
-        //                   '<span>&nbsp;&nbsp;&nbsp;&nbsp;<b style="font-size: larger">Helpfulness:</b>&nbsp;&nbsp; '+data[i].helpfulness+'</span>'+
-        //                   '<div style="display:inline-block;position:' +
-        //                       ' absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar +
-        //                   '</div>' +
-        //               '</div> ' +
-        //               '<hr> ' +
-        //               '<span class="review_summary">' + data[i].summary + '</span>' +
-        //               '<p class="review_text">' +
-        //                   data[i].text +
-        //               '</p>' +
-        //           '</div>';
         var helpfulnessArray = data[i].helpfulness.split("/");
-        var like = helpfulnessArray[0].replace(/,/g,"");
-        var dislike = helpfulnessArray[1].replace(/,/g,"") - like;
+        var like = helpfulnessArray[0].replace(/,/g, "");
+        var dislike = helpfulnessArray[1].replace(/,/g, "") - like;
         var fullContentText = data[i].text;
         var smallContentText;
-        if(fullContentText.length > 700) {
+        if (fullContentText.length > 700) {
             smallContentText = data[i].text.substr(0, 700) + '... ';
 
             review += '' +
@@ -306,23 +341,23 @@ function putReviews(data) {
                 '  <div class="review_title">\n' +
                 '    <span class="review_userName">' + data[i].userName + '</span>\n' +
                 '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-                '    <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                '    <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + filmStar + '</div>\n' +
                 '  </div>\n' +
                 '  <span class="review_summary">' + data[i].summary + '</span>\n' +
-                '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '(\n' +
+                '  <div class="review_text" id="smallContent' + i + '" style="display:block">' + smallContentText + '(\n' +
                 '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >unfold</a> )\n' +
                 '  </div>\n' +
-                '  <div class="review_text" id="fullContent' + i +'" style="display:none">' + fullContentText + '(\n' +
+                '  <div class="review_text" id="fullContent' + i + '" style="display:none">' + fullContentText + '(\n' +
                 '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >fold</a> )\n' +
                 '  </div>\n' +
                 '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                 '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
-                '    <span style="font-size: 11px;">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                '    <span style="font-size: 11px; color:#737373">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                 '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
-                '    <span style="font-size: 11px;">' + dislike + '</span>\n' +
+                '    <span style="font-size: 11px; color:#737373">' + dislike + '</span>\n' +
                 '  </div>  \n' +
                 '</div>';
-        }else {
+        } else {
             smallContentText = fullContentText;
 
             review += '' +
@@ -330,18 +365,18 @@ function putReviews(data) {
                 '  <div class="review_title">\n' +
                 '    <span class="review_userName">' + data[i].userName + '</span>\n' +
                 '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-                '    <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                '    <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + filmStar + '</div>\n' +
                 '  </div>\n' +
                 '  <span class="review_summary">' + data[i].summary + '</span>\n' +
-                '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '\n' +
+                '  <div class="review_text" id="smallContent' + i + '" style="display:block">' + smallContentText + '\n' +
                 '  </div>\n' +
-                '  <div class="review_text" id="fullContent' + i +'" style="display:none">' + fullContentText + '\n' +
+                '  <div class="review_text" id="fullContent' + i + '" style="display:none">' + fullContentText + '\n' +
                 '  </div>\n' +
                 '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                 '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
-                '    <span style="font-size: 11px;">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                '    <span style="font-size: 11px; color:#737373">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                 '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
-                '    <span style="font-size: 11px;">' + dislike + '</span>\n' +
+                '    <span style="font-size: 11px; color: #737373">' + dislike + '</span>\n' +
                 '  </div>  \n' +
                 '</div>';
         }
@@ -354,14 +389,14 @@ function putReviews(data) {
     var finish = false;
     reviewBox.parentNode.parentNode.parentNode.onscroll = function () {
         var oScroll = this.scrollTop;
-        if(finish){
-            return ;
+        if (finish) {
+            return;
         }
-        if(!lock && reviewBox.offsetHeight - oScroll<1300){
+        if (!lock && reviewBox.offsetHeight - oScroll < 1300) {
             lock = true;
             review = '';
-            for(var i=num;i<num+10;i++) {
-                if(i === data.length){
+            for (var i = num; i < num + 10; i++) {
+                if (i === data.length) {
                     finish = true;
                     break;
                 }
@@ -375,7 +410,7 @@ function putReviews(data) {
                 var dislike = helpfulnessArray[1] - helpfulnessArray[0];
                 var fullContentText = data[i].text;
                 var smallContentText;
-                if(fullContentText.length > 700) {
+                if (fullContentText.length > 700) {
                     smallContentText = data[i].text.substr(0, 700) + '... ';
 
                     review += '' +
@@ -383,13 +418,13 @@ function putReviews(data) {
                         '  <div class="review_title">\n' +
                         '    <span class="review_userName">' + data[i].userName + '</span>\n' +
                         '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-                        '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                        '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + filmStar + '</div>\n' +
                         '  </div>\n' +
                         '  <span class="review_summary">' + data[i].summary + '</span>\n' +
-                        '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '(\n' +
+                        '  <div class="review_text" id="smallContent' + i + '" style="display:block">' + smallContentText + '(\n' +
                         '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >unfold</a> )\n' +
                         '  </div>\n' +
-                        '  <div class="review_text" id="fullContent' + i +'" style="display:none">' + fullContentText + '(\n' +
+                        '  <div class="review_text" id="fullContent' + i + '" style="display:none">' + fullContentText + '(\n' +
                         '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >fold</a> )\n' +
                         '  </div>\n' +
                         '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
@@ -399,7 +434,7 @@ function putReviews(data) {
                         '    <span>' + dislike + '</span>\n' +
                         '  </div>  \n' +
                         '</div>';
-                }else {
+                } else {
                     smallContentText = fullContentText;
 
                     review += '' +
@@ -407,12 +442,12 @@ function putReviews(data) {
                         '  <div class="review_title">\n' +
                         '    <span class="review_userName">' + data[i].userName + '</span>\n' +
                         '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-                        '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ filmStar + '</div>\n' +
+                        '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + filmStar + '</div>\n' +
                         '  </div>\n' +
                         '  <span class="review_summary">' + data[i].summary + '</span>\n' +
-                        '  <div class="review_text" id="smallContent' + i +'" style="display:block">' + smallContentText + '\n' +
+                        '  <div class="review_text" id="smallContent' + i + '" style="display:block">' + smallContentText + '\n' +
                         '  </div>\n' +
-                        '  <div class="review_text" id="fullContent' + i +'" style="display:none">' + fullContentText + '\n' +
+                        '  <div class="review_text" id="fullContent' + i + '" style="display:none">' + fullContentText + '\n' +
                         '  </div>\n' +
                         '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
                         '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
@@ -434,8 +469,8 @@ function expend(i) {
     var fullContent = document.getElementById('fullContent' + i);
     var smallContent = document.getElementById('smallContent' + i);
 
-    fullContent.style.display=(fullContent.style.display==='none')?'':'none';
-    smallContent.style.display=(smallContent.style.display==='none')?'':'none';
+    fullContent.style.display = (fullContent.style.display === 'none') ? '' : 'none';
+    smallContent.style.display = (smallContent.style.display === 'none') ? '' : 'none';
 }
 
 //Category
@@ -453,8 +488,9 @@ function splitCatForFav(list) {
 
 //添加到用户的已收藏
 var add_fav = document.getElementById('add_fav');
+
 function addFav(userid) {
-    if(userid==0) {
+    if (userid == 0) {
         alert('Please sign in first.');
         return;
     }
@@ -465,11 +501,11 @@ function addFav(userid) {
         contentType: 'application/json;charset=utf-8',
         data: JSON.stringify(favorite),
         success: function (data) {
-            if(data.result === 'success'){
+            if (data.result === 'success') {
                 alert('Successfully added!\nYou can check it in User Center.');
                 add_fav.setAttribute("disabled", "true");
                 add_fav.innerHTML = "Added to Favorite";
-            }else {
+            } else {
                 alert('You have already added it!');
             }
 

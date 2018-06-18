@@ -34,7 +34,17 @@ public interface ReviewSearchService {
     public List<Review> getReviews(String imdb_filmID, ReviewSort reviewSort);
 
     /**
-     * 根据电影ID得到对应评论中出现次数最多的 n 个关键字及 每个关键字出现的次数
+     * 按条件排序相关电影的评论
+     * @param imdb_filmID 电影ID
+     * @param reviewSort 排序方式
+     * @param n 评论数
+     * @return 评论List
+     */
+    public List<Review> getReviews(String imdb_filmID, ReviewSort reviewSort, int n);
+
+    /**
+     * 根据电影ID得到对应评论中出现次数最多的 n 个关键字及 每个关键字
+     * 出现的次数
      * @param imdb_filmID 电影ID
      * @param n n个关键字
      * @return n个关键字的Map

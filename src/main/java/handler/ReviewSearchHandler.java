@@ -39,9 +39,10 @@ public class ReviewSearchHandler {
     }
 
     @RequestMapping("/getSortedReviews")
-    public @ResponseBody List<ReviewVO> getReviews(@RequestBody String imdb_filmID, @RequestBody ReviewSort reviewSort){
+    public @ResponseBody List<ReviewVO> getReviews(String imdb_filmID, ReviewSort reviewSort){
         List<ReviewVO> reviewVOList = new ArrayList<>();
-        for(Review review : reviewSearchService.getReviews(imdb_filmID,reviewSort))
+
+        for(Review review : reviewSearchService.getReviews(imdb_filmID,reviewSort, 10))
             reviewVOList.add(new ReviewVO(review));
         return reviewVOList;
     }

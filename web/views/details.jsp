@@ -453,8 +453,8 @@
 
             </script>
             <ul id="sort_option">
-                <li class="selected_sort"><a href="">Helpfulness</a></li>
-                <li><a href="">Release Date</a></li>
+                <li class="selected_sort" id="helpfulness_btn" ><a href="#">Helpfulness</a></li>
+                <li id="release_btn"><a href="#">Release Date</a></li>
                 <span class="glyphicon glyphicon-sort" style="color: #37a; margin-left:15px; font-size: 12px"></span>
             </ul>
             <div id="reviewBox" class="reviews">
