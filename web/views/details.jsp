@@ -142,8 +142,20 @@
                 <label class="rating_label" style="color: #fff">Your Rating:
                 </label>
                 <br/>
-                <div style="text-align: center;font-size: 20px;line-height: 50px;color: #8c94ff;font-weight: bold"><em
-                        id="userScore">No Rating yet</em></div>
+                <div id="userScore" style="height: 50px; left: 11%; padding-top: 15px; position: relative">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                </div>
+                <%--<div style="text-align: center;font-size: 20px;line-height: 50px;color: #8c94ff;font-weight: bold"><em--%>
+                        <%--id="userScore">No Rating yet</em></div>--%>
                 <!-- <div id="demo6" class="demo"></div>
                 <script type="text/javascript">
                     $('#demo6').rater('../js/ratingsdemo.php', {maxvalue:10, style: 'basic', curvalue:0});
@@ -300,9 +312,7 @@
                 //如果用户未登录则提示登陆
                 if ('<%=userAccount.getUserName()%>' === "") {
                     commentBox.innerHTML = '<span style="font-size: 20px">Please Sign In First.</span>';
-                }
-
-                else {
+                } else {
                     //展示添加评论界面
                     commentBox.innerHTML = '<h1>Add Your Comment\
                     <span>Please fill all the texts in the fields.</span>\
@@ -376,7 +386,14 @@
                                 }
                             }
                             if (beCommented) {
-                                document.getElementById('userScore').innerHTML = thisComment.score;
+                                var upstars = '';
+                                for (var j = 0; j < thisComment.score; j++) {
+                                    upstars += '<img style="width: 15px" src="../images/star-small.png" />';
+                                }
+                                for (var j = 0; j < (10 - thisComment.score); j++) {
+                                    upstars += '<img style="width: 15px" src="../images/star-small-dark.png" />';
+                                }
+                                document.getElementById('userScore').innerHTML = upstars;
                                 var stars = '';
                                 for (var j = 0; j < thisComment.score; j++) {
                                     stars += '<img style="width: 18px" src="../images/star-small.png" />';
@@ -453,9 +470,10 @@
 
             </script>
             <ul id="sort_option">
-                <li class="selected_sort" id="helpfulness_btn" ><a href="#">Helpfulness</a></li>
+                <li class="selected_sort" id="helpfulness_btn"><a href="#">Helpfulness</a></li>
                 <li id="release_btn"><a href="#">Release Date</a></li>
-                <span id="order_btn" class="glyphicon glyphicon-sort" style="color: #37a; margin-left:15px; font-size: 12px; cursor: pointer"></span>
+                <span id="order_btn" class="glyphicon glyphicon-sort"
+                      style="color: #37a; margin-left:15px; font-size: 12px; cursor: pointer"></span>
             </ul>
             <div id="reviewBox" class="reviews">
                 <div class="spinner" id="spinner">
