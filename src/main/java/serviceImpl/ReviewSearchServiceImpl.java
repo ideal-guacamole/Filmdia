@@ -106,7 +106,7 @@ public class ReviewSearchServiceImpl implements ReviewSearchService{
             buf_filmID = imdb_filmID;
         }
 
-        if(reviewSort.equals(ReviewSort.MostHelpful)) {
+        if(reviewSort.equals(ReviewSort.MostHelpful) || reviewSort.equals(ReviewSort.LeastHelpful)) {
             //按helpfulness 从大到小排序
             Collections.sort(buf_reviewList, (o1, o2) -> {
                 int[] a1 = new int[2];
@@ -125,8 +125,11 @@ public class ReviewSearchServiceImpl implements ReviewSearchService{
                 //权重计算
                 a1_ = a1_ * VALUE_WEIGHT + a1[1] * NUM_WEIGHT;
                 a2_ = a2_ * VALUE_WEIGHT + a2[1] * NUM_WEIGHT;
-
-                return a2_.compareTo(a1_);
+                if (reviewSort.equals(ReviewSort.MostHelpful)) {
+                    return a2_.compareTo(a1_);
+                } else {
+                    return a1_.compareTo(a2_);
+                }
             });
         }else{
             Collections.sort(buf_reviewList, (o1, o2) -> {

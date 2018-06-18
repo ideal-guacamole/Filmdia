@@ -266,33 +266,43 @@ $.ajax({
 //评论排序
 var helpfulness_btn = document.getElementById('helpfulness_btn');
 var release_btn = document.getElementById('release_btn');
+var order_btn = document.getElementById('order_btn');
 var reviewSort = null;
 helpfulness_btn.addEventListener('click', function (e) {
     e.preventDefault();
     reviewSort = 'MostHelpful';
-    $.ajax({
-        type: 'post',
-        url: '/review/getSortedReviews.action',
-        data: {
-            imdb_filmID: imdb_filmID,
-            reviewSort: reviewSort,
-        },
-        success: function (data) {
-            spinner.style.display = 'none';
-            spinner.style.visibility = 'hidden';
-            reviewBox.innerHTML = '';
-            review = '';
-            putReviews(data);
-            reviewNum = data.length;
-            helpfulness_btn.className = "selected_sort";
-            release_btn.className = "";
-            console.log(data);
-        }
-    });
+    sortReviews();
+    release_btn.className = "";
+    helpfulness_btn.className = "selected_sort";
 });
 release_btn.addEventListener('click', function (e) {
     e.preventDefault();
     reviewSort = 'Latest';
+    sortReviews();
+    release_btn.className = "selected_sort";
+    helpfulness_btn.className = "";
+});
+order_btn.addEventListener('click', function (e) {
+   if (reviewSort==='Latest' || reviewSort==='Oldest') {
+       if (reviewSort==='Latest') {
+           reviewSort = 'Oldest';
+           sortReviews();
+       } else {
+           reviewSort = 'Latest';
+           sortReviews();
+       }
+   } else {
+       if (reviewSort==='MostHelpful') {
+           reviewSort = 'LeastHelpful';
+           sortReviews();
+       } else {
+           reviewSort = 'MostHelpful';
+           sortReviews();
+       }
+   }
+});
+
+function sortReviews() {
     $.ajax({
         type: 'post',
         url: '/review/getSortedReviews.action',
@@ -307,13 +317,10 @@ release_btn.addEventListener('click', function (e) {
             review = '';
             putReviews(data);
             reviewNum = data.length;
-            release_btn.className = "selected_sort";
-            helpfulness_btn.className = "";
             console.log(data);
         }
     });
-});
-
+}
 function putReviews(data) {
     var num = 0;
     var star = '<img style="width: 17px" src="../images/star-small.png" />';

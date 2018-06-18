@@ -455,7 +455,7 @@
             <ul id="sort_option">
                 <li class="selected_sort" id="helpfulness_btn" ><a href="#">Helpfulness</a></li>
                 <li id="release_btn"><a href="#">Release Date</a></li>
-                <span class="glyphicon glyphicon-sort" style="color: #37a; margin-left:15px; font-size: 12px"></span>
+                <span id="order_btn" class="glyphicon glyphicon-sort" style="color: #37a; margin-left:15px; font-size: 12px; cursor: pointer"></span>
             </ul>
             <div id="reviewBox" class="reviews">
                 <div class="spinner" id="spinner">
