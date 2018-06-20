@@ -18,25 +18,27 @@
     /*border-bottom: 1px solid #f1f1f1;*/
     word-spacing: 10px;
     padding-left: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background: scroll;
     line-height: 100px;
 }
 #genreBox{
     background: url("../images/genre.png") 35px center no-repeat;
-    line-height: 35px;
+    line-height: 30px;
     padding-left: 97px;
 }
 #countryBox{
     background: url("../images/country.png") 35px center no-repeat;
-    line-height: 40px;
+    line-height: 30px;
 }
 #yearBox{
     background: url("../images/year.png") 35px center no-repeat;
-    line-height: 40px;
+    line-height: 30px;
 }
 #sortBox{
     background: url("../images/score.png") 35px center no-repeat;
-    line-height: 40px;
+    line-height: 30px;
 }
 
 .genreLabel, .countryLabel, .yearLabel,.sortLabel{

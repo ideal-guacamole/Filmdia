@@ -90,6 +90,7 @@ public class UserPersonalDaoImpl implements UserPersonalDao {
         Query q = session.createQuery("select max(r.reviewID) from Review r");
         int nextID = (int)q.getSingleResult() + 1;
         review.setReviewID(nextID);
+        review.setHelpfulness("0/0");
         session.beginTransaction();
         session.save(review);
         session.getTransaction().commit();

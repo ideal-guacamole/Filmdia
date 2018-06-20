@@ -190,10 +190,10 @@
                         <%--Recommeds end--%>
                         <!-- Past Reviews -->
                         <div id="pastReviewBox" class="tab-1 resp-tab-content gallery-images">
-
+                            <div id="reviewBox" class="reviews"></div>
                         </div>
                         <script>
-                            var pastReviewBox = document.getElementById('pastReviewBox');
+                            var pastReviewBox = document.getElementById('reviewBox');
                             $.ajax({
                                 type: 'post',
                                 url: '/user/getPersonalReview.action',
@@ -218,13 +218,27 @@
                                                     for (var j = 0; j < (10 - data[num].score); j++) {
                                                         stars += '<img style="width: 18px" src="../images/star-small-dark.png" />';
                                                     }
-                                                    var reviewDiv = '<div class="review_box">\
-                                                            <h4 class="review_moviename">' + filmName + '</h4>\
-                                                            <span class="review_time">Review Date: ' + data[num].time.year + '-' + data[num].time.monthValue + '-' + data[num].time.dayOfMonth + '<span></span></span>\
-                                                            ' + stars + '\
-                                                            <div class="review_summary">' + data[num].summary + '</div>\
-                                                            <div class="review_text">' + data[num].text + '</div>\
-                                                            </div>';
+
+                                                    var helpfulnessArray = data[num].helpfulness.split("/");
+                                                    var like = helpfulnessArray[0].replace(/,/g, "");
+                                                    var dislike = helpfulnessArray[1].replace(/,/g, "") - like;
+
+                                                    var reviewDiv = '' +
+                                                        '<div class="review_part">\n' +
+                                                        '  <div class="review_title">\n' +
+                                                        '    <span class="review_movieName">' + filmName + '</span>\n' +
+                                                        '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[num].time.year + '-' + data[num].time.monthValue + '-' + data[num].time.dayOfMonth + '</span>\n' +
+                                                        '      <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + stars + '</div>\n' +
+                                                        '  </div>\n' +
+                                                        '  <span class="review_summary">' + data[num].summary + '</span>\n' +
+                                                        '  <div class="review_text">' + data[num].text + '</div>\n' +
+                                                        '  <div class="review_footer">&nbsp;&nbsp;\n' +
+                                                        '    <span class="glyphicon glyphicon-thumbs-up" style="color: limegreen; margin-right: 5px"></span>   \n' +
+                                                        '    <span style="font-size: 11px; color:#737373">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                                                        '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
+                                                        '    <span style="font-size: 11px; color:#737373">' + dislike + '</span>\n' +
+                                                        '  </div>  \n' +
+                                                        '</div>';
                                                     pastReviewBox.innerHTML += reviewDiv;
                                                 }
                                             });
@@ -237,26 +251,47 @@
                         <!-- Past Reviews end-->
                         <%--Reset password--%>
                         <div class="tab-1 resp-tab-content">
-                            <div class="w3l-sign-in">
+                            <div class="w3l-sign-in" style="padding: 50px 150px 50px 150px">
 
                                 <form action="#" method="post">
-                                    <input id="originalPassword" type="password" class="password"
-                                           name="password-original" placeholder="Original Password"
-                                           required="">
-                                    <input id="newPassword" type="password" class="password" name="password-new"
-                                           placeholder="New Password"
-                                           required="">
-                                    <input id="confirmPassword" type="password" class="password" name="password-confirm"
-                                           placeholder="Confirm Password" required="">
-                                    <ul class="w3agile">
-                                        <li>
-                                            <input type="checkbox" id="brand1" value="">
-                                            <label for="brand1"><span></span>Remember me</label>
-                                        </li>
-                                    </ul>
-                                    <input id="confirmSubmit" type="submit" value="Confirm"
-                                           style="float: right; margin-right: 8%">
-                                    <div class="clear"></div>
+                                    <div class="row form-group">
+                                        <label for="originalPassword" class="control-label text-right myLabel">Original Password: </label>
+                                        <div style="float: left;width: 80%">
+                                            <input id="originalPassword" type="password" class="form-control password"
+                                                   name="password-original" placeholder="Input the original password"
+                                                   required="">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="newPassword" class="control-label text-right myLabel">New Password: </label>
+                                        <div style="float: left; width: 80%">
+                                            <input id="newPassword" type="password" class="form-control password" name="password-new"
+                                                   placeholder="Use at least 6 and at most 12 characters"
+                                                   required="">
+                                        </div>
+
+                                    </div>
+                                    <div class="row form-group">
+                                        <label for="confirmPassword" class="control-label text-right myLabel">Confirm Password: </label>
+                                        <div style="float: left; width: 80%">
+                                            <input id="confirmPassword" type="password" class="form-control password" name="password-confirm"
+                                                   placeholder="Input the new password again" required="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <ul class="w3agile">
+                                            <li>
+                                                <div style="margin-left: 145px">
+                                                    <input type="checkbox" id="brand1" value="">
+                                                    <label for="brand1"><span></span>Remember me</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <input id="confirmSubmit" type="submit" value="Confirm"
+                                               style="float: right; margin-right: 0">
+                                        <div class="clear"></div>
+                                    </div>
+
                                 </form>
 
                                 <script>
@@ -265,7 +300,13 @@
                                         var newPassword = document.getElementById('newPassword');
                                         var confirmPassword = document.getElementById('confirmPassword');
 
-                                        if (newPassword.value !== confirmPassword.value) {
+                                        if (originalPassword.value === '') {
+                                            alert('The original password cannot be empty');
+                                        } else if (newPassword.value === '' || confirmPassword.value === '') {
+                                            alert('The password cannot be empty');
+                                        } else if (newPassword.value.length < 6 || newPassword.value.length > 12) {
+                                            alert('The password is invalid');
+                                        }else if (newPassword.value !== confirmPassword.value) {
                                             alert("The password and the confirmation password are inconsistent!");
                                         }
                                         else {
