@@ -200,50 +200,52 @@
                                 contentType: 'application/json',
                                 data: '<%=userAccount.getUserID()%>',
                                 success: function (data) {
-                                    if (data != null && data.length !== 0) {
+                                    if (data !== null && data.length !== 0) {
                                         for (var i = 0; i < data.length; i++) {
-                                            var filmName = '';
-                                            var num = i;
-                                            $.ajax({
-                                                type: 'post',
-                                                url: '/film/getFilmName.action',
-                                                contentType: 'application/json;charset=utf-8',
-                                                data: data[i].imdb_filmID,
-                                                success: function (data1) {
-                                                    filmName = data1;
-                                                    var stars = '';
-                                                    for (var j = 0; j < data[num].score; j++) {
-                                                        stars += '<img style="width: 18px" src="../images/star-small.png" />';
-                                                    }
-                                                    for (var j = 0; j < (10 - data[num].score); j++) {
-                                                        stars += '<img style="width: 18px" src="../images/star-small-dark.png" />';
-                                                    }
+                                            (function () {
+                                                var filmName = '';
+                                                var num = i;
+                                                $.ajax({
+                                                    type: 'post',
+                                                    url: '/film/getFilmName.action',
+                                                    contentType: 'application/json;charset=utf-8',
+                                                    data: data[i].imdb_filmID,
+                                                    success: function (data1) {
+                                                        filmName = data1;
+                                                        console.log(num);
+                                                        var stars = '';
+                                                        for (var j = 0; j < data[num].score; j++) {
+                                                            stars += '<img style="width: 18px" src="../images/star-small.png" />';
+                                                        }
+                                                        for (var j = 0; j < (10 - data[num].score); j++) {
+                                                            stars += '<img style="width: 18px" src="../images/star-small-dark.png" />';
+                                                        }
 
-                                                    var helpfulnessArray = data[num].helpfulness.split("/");
-                                                    var like = helpfulnessArray[0].replace(/,/g, "");
-                                                    var dislike = helpfulnessArray[1].replace(/,/g, "") - like;
+                                                        var helpfulnessArray = data[num].helpfulness.split("/");
+                                                        var like = helpfulnessArray[0].replace(/,/g, "");
+                                                        var dislike = helpfulnessArray[1].replace(/,/g, "") - like;
 
-                                                    var reviewDiv = '' +
-                                                        '<div class="review_part">\n' +
-                                                        '  <div class="review_title">\n' +
-                                                        '    <span class="review_movieName">' + filmName + '</span>\n' +
-                                                        '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[num].time.year + '-' + data[num].time.monthValue + '-' + data[num].time.dayOfMonth + '</span>\n' +
-                                                        '      <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + stars + '</div>\n' +
-                                                        '  </div>\n' +
-                                                        '  <span class="review_summary">' + data[num].summary + '</span>\n' +
-                                                        '  <div class="review_text">' + data[num].text + '</div>\n' +
-                                                        '  <div class="review_footer">&nbsp;&nbsp;\n' +
-                                                        '    <span class="glyphicon glyphicon-thumbs-up" style="color: limegreen; margin-right: 5px"></span>   \n' +
-                                                        '    <span style="font-size: 11px; color:#737373">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-                                                        '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
-                                                        '    <span style="font-size: 11px; color:#737373">' + dislike + '</span>\n' +
-                                                        '  </div>  \n' +
-                                                        '</div>';
-                                                    pastReviewBox.innerHTML += reviewDiv;
-                                                }
-                                            });
+                                                        var reviewDiv = '' +
+                                                            '<div class="review_part">\n' +
+                                                            '  <div class="review_title">\n' +
+                                                            '    <span class="review_movieName">' + filmName + '</span>\n' +
+                                                            '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[num].time.year + '-' + data[num].time.monthValue + '-' + data[num].time.dayOfMonth + '</span>\n' +
+                                                            '      <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + stars + '</div>\n' +
+                                                            '  </div>\n' +
+                                                            '  <span class="review_summary">' + data[num].summary + '</span>\n' +
+                                                            '  <div class="review_text">' + data[num].text + '</div>\n' +
+                                                            '  <div class="review_footer">&nbsp;&nbsp;\n' +
+                                                            '    <span class="glyphicon glyphicon-thumbs-up" style="color: limegreen; margin-right: 5px"></span>   \n' +
+                                                            '    <span style="font-size: 11px; color:#737373">' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+                                                            '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
+                                                            '    <span style="font-size: 11px; color:#737373">' + dislike + '</span>\n' +
+                                                            '  </div>  \n' +
+                                                            '</div>';
+                                                        pastReviewBox.innerHTML += reviewDiv;
+                                                    }
+                                                });
+                                            })();
                                         }
-
                                     }
                                 }
                             });
