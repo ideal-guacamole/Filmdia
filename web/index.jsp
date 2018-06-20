@@ -491,8 +491,8 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th style="text-align: center">Poster</th>
                     <th style="text-align: center">Rank&Title</th>
+                    <th style="text-align: center"></th>
                     <th style="text-align: center">Rating</th>
                     <%--<th>Fav</th>--%>
                 </tr>
