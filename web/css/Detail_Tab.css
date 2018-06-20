@@ -148,7 +148,7 @@ h3 {
     /*top: 11.5%;*/
     right: 4.5%;
     width: 310px;
-    margin-top: 102px;
+    margin-top: 103px;
 }
 .Details {
     /*position: relative;*/
@@ -409,4 +409,19 @@ h3 {
 }
 .basic-grey .button:hover {
 	background: #1c4587;
+}
+
+#graph {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-around;*/
+    height: 1600px;
+}
+#graph section{
+    /*flex: 1;*/
+    /*position: absolute;*/
+    height: 230px;
+    width: 70%;
+    /*margin-left: 0 !important;*/
+    margin: 30px auto !important;
 }

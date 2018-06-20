@@ -95,6 +95,7 @@ h2 {
 .add_fav .fav_content .add_button {
 	display: block;
 	margin: 10px auto 0;
+    left: 12%;
 }
 #graph ul li section:nth-of-type(2n+1){
 	width: 800px;

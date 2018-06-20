@@ -547,16 +547,16 @@
             </section>
             <section id="reviewFluctuationBox">
             </section>
-            <button
-                    style="margin-bottom:20px;margin-left:470px;width: 80px;text-align: center;height: 30px;display: inline-block"
-                    value="Day" onclick="javascript:makeReviewFluctuationByDay()">Day
-            </button>
-            <button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"
-                    value="Month" onclick="javascript:makeReviewFluctuationByMonth()">Month
-            </button>
-            <button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"
-                    value="Quarter" onclick="javascript:makeReviewFluctuationByQuarter()">Quarter
-            </button>
+            <%--<button--%>
+                    <%--style="margin-bottom:20px;margin-left:470px;width: 80px;text-align: center;height: 30px;display: inline-block"--%>
+                    <%--value="Day" onclick="javascript:makeReviewFluctuationByDay()">Day--%>
+            <%--</button>--%>
+            <%--<button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"--%>
+                    <%--value="Month" onclick="javascript:makeReviewFluctuationByMonth()">Month--%>
+            <%--</button>--%>
+            <%--<button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"--%>
+                    <%--value="Quarter" onclick="javascript:makeReviewFluctuationByQuarter()">Quarter--%>
+            <%--</button>--%>
             <section id="commentWordsBox">
             </section>
             <section id="descriptionLengthBox">
@@ -576,6 +576,10 @@
                     graph.isEnter = true;
                     makeRadar();
                     makeReviewMap();
+                    makeScoreNum();
+                    makeScoreFluctuation();
+                    makeReviewFluctuationByDay();
+                    makeCommentWords();
                 }
             };
             var loadingReadyArr = [false, false, false, false, false, false];
@@ -604,7 +608,6 @@
                 if (!loadingReadyArr[5] && oScroll > 1900) {
                     loadingReadyArr[5] = true;
                     makeDescriptionLength();
-
                 }
             };
 
