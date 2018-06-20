@@ -137,6 +137,7 @@
         </div>
         <div class="add_fav">
             <div class="fav_content">
+                <label class="rating_label" style="color: #fff">IMDb Rating:
                 <label class="Score"><span id="score"></span><span style="color: #fff; font-size: 17px">/10
                 </span></label>
                 <label class="rating_label" style="color: #fff">Your Rating:
@@ -239,59 +240,62 @@
             </div>
             <%--Storyline end--%>
 
-            <!-- Details -->
-            <div class="Details right">
-                <h3>Details</h3>
-                <div class="detail_form">
-                    <span>Language: <label id="detail_language" class="Language"></label></span>
-                    <span>Release Date:
+            <div class="right">
+                <!-- Details -->
+                <div class="Details">
+                    <h3>Details</h3>
+                    <div class="detail_form">
+                        <span>Language: <label id="detail_language" class="Language"></label></span>
+                        <span>Release Date:
                                 <label id="detail_onTime" class="OnTime"></label></span>
-                    <span>Trailer Online: <label id="detail_watchUrl" class="OnTime"><a
-                            href=""></a></label></span>
+                        <span>Trailer Online: <label id="detail_watchUrl" class="OnTime"><a
+                                href=""></a></label></span>
+                    </div>
                 </div>
-            </div>
-            <!-- Details end-->
+                <!-- Details end-->
 
-            <%--Core Members--%>
-            <div class="CoreMembers right">
-                <h3>Core Members</h3>
-                <div class="detail_form">
-                    <div class="coresgroup">
-                        <div class="cores">
-                            <img id="director_pic" src="../images/posters/B005CA4SJW.jpg"
-                                 style="width:70px; height: 105px;">
-                            <div id="director_name" class="name">John Williams(Dir)</div>
-                        </div>
-                        <div class="cores">
-                            <img id="star1_pic" src="../images/posters/B005CA4SJW.jpg"
-                                 style="width:70px; height: 105px;">
-                            <div id="star1_name" class="name">John Williams</div>
-                        </div>
-                        <div class="cores">
-                            <img id="star2_pic" src="../images/posters/B005CA4SJW.jpg"
-                                 style="width:70px; height: 105px;">
-                            <div id="star2_name" class="name">John William</div>
-                        </div>
-                        <div class="cores">
-                            <img id="star3_pic" src="../images/posters/B005CA4SJW.jpg"
-                                 style="width:70px; height: 105px;">
-                            <div id="star3_name" class="name">John Williams</div>
+                <%--Core Members--%>
+                <div class="CoreMembers">
+                    <h3>Core Members</h3>
+                    <div class="detail_form">
+                        <div class="coresgroup">
+                            <div class="cores">
+                                <img id="director_pic" src="../images/posters/B005CA4SJW.jpg"
+                                     style="width:70px; height: 105px;">
+                                <div id="director_name" class="name">John Williams(Dir)</div>
+                            </div>
+                            <div class="cores">
+                                <img id="star1_pic" src="../images/posters/B005CA4SJW.jpg"
+                                     style="width:70px; height: 105px;">
+                                <div id="star1_name" class="name">John Williams</div>
+                            </div>
+                            <div class="cores">
+                                <img id="star2_pic" src="../images/posters/B005CA4SJW.jpg"
+                                     style="width:70px; height: 105px;">
+                                <div id="star2_name" class="name">John William</div>
+                            </div>
+                            <div class="cores">
+                                <img id="star3_pic" src="../images/posters/B005CA4SJW.jpg"
+                                     style="width:70px; height: 105px;">
+                                <div id="star3_name" class="name">John Williams</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <%--Core Members end--%>
+                <%--Core Members end--%>
 
-            <%--Box office--%>
-            <div class="BoxOffice right">
-                <h3>Box Office</h3>
-                <div class="detail_form">
-                    <span>Worldwide Gross: <label id="box_worldGross"></label></span>
-                    <span>Gross(USA): <label id="box_gross"></label></span>
-                    <span>Budget: <label id="box_budget"></label></span>
+                <%--Box office--%>
+                <div class="BoxOffice">
+                    <h3>Box Office</h3>
+                    <div class="detail_form">
+                        <span>Worldwide Gross: <label id="box_worldGross"></label></span>
+                        <span>Gross(USA): <label id="box_gross"></label></span>
+                        <span>Budget: <label id="box_budget"></label></span>
+                    </div>
                 </div>
+                <%--Box office end--%>
             </div>
-            <%--Box office end--%>
+
 
             <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
         </div>
@@ -351,6 +355,8 @@
                     commitBtn.style.marginRight = "10%";
                     var starBox = document.getElementById('starBox');
                     starBox.stars = 0;
+                    var userStarBox = document.getElementById('userScore');
+                    userStarBox.stars = 0;
                     var stars = starBox.getElementsByTagName('img');
                     for (var i = 0; i < stars.length; i++) {
                         stars[i].index = i + 1;
@@ -365,7 +371,20 @@
                             starBox.stars = j;
                         }
                     }
-
+                    var userStars = userStarBox.getElementsByTagName('img');
+                    for (var i = 0; i < userStars.length; i++) {
+                        userStars[i].index = i + 1;
+                        userStars[i].onclick = function () {
+                            var j = 0;
+                            for (; j < this.index; j++) {
+                                userStars[j].src = '../images/star-small.png';
+                            }
+                            for (var k = 0; k < (10 - this.index); k++) {
+                                userStars[j + k].src = '../images/star-small-dark.png';
+                            }
+                            userStarBox.stars = j;
+                        }
+                    }
                     //如果有历史评论则展示历史评论
                     $.ajax({
                         type: 'post',
@@ -386,6 +405,7 @@
                                 }
                             }
                             if (beCommented) {
+                                //右上角的星星
                                 var upstars = '';
                                 for (var j = 0; j < thisComment.score; j++) {
                                     upstars += '<img style="width: 15px" src="../images/star-small.png" />';
@@ -394,6 +414,20 @@
                                     upstars += '<img style="width: 15px" src="../images/star-small-dark.png" />';
                                 }
                                 document.getElementById('userScore').innerHTML = upstars;
+                                for (var i = 0; i < userStars.length; i++) {
+                                    userStars[i].index = i + 1;
+                                    userStars[i].onclick = function () {
+                                        var j = 0;
+                                        for (; j < this.index; j++) {
+                                            userStars[j].src = '../images/star-small.png';
+                                        }
+                                        for (var k = 0; k < (10 - this.index); k++) {
+                                            userStars[j + k].src = '../images/star-small-dark.png';
+                                        }
+                                        userStarBox.stars = j;
+                                    }
+                                }
+
                                 var stars = '';
                                 for (var j = 0; j < thisComment.score; j++) {
                                     stars += '<img style="width: 18px" src="../images/star-small.png" />';
