@@ -46,6 +46,13 @@ public interface UserFunctionService {
     public boolean addPersonalReview(Review review);
 
     /**
+     * 根据用户填写的评论，将该评论更新至评论表
+     * @param review 用户的评论
+     * @return 是否更新成功
+     */
+    public boolean updatePersonalReview(Review review);
+
+    /**
      * 根据用户ID 返回该用户的所有个人评论
      * @param userID 用户ID
      * @return 用户个人评论list

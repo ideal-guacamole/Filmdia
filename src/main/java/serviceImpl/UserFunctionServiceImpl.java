@@ -70,6 +70,11 @@ public class UserFunctionServiceImpl implements UserFunctionService {
     }
 
     @Override
+    public boolean updatePersonalReview(Review review) {
+        return userPersonalDao.updatePersonalReview(review);
+    }
+
+    @Override
     public List<Review> getPersonalReview(int userID) {
         return userPersonalDao.getPersonalReview(userID);
     }

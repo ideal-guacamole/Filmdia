@@ -55,6 +55,16 @@ public class UserFunctionHandler {
         return userFunctionService.getRecommendFilms(userID);
     }
 
+    @RequestMapping("/updatePersonalReview")
+    public @ResponseBody Map<String,String> updatePersonalReview(@RequestBody ReviewVO reviewVO){
+        Map<String,String> map = new HashMap<>();
+        if(userFunctionService.updatePersonalReview(new Review(reviewVO)))
+            map.put("result","success");
+        else
+            map.put("result","fail");
+        return map;
+    }
+
     @RequestMapping("/addPersonalReview")
     public @ResponseBody Map<String,String> addPersonalReview(@RequestBody ReviewVO reviewVO){
         Map<String,String> map = new HashMap<>();

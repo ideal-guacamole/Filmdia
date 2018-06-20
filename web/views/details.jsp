@@ -425,6 +425,36 @@
                                             userStars[j + k].src = '../images/star-small-dark.png';
                                         }
                                         userStarBox.stars = j;
+                                        //TODO: 更新评分逻辑待完成
+                                        <%--let date = new Date();--%>
+                                        <%--date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();--%>
+                                        <%--let review = {--%>
+                                            <%--reviewID: null,--%>
+                                            <%--time: date,--%>
+                                            <%--helpfulness: null,--%>
+                                            <%--summary: thisComment.summary,--%>
+                                            <%--text: thisComment.text,--%>
+                                            <%--imdb_filmID: imdb_filmID,--%>
+                                            <%--userName: '<%=userAccount.getUserName()%>',--%>
+                                            <%--userCountry: 'China',--%>
+                                            <%--score: userStarBox.stars,--%>
+                                            <%--userInfo_userID: '<%=userAccount.getUserID()%>'--%>
+                                        <%--};--%>
+                                        <%--$.ajax({--%>
+                                            <%--type: 'post',--%>
+                                            <%--url: '/user/addPersonalReview.action',--%>
+                                            <%--contentType: 'application/json',--%>
+                                            <%--data: JSON.stringify(review),--%>
+                                            <%--success: function (data) {--%>
+                                                <%--if (data.result === 'success') {--%>
+                                                    <%--alert('Comment Success!');--%>
+                                                    <%--window.location.reload(true);--%>
+                                                <%--}--%>
+                                                <%--else {--%>
+                                                    <%--alert('Comment Failed!');--%>
+                                                <%--}--%>
+                                            <%--}--%>
+                                        <%--});--%>
                                     }
                                 }
 
