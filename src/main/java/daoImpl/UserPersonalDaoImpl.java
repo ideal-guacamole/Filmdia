@@ -87,12 +87,33 @@ public class UserPersonalDaoImpl implements UserPersonalDao {
     @Override
     public boolean addPersonalReview(Review review) {
         Session session = getSession();
+        session.beginTransaction();
         Query q = session.createQuery("select max(r.reviewID) from Review r");
         int nextID = (int)q.getSingleResult() + 1;
         review.setReviewID(nextID);
         review.setHelpfulness("0/0");
         session.beginTransaction();
         session.save(review);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean updatePersonalReview(Review review) {
+        String imdb_filmID = review.getImdb_filmID();
+        double score = review.getScore();
+        String summary = review.getSummary();
+        String text = review.getText();
+        Session session = getSession();
+        session.beginTransaction();
+        Query q = session.createQuery("update Review r set summary = :summary, text = :text, score = :score " +
+                "where imdb_filmID = :imdb_filmID");
+        q.setParameter("summary", summary);
+        q.setParameter("text", text);
+        q.setParameter("score", score);
+        q.setParameter("imdb_filmID", imdb_filmID);
+        q.executeUpdate();
         session.getTransaction().commit();
         session.close();
         return true;
