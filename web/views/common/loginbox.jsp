@@ -10,6 +10,9 @@
     }
 %>
 <!--loginBox-->
+
+<script type="text/javascript" src="../js/lib/layer/layer.js"></script>
+
 <div id="shield"></div>
 <div id="loginBox">
     <%--<input id="cancelBtn" type="button"/>--%>
@@ -56,5 +59,4 @@
             userFunction(false, '');
         }
     </script>
-
 </div>

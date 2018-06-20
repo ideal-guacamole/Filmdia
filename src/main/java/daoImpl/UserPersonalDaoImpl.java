@@ -86,16 +86,18 @@ public class UserPersonalDaoImpl implements UserPersonalDao {
 
     @Override
     public boolean addPersonalReview(Review review) {
-        Session session = getSession();
-        session.beginTransaction();
-        Query q = session.createQuery("select max(r.reviewID) from Review r");
-        int nextID = (int)q.getSingleResult() + 1;
-        review.setReviewID(nextID);
-        review.setHelpfulness("0/0");
-        session.beginTransaction();
-        session.save(review);
-        session.getTransaction().commit();
-        session.close();
+        try (Session session = getSession()) {
+            session.beginTransaction();
+            Query q = session.createQuery("select max(r.reviewID) from Review r");
+            int nextID = (int) q.getSingleResult() + 1;
+            review.setReviewID(nextID);
+            review.setHelpfulness("0/0");
+            session.save(review);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 

@@ -72,7 +72,7 @@ h1 {
 
 .container2 {
 	width: 70%;
-	margin: -100px auto 50px;
+	margin: -100px auto 120px;
 	height: 100%;
 	overflow: hidden;
 
@@ -80,7 +80,7 @@ h1 {
 .tabs_user {
     background-color: rgba(226, 234, 236, 0.19);
     padding: .7em;
-    min-height: 482px;
+    min-height: 455px;
 }
 .tab-left {
 	width: 15%;
@@ -339,7 +339,8 @@ input.password {
     border-radius: 3px;
     font-size: 15px;
     letter-spacing: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+	height: 40px;
 }
 input.email {
     width: 92%;
@@ -709,14 +710,16 @@ h1 {
 /*Review*/
 .reviews {
 	position: relative;
-	margin: 30px auto;
+	margin: auto;
 	width: 950px;
 	color: rgba(255,255,255,.8);
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 .review_part {
 	position: relative;
 	width: 950px;
-	border-width: 2px 0 0 0;
+	border-width: 2px 0 2px 0;
 	border-style: solid;
 	border-color: rgba(255,255,255,.3);
 }

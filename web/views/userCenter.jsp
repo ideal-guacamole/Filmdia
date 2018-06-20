@@ -47,7 +47,7 @@
     <!-- Default-JavaScript-File -->
     <script type="text/javascript" src="../js/lib/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="../js/lib/layer/layer.js"></script>
 
     <!-- Own css and js-->
     <script type="text/javascript" src="../js/lib/jquery.min.js"></script>
@@ -212,7 +212,6 @@
                                                     data: data[i].imdb_filmID,
                                                     success: function (data1) {
                                                         filmName = data1;
-                                                        console.log(num);
                                                         var stars = '';
                                                         for (var j = 0; j < data[num].score; j++) {
                                                             stars += '<img style="width: 18px" src="../images/star-small.png" />';
@@ -225,8 +224,15 @@
                                                         var like = helpfulnessArray[0].replace(/,/g, "");
                                                         var dislike = helpfulnessArray[1].replace(/,/g, "") - like;
 
-                                                        var reviewDiv = '' +
-                                                            '<div class="review_part">\n' +
+                                                        var reviewDiv = '';
+
+                                                        if(data.length - 1 !== num) {
+                                                            reviewDiv += '<div class="review_part" style="border-bottom: hidden">\n'
+                                                        }else {
+                                                            reviewDiv += '<div class="review_part">\n'
+                                                        }
+
+                                                        reviewDiv += '' +
                                                             '  <div class="review_title">\n' +
                                                             '    <span class="review_movieName">' + filmName + '</span>\n' +
                                                             '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[num].time.year + '-' + data[num].time.monthValue + '-' + data[num].time.dayOfMonth + '</span>\n' +
@@ -240,12 +246,15 @@
                                                             '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
                                                             '    <span style="font-size: 11px; color:#737373">' + dislike + '</span>\n' +
                                                             '  </div>  \n' +
-                                                            '</div>';
+                                                            '</div>'
+
                                                         pastReviewBox.innerHTML += reviewDiv;
                                                     }
                                                 });
                                             })();
                                         }
+                                    }else {
+                                        pastReviewBox.innerHTML += '<div class="text-center" style="padding-top: 177px; padding-bottom: 177px">You have no past review.</div>';
                                     }
                                 }
                             });
@@ -253,7 +262,7 @@
                         <!-- Past Reviews end-->
                         <%--Reset password--%>
                         <div class="tab-1 resp-tab-content">
-                            <div class="w3l-sign-in" style="padding: 50px 150px 50px 150px">
+                            <div class="w3l-sign-in" style="padding: 78.5px 150px 78.5px 150px">
 
                                 <form action="#" method="post">
                                     <div class="row form-group">
@@ -309,7 +318,7 @@
                                         } else if (newPassword.value.length < 6 || newPassword.value.length > 12) {
                                             alert('The password is invalid');
                                         }else if (newPassword.value !== confirmPassword.value) {
-                                            alert("The password and the confirmation password are inconsistent!");
+                                            alert("Inconsistent passwords");
                                         }
                                         else {
                                             var data = {
@@ -324,8 +333,9 @@
                                                 //请求成功后的回调函数
                                                 success: function (data) {
                                                     if (data.result === 'success') {
-                                                        alert("Password has been updated successfully!");
-                                                        window.location.reload(true);
+                                                        layer.msg('Update password successfully!', {icon: 6}, function () {
+                                                            window.location.reload(true);
+                                                        });
                                                     }
                                                     else {
                                                         alert("Wrong original password!");
@@ -429,7 +439,11 @@
                         '</div>';
                     filmBox += tempBox;
                 });
-                Favorite.innerHTML = filmBox;
+                if(filmBox === '') {
+                    Favorite.innerHTML = '<div class="text-center" style="padding-top: 207px; padding-bottom: 207px; color: rgba(255,255,255,.8)">You have no favorite film.</div>';
+                }else {
+                    Favorite.innerHTML = filmBox;
+                }
             }
         });
     }
@@ -471,7 +485,12 @@
                         '</div>';
                     recoBox += temprecoBox;
                 });
-                Recommeds.innerHTML = recoBox;
+                if(recoBox === '') {
+                    Recommeds.innerHTML = '<div class="text-center" style="padding-top: 207px; padding-bottom: 207px; color: rgba(255,255,255,.8)">You have no recommended film.</div>';
+
+                }else {
+                    Recommeds.innerHTML = recoBox;
+                }
             }
         });
     }

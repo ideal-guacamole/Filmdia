@@ -193,14 +193,15 @@ function signUp() {
                     signUpWarning.innerHTML = '';
 
                     setTimeout(function () {
-                        alert("Sign Up Successfully!");
                         doOpacity(loginBox, 0.1, 0, function () {
                             loginBox.style.display = 'none';
                         });
                         doOpacity(shield, 0.1, 0, function () {
                             shield.style.display = 'none';
                         });
-                        window.location.reload(true);
+                        layer.msg('Sign Up successfully!', {icon: 6}, function () {
+                            window.location.reload(true);
+                        });
                     }, 500)
 
                 }
