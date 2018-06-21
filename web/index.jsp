@@ -74,64 +74,60 @@
     <div class="slider">
         <div class="callbacks_container">
             <ul class="rslides" id="slider">
+
                 <li>
                     <div class="slider-img">
-                        <img id="" src="../images/FastAndFurious8.jpg" class="img-responsive" alt="Manufactory">
+                        <img id="" src="../images/Dangal.jpg" class="img-responsive" alt="Manufactory">
                     </div>
                     <div class="slider-info w3ls-1">
-                        <h3>The Fate of the Furious</h3>
+                        <h3>Dangal</h3>
                         <div class="underline"></div>
-                        <p>When a mysterious woman seduces Dom into the world of terrorism and a betrayal of those
-                            closest to him, the crew face trials that will test them as never before. </p>
+                        <p>You think our girls are any lesser than boys?</p>
 
                     </div>
                 </li>
                 <li>
                     <div class="slider-img">
-                        <img src="../images/LaLaLand.jpg" class="img-responsive" alt="Manufactory">
+                        <img src="../images/Call_Me_By_Your_Name.jpg" class="img-responsive" alt="Manufactory">
+                    </div>
+                    <div class="slider-info w3ls-1">
+                        <h3>Call Me By Your Name</h3>
+                        <div class="underline"></div>
+                        <p>Is it better to speak or die?</p>
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="slider-img">
+                        <img src="../images/Coco.jpg" class="img-responsive" alt="Manufactory">
+                    </div>
+                    <div class="slider-info w3ls-1">
+                        <h3>Coco</h3>
+                        <div class="underline"></div>
+                        <p>The celebration of a lifetime </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="slider-img">
+                        <img src="../images/Wolf_Warriors.jpg" class="img-responsive" alt="Manufactory">
                     </div>
                     <div class="slider-info">
-                        <h3>La La Land</h3>
+                        <h3>Zhan Lang</h3>
                         <div class="underline"></div>
-                        <p>A jazz pianist falls for an aspiring actress in Los Angeles.</p>
+                        <p>A Chinese special force soldier with extraordinary marksmanship is confronted by a group of
+                            deadly foreign mercenaries who are hired to assassinate him by a vicious drug lord.</p>
 
                     </div>
                 </li>
                 <li>
                     <div class="slider-img">
-                        <img src="../images/BeautyAndTheBeast.jpg" class="img-responsive" alt="Manufactory">
+                        <img src="../images/Contratiempo.jpg" class="img-responsive" alt="Manufactory">
                     </div>
                     <div class="slider-info w3ls-1">
-                        <h3>Beauty And The Beast</h3>
+                        <h3>The Invisible Guest</h3>
                         <div class="underline"></div>
-                        <p>An adaptation of the fairy tale about a monstrous-looking prince and a young woman who fall
-                            in love. </p>
-
-                    </div>
-                </li>
-                <li>
-                    <div class="slider-img">
-                        <img src="../images/Spotlight.jpg" class="img-responsive" alt="Manufactory">
-                    </div>
-                    <div class="slider-info w3ls-1">
-                        <h3>Spotlight</h3>
-                        <div class="underline"></div>
-                        <p>The true story of how the Boston Globe uncovered the massive scandal of child molestation and
-                            cover-up within the local Catholic Archdiocese, shaking the entire Catholic Church to its
-                            core.</p>
-
-                    </div>
-                </li>
-
-                <li>
-                    <div class="slider-img">
-                        <img src="../images/TheGreatWall.jpg" class="img-responsive" alt="Manufactory">
-                    </div>
-                    <div class="slider-info w3ls-1">
-                        <h3>The Great Wall</h3>
-                        <div class="underline"></div>
-                        <p>European mercenaries searching for black powder become embroiled in the defense of the Great
-                            Wall of China against a horde of monstrous creatures. </p>
+                        <p>Every story has two sides. The truth, only one.</p>
 
                     </div>
                 </li>
@@ -139,20 +135,21 @@
             <script>
                 var slider = document.getElementById('slider');
                 var posterArr = slider.getElementsByTagName('li');
+
                 posterArr[0].onclick = function () {
-                    setUrl(24, 'tt4630562');
+                    setUrl(900, 'tt5074352');
                 };
                 posterArr[1].onclick = function () {
-                    setUrl(105, 'tt3783958');
+                    setUrl(359, 'tt5726616')
                 };
                 posterArr[2].onclick = function () {
-                    setUrl(12, 'tt2771200')
+                    setUrl(100, 'tt2380307')
                 };
                 posterArr[3].onclick = function () {
-                    setUrl(1578, 'tt1895587')
+                    setUrl(6564, 'tt3540136');
                 };
                 posterArr[4].onclick = function () {
-                    setUrl(102, 'tt2034800')
+                    setUrl(839, 'tt4857264')
                 };
 
                 function setUrl(filmID, imdbID) {
