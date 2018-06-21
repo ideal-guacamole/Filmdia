@@ -580,17 +580,41 @@
         </div>
 
         <!--The pagination bar-->
-        <div style="width: 100%">
-            <div class="content">
-                <div class="demo">
-                    <div id="paginate_imdb"></div>
-                </div>
-            </div>
-            <script type="text/javascript" src="js/lib/jquery.paginate.js"></script>
-            <script type="text/javascript">
+        <%--<div style="width: 100%">--%>
+            <%--<div class="content">--%>
+                <%--<div class="demo">--%>
+                    <%--<div id="paginate_imdb"></div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<script type="text/javascript" src="js/lib/jquery.paginate.js"></script>--%>
+            <%--<script type="text/javascript">--%>
 
-            </script>
-        </div>
+            <%--</script>--%>
+        <%--</div>--%>
+        <div id="example" style="text-align: center"> <ul id="pageLimit"></ul> </div>
+        <script type="text/javascript" src="js/lib/bootstrap-paginator.js"></script>
+        <script>
+            // $('#pageLimit').bootstrapPaginator({
+            //     currentPage: 1,//当前的请求页面。
+            //     totalPages: 20,//一共多少页。
+            //     size:"normal",//应该是页眉的大小。
+            //     bootstrapMajorVersion: 3,//bootstrap的版本要求。
+            //     alignment:"right",
+            //     numberOfPages:5,//一页列出多少数据。
+            //     itemTexts: function (type, page, current) {
+            //         switch (type) {
+            //             case "first": return "First";
+            //             case "prev": return "Prev";
+            //             case "next": return "Next";
+            //             case "last": return "Last";
+            //             case "page": return page;
+            //         }
+            //     },
+            //     onPageClicked: function (event, originalEvent, type, page) {
+            //         loadTable(page, IMDb_O);
+            //     }
+            // });
+        </script>
         <!--End of the pagination bar-->
 
     </div>
@@ -605,66 +629,96 @@
         var imdb = document.getElementById('IMDb');
         var oscar = document.getElementById('Oscar');
         loadTable(0, IMDb_O);
-        $("#paginate_imdb").paginate({
-            count: 10,
-            start: 1,
-            display: 15,
-            border: false,
-            text_color: '#79B5E3',
-            background_color: 'none',
-            text_hover_color: '#2573AF',
-            background_hover_color: 'none',
-            images: false,
-            mouse: 'press',
-            onChange: function (page_index) {
-                loadTable(page_index - 1, IMDb_O);
-                location.href = '#top';
+        $('#pageLimit').bootstrapPaginator({
+            currentPage: 1,//当前的请求页面。
+            totalPages: 9,//一共多少页。
+            size:"normal",//应该是页眉的大小。
+            bootstrapMajorVersion: 3,//bootstrap的版本要求。
+            alignment:"right",
+            numberOfPages:10,//一页列出多少数据。
+            itemTexts: function (type, page, current) {
+                switch (type) {
+                    case "first": return "First";
+                    case "prev": return "Prev";
+                    case "next": return "Next";
+                    case "last": return "Last";
+                    case "page": return page;
+                }
+            },
+            onPageClicked: function (event, originalEvent, type, page) {
+                loadTable(page-1, IMDb_O);
             }
         });
 
         imdb.onclick = function () {
             IMDb_O = 0;
             loadTable(0, IMDb_O);
-            $("#paginate_imdb").paginate({
-                count: 25,
-                start: 1,
-                display: 15,
-                border: false,
-                text_color: '#79B5E3',
-                background_color: 'none',
-                text_hover_color: '#2573AF',
-                background_hover_color: 'none',
-                images: false,
-                mouse: 'press',
-                onChange: function (page_index) {
-                    loadTable(page_index - 1, IMDb_O);
-                    location.href = '#top';
+            // $("#paginate_imdb").paginate({
+            //     count: 25,
+            //     start: 1,
+            //     display: 15,
+            //     border: false,
+            //     text_color: '#79B5E3',
+            //     background_color: 'none',
+            //     text_hover_color: '#2573AF',
+            //     background_hover_color: 'none',
+            //     images: false,
+            //     mouse: 'press',
+            //     onChange: function (page_index) {
+            //         loadTable(page_index - 1, IMDb_O);
+            //         location.href = '#top';
+            //     }
+            // });
+            $('#pageLimit').bootstrapPaginator({
+                currentPage: 1,//当前的请求页面。
+                totalPages: 25,//一共多少页。
+                size:"normal",//应该是页眉的大小。
+                bootstrapMajorVersion: 3,//bootstrap的版本要求。
+                alignment:"right",
+                numberOfPages:10,//一页列出多少数据。
+                itemTexts: function (type, page, current) {
+                    switch (type) {
+                        case "first": return "First";
+                        case "prev": return "Prev";
+                        case "next": return "Next";
+                        case "last": return "Last";
+                        case "page": return page;
+                    }
+                },
+                onPageClicked: function (event, originalEvent, type, page) {
+                    loadTable(page-1, IMDb_O);
                 }
             });
-        }
+        };
         oscar.onclick = function () {
             IMDb_O = 1;
             loadTable(0, IMDb_O);
-            $("#paginate_imdb").paginate({
-                count: 10,
-                start: 1,
-                display: 15,
-                border: false,
-                text_color: '#79B5E3',
-                background_color: 'none',
-                text_hover_color: '#2573AF',
-                background_hover_color: 'none',
-                images: false,
-                mouse: 'press',
-                onChange: function (page_index) {
-                    loadTable(page_index - 1, IMDb_O);
-                    location.href = '#top';
+            $('#pageLimit').bootstrapPaginator({
+                currentPage: 1,//当前的请求页面。
+                totalPages: 9,//一共多少页。
+                size:"normal",//应该是页眉的大小。
+                bootstrapMajorVersion: 3,//bootstrap的版本要求。
+                alignment:"right",
+                numberOfPages:10,//一页列出多少数据。
+                itemTexts: function (type, page, current) {
+                    switch (type) {
+                        case "first": return "First";
+                        case "prev": return "Prev";
+                        case "next": return "Next";
+                        case "last": return "Last";
+                        case "page": return page;
+                    }
+                },
+                onPageClicked: function (event, originalEvent, type, page) {
+                    loadTable(page-1, IMDb_O);
                 }
             });
         }
 
 
     });
+
+    // js for the pagination
 </script>
 
 <jsp:include page="views/common/footer.jsp"></jsp:include>
@@ -675,7 +729,7 @@
 
 
 <!--End-slider-script-->
-<script src="../js/easyResponsiveTabs.js" type="text/javascript"></script>
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#horizontalTab').easyResponsiveTabs({
