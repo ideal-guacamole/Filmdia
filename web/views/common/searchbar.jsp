@@ -7,6 +7,7 @@
             <input type="text" name="notautosubmit" style="display:none"/>
             <input id="searchBtn" class="sb-search-submit" type="button" value=""/>
             <span class="sb-icon-search"> </span>
+            <%--<i class="fas fa-search fa-lg"></i>--%>
         </form>
     </div>
 </div>

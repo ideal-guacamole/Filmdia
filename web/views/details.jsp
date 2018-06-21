@@ -138,36 +138,36 @@
         <div class="add_fav">
             <div class="fav_content">
                 <label class="rating_label" style="color: #fff">IMDb Rating:
-                <label class="Score"><span id="score"></span><span style="color: #fff; font-size: 17px">/10
+                    <label class="Score"><span id="score"></span><span style="color: #fff; font-size: 17px">/10
                 </span></label>
-                <label class="rating_label" style="color: #fff">Your Rating:
-                </label>
-                <br/>
-                <div id="userScore" style="height: 50px; left: 11%; padding-top: 15px; position: relative">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                    <img style="width: 15px" src="../images/star-small-dark.png" alt="">
-                </div>
-                <%--<div style="text-align: center;font-size: 20px;line-height: 50px;color: #8c94ff;font-weight: bold"><em--%>
-                        <%--id="userScore">No Rating yet</em></div>--%>
-                <!-- <div id="demo6" class="demo"></div>
-                <script type="text/javascript">
-                    $('#demo6').rater('../js/ratingsdemo.php', {maxvalue:10, style: 'basic', curvalue:0});
-                </script> -->
-                <button class="add_button btn btn-primary btn-sm btn-round" id="add_fav">Add to Favorite</button>
-                <script>
-                    document.getElementById('add_fav').onclick = function () {
-                        var accountID = <%=userAccount.getUserID()%>;
-                        addFav(accountID);
-                    }
-                </script>
+                    <label class="rating_label" style="color: #fff">Your Rating:
+                    </label>
+                    <br/>
+                    <div id="userScore" style="height: 50px; left: 11%; padding-top: 15px; position: relative">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                        <img style="width: 15px" src="../images/star-small-dark.png" alt="">
+                    </div>
+                    <%--<div style="text-align: center;font-size: 20px;line-height: 50px;color: #8c94ff;font-weight: bold"><em--%>
+                    <%--id="userScore">No Rating yet</em></div>--%>
+                    <!-- <div id="demo6" class="demo"></div>
+                    <script type="text/javascript">
+                        $('#demo6').rater('../js/ratingsdemo.php', {maxvalue:10, style: 'basic', curvalue:0});
+                    </script> -->
+                    <button class="add_button btn btn-primary btn-sm btn-round" id="add_fav">Add to Favorite</button>
+                    <script>
+                        document.getElementById('add_fav').onclick = function () {
+                            var accountID = <%=userAccount.getUserID()%>;
+                            addFav(accountID);
+                        }
+                    </script>
             </div>
 
         </div>
@@ -429,31 +429,31 @@
                                         <%--let date = new Date();--%>
                                         <%--date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();--%>
                                         <%--let review = {--%>
-                                            <%--reviewID: null,--%>
-                                            <%--time: date,--%>
-                                            <%--helpfulness: null,--%>
-                                            <%--summary: thisComment.summary,--%>
-                                            <%--text: thisComment.text,--%>
-                                            <%--imdb_filmID: imdb_filmID,--%>
-                                            <%--userName: '<%=userAccount.getUserName()%>',--%>
-                                            <%--userCountry: 'China',--%>
-                                            <%--score: userStarBox.stars,--%>
-                                            <%--userInfo_userID: '<%=userAccount.getUserID()%>'--%>
+                                        <%--reviewID: null,--%>
+                                        <%--time: date,--%>
+                                        <%--helpfulness: null,--%>
+                                        <%--summary: thisComment.summary,--%>
+                                        <%--text: thisComment.text,--%>
+                                        <%--imdb_filmID: imdb_filmID,--%>
+                                        <%--userName: '<%=userAccount.getUserName()%>',--%>
+                                        <%--userCountry: 'China',--%>
+                                        <%--score: userStarBox.stars,--%>
+                                        <%--userInfo_userID: '<%=userAccount.getUserID()%>'--%>
                                         <%--};--%>
                                         <%--$.ajax({--%>
-                                            <%--type: 'post',--%>
-                                            <%--url: '/user/addPersonalReview.action',--%>
-                                            <%--contentType: 'application/json',--%>
-                                            <%--data: JSON.stringify(review),--%>
-                                            <%--success: function (data) {--%>
-                                                <%--if (data.result === 'success') {--%>
-                                                    <%--alert('Comment Success!');--%>
-                                                    <%--window.location.reload(true);--%>
-                                                <%--}--%>
-                                                <%--else {--%>
-                                                    <%--alert('Comment Failed!');--%>
-                                                <%--}--%>
-                                            <%--}--%>
+                                        <%--type: 'post',--%>
+                                        <%--url: '/user/addPersonalReview.action',--%>
+                                        <%--contentType: 'application/json',--%>
+                                        <%--data: JSON.stringify(review),--%>
+                                        <%--success: function (data) {--%>
+                                        <%--if (data.result === 'success') {--%>
+                                        <%--alert('Comment Success!');--%>
+                                        <%--window.location.reload(true);--%>
+                                        <%--}--%>
+                                        <%--else {--%>
+                                        <%--alert('Comment Failed!');--%>
+                                        <%--}--%>
+                                        <%--}--%>
                                         <%--});--%>
                                     }
                                 }
@@ -566,31 +566,37 @@
         </div>
 
         <!--Graphs-->
-        <div id="graph" class="product">
-            <section id="radarBox">
-            </section>
-            <section id="mapBox">
-            </section>
-            <section id="scoreNumBox">
-            </section>
-            <section id="scoreFluctuationBox">
-            </section>
-            <section id="reviewFluctuationBox">
-            </section>
+        <div id="graphForStatistics" class="product">
+            <h2 style="color: #40BFDE;margin-left: 5%;margin-top: 5%">General Statistics</h2>
+            <div id="radarBox" class="half_graphs" style="margin-left: 5% !important;">
+            </div>
+            <div id="commentWordsBox" class="half_graphs">
+            </div>
+            <h2 style="color: #40BFDE;margin-left: 5%;margin-top: 5%">Review Statistics</h2>
+            <div id="mapBox" class=""
+                 style="float: left;width: 45%;margin-left: 5%;height:60vh;min-height:400px;max-height: 800px">
+            </div>
+            <div style="float: left;width: 45%;height: 60vh;min-height:200px;max-height: 800px">
+                <div id="reviewFluctuationBox" class="" style="height: 30vh;min-height:200px;max-height: 400px">
+                </div>
+                <div id="descriptionLengthBox" class="" style="height: 30vh;min-height:200px;max-height: 400px">
+                </div>
+            </div>
+            <h2 style="color: #40BFDE;margin-left: 5%;margin-top: 5%">Score Statistics</h2>
+            <div id="scoreNumBox" class="half_graphs" style="margin-left: 5% !important; margin-bottom: 8%!important;">
+            </div>
+            <div id="scoreFluctuationBox" class="half_graphs" style="margin-bottom: 8%!important;">
+            </div>
             <%--<button--%>
-                    <%--style="margin-bottom:20px;margin-left:470px;width: 80px;text-align: center;height: 30px;display: inline-block"--%>
-                    <%--value="Day" onclick="javascript:makeReviewFluctuationByDay()">Day--%>
+            <%--style="margin-bottom:20px;margin-left:470px;width: 80px;text-align: center;height: 30px;display: inline-block"--%>
+            <%--value="Day" onclick="javascript:makeReviewFluctuationByDay()">Day--%>
             <%--</button>--%>
             <%--<button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"--%>
-                    <%--value="Month" onclick="javascript:makeReviewFluctuationByMonth()">Month--%>
+            <%--value="Month" onclick="javascript:makeReviewFluctuationByMonth()">Month--%>
             <%--</button>--%>
             <%--<button style="margin-bottom:20px;margin-left:5px;width: 80px;text-align: center;height: 30px;display: inline-block"--%>
-                    <%--value="Quarter" onclick="javascript:makeReviewFluctuationByQuarter()">Quarter--%>
+            <%--value="Quarter" onclick="javascript:makeReviewFluctuationByQuarter()">Quarter--%>
             <%--</button>--%>
-            <section id="commentWordsBox">
-            </section>
-            <section id="descriptionLengthBox">
-            </section>
             <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
         </div>
 
@@ -599,7 +605,7 @@
             //加载统计图
             var imdb_filmID = getQueryString('imdb_filmID');
             var graphPart = document.getElementById('graphPart');
-            var graph = document.getElementById('graph');
+            var graph = document.getElementById('graphForStatistics');
 
             graphPart.onmouseover = function () {
                 if (!graph.isEnter) {
@@ -669,6 +675,7 @@
                                             title: {
                                                 text: 'General Figure'
                                             },
+                                            color: ["#0092C7", '#F29C9C'],
                                             tooltip: {},
                                             legend: {
                                                 selectedMode: 'single',
@@ -721,6 +728,12 @@
                                                 name: 'Average in ' + film.tags[i],
                                                 type: 'radar',
                                                 symbolSize: '8',
+                                                areaStyle: {
+                                                    normal: {
+                                                        shadowBlur: 13,
+                                                        shadowColor: 'rgba(0,0,0,.2)',
+                                                    }
+                                                },
                                                 data: [
                                                     {
                                                         value: [film.score, film.gross, film.budget, reviewNum, film.runtime, film.ratingNum],
@@ -734,6 +747,38 @@
                                             })
                                         }
                                         option.radar = {
+                                            axisLine: {
+                                                lineStyle: {
+                                                    color: '#8aa',
+                                                    opacity: 1.0
+                                                }
+                                            },
+                                            splitLine: {
+                                                lineStyle: {
+                                                    color: '#8aa',
+                                                    opacity: .8
+                                                }
+                                            },
+                                            splitArea: {
+                                                areaStyle: {
+                                                    color: '#eee',
+                                                    opacity: 0.6,
+                                                    shadowBlur: 45,
+                                                    shadowColor: 'rgba(0,0,0,.5)',
+                                                    shadowOffsetX: 0,
+                                                    shadowOffsetY: 15,
+                                                }
+                                            },
+//                                            itemStyle: {
+//                                                normal: {
+//                                                    areaStyle: {
+//                                                        color: '#8aa',
+//                                                        opacity: 1.,
+//                                                        shadowBlur: 45,
+//                                                        shadowColor: 'rgba(0,0,0,.5)',
+//                                                    }
+//                                                }
+//                                            },
                                             indicator: [
                                                 {name: 'Score', max: 10},
                                                 {name: 'Gross', max: Math.round(maxGross * (Math.random() + 1))},
@@ -750,7 +795,7 @@
                                             ]
                                         };
                                         radarChart.setOption(option);
-                                        radarBox.style.marginLeft = 200 + 'px';
+//                                        radarBox.style.marginLeft = 200 + 'px';
                                     }
 
                                 }
@@ -777,6 +822,7 @@
                         }
                         var mapChart = echarts.init(mapBox);
                         var option = {
+                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
                             title: {
                                 text: 'Review Number Worldwide Distribution',
                                 left: 'left',
@@ -791,8 +837,10 @@
                             visualMap: {
                                 min: 0,
                                 max: 20,
+                                bottom: 40,
                                 text: ['High', 'Low'],
                                 realtime: false,
+//                                show:false,
                                 calculable: true,
                                 inRange: {
                                     color: ['#e0ffff', '#006edd']
@@ -812,7 +860,7 @@
                             ]
                         };
                         mapChart.setOption(option);
-                        mapBox.style.marginLeft = 200 + 'px';
+//                        mapBox.style.marginLeft = 200 + 'px';
 
                     }
                 });
@@ -836,10 +884,11 @@
                             title: {
                                 text: 'Score Distribution'
                             },
+//                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
                             tooltip: {},
-                            legend: {
-                                data: ['Num']
-                            },
+//                            legend: {
+//                                data: ['Num']
+//                            },
                             xAxis: {
                                 type: 'category',
                                 name: 'Interval',
@@ -850,6 +899,24 @@
                                 type: 'value',
                                 name: 'Num'
                             },
+                            visualMap: {
+                                top: 0,
+                                right: 10,
+//                                bottom: 'bottom',
+//                                center:'center',
+                                pieces: [{
+                                    gt: 0,
+                                    lte: 5,
+                                    color: "#0092C7",
+                                }, {
+                                    gt: 5,
+                                    lte: 100,
+                                    color: '#F29C9C',
+                                }, ],
+                                outOfRange: {
+                                    color: '#F3E59B'
+                                }
+                            },
                             series: [{
                                 name: 'Num',
                                 type: 'bar',
@@ -857,7 +924,7 @@
                             }]
                         };
                         scoreNumChart.setOption(option);
-                        scoreNumBox.style.marginLeft = 200 + 'px';
+//                        scoreNumBox.style.marginLeft = 200 + 'px';
 
                     }
                 });
@@ -883,6 +950,7 @@
                             title: {
                                 text: 'Score Fluctuation'
                             },
+                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
                             tooltip: {
                                 trigger: 'axis',
                                 formatter: "Date: {b}<br/> Score: {c}"
@@ -910,13 +978,26 @@
                             series: [{
                                 name: "Score",
 //                                smooth: true,
+                                areaStyle: {
+                                    normal: {
+                                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                            offset: 0,
+                                            color: 'rgba(0,146,199,0.8)'
+                                        }, {
+                                            offset: 1,
+                                            color: 'rgba(0,146,199,0.3)'
+                                        }], false),
+                                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                                        shadowBlur: 10
+                                    }
+                                },
                                 type: 'line',
                                 symbolSize: 6,
                                 data: seriesData
                             }]
                         };
                         scoreFluctuationChart.setOption(option);
-                        scoreFluctuationBox.style.marginLeft = 200 + 'px';
+//                        scoreFluctuationBox.style.marginLeft = 200 + 'px';
 
                     }
                 });
@@ -944,6 +1025,7 @@
                             title: {
                                 text: 'Review Fluctuation'
                             },
+                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
                             tooltip: [{
                                 trigger: 'axis',
                                 formatter: "Day: {b}<br/> ReviewNum: {c}"
@@ -971,12 +1053,25 @@
                                 name: "ReviewNumByDay",
 //                                smooth: true,
                                 type: 'line',
+                                areaStyle: {
+                                    normal: {
+                                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                            offset: 0,
+                                            color: 'rgba(0,146,199,0.8)'
+                                        }, {
+                                            offset: 1,
+                                            color: 'rgba(0,146,199,0.3)'
+                                        }], false),
+                                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                                        shadowBlur: 10
+                                    }
+                                },
                                 symbolSize: 6,
                                 data: seriesDayData
                             }]
                         };
                         reviewFluctuationChart.setOption(option);
-                        reviewFluctuationBox.style.marginLeft = 200 + 'px';
+//                        reviewFluctuationBox.style.marginLeft = 200 + 'px';
                     }
                 });
             }
@@ -1002,6 +1097,7 @@
                             title: {
                                 text: 'Review Fluctuation'
                             },
+                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
                             tooltip: [{
                                 trigger: 'axis',
                                 formatter: "Month: {b}<br/> ReviewNum: {c}"
@@ -1059,6 +1155,7 @@
                             title: {
                                 text: 'Review Fluctuation'
                             },
+                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
                             tooltip: [{
                                 trigger: 'axis',
                                 formatter: "Quarter: {b}<br/> ReviewNum: {c}"
@@ -1119,6 +1216,7 @@
                             title: {
                                 text: 'Comment Words Top 5'
                             },
+                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3B59B', '#F29C9C'],
                             tooltip: {
                                 trigger: 'item',
                                 formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -1157,7 +1255,7 @@
                             ]
                         };
                         commentWordsChart.setOption(option);
-                        commentWordsBox.style.marginLeft = 200 + 'px';
+//                        commentWordsBox.style.marginLeft = 200 + 'px';
 
                     }
                 });
@@ -1187,6 +1285,7 @@
                             title: {
                                 text: 'Description Length Distribution'
                             },
+                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
                             tooltip: {
                                 trigger: 'item',
                                 formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -1225,7 +1324,7 @@
                             ]
                         };
                         descriptionLengthChart.setOption(option);
-                        descriptionLengthBox.style.marginLeft = 200 + 'px';
+//                        descriptionLengthBox.style.marginLeft = 200 + 'px';
                     }
                 });
             }
