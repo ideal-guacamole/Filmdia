@@ -258,8 +258,8 @@ $.ajax({
         spinner.style.display = 'none';
         spinner.style.visibility = 'hidden';
         review = '';
-        putReviews(data);
         reviewNum = data.length;
+        putReviews(data);
     }
 });
 
@@ -325,7 +325,11 @@ function putReviews(data) {
     var num = 0;
     var star = '<img style="width: 17px" src="../images/star-small.png" />';
     var star_dark = '<img style="width: 17px" src="../images/star-small-dark.png" />';
+    console.log(reviewNum);
     for (var i = num; i < num + 10; i++) {
+        if (i===reviewNum){
+            break;
+        }
         var filmStar = '';
         var j = 0;
         for (; j < data[i].score; j++) {
