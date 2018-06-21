@@ -597,23 +597,26 @@
         <div id="example" style="text-align: center"> <ul id="pageLimit"></ul> </div>
         <script type="text/javascript" src="js/lib/bootstrap-paginator.js"></script>
         <script>
-            $('#pageLimit').bootstrapPaginator({
-                currentPage: 1,//当前的请求页面。
-                totalPages: 20,//一共多少页。
-                size:"normal",//应该是页眉的大小。
-                bootstrapMajorVersion: 3,//bootstrap的版本要求。
-                alignment:"right",
-                numberOfPages:5,//一页列出多少数据。
-                itemTexts: function (type, page, current) {//如下的代码是将页眉显示的中文显示我们自定义的中文。
-                    switch (type) {
-                        case "first": return "First";
-                        case "prev": return "Prev";
-                        case "next": return "Next";
-                        case "last": return "Last";
-                        case "page": return page;
-                    }
-                }
-            });
+            // $('#pageLimit').bootstrapPaginator({
+            //     currentPage: 1,//当前的请求页面。
+            //     totalPages: 20,//一共多少页。
+            //     size:"normal",//应该是页眉的大小。
+            //     bootstrapMajorVersion: 3,//bootstrap的版本要求。
+            //     alignment:"right",
+            //     numberOfPages:5,//一页列出多少数据。
+            //     itemTexts: function (type, page, current) {
+            //         switch (type) {
+            //             case "first": return "First";
+            //             case "prev": return "Prev";
+            //             case "next": return "Next";
+            //             case "last": return "Last";
+            //             case "page": return page;
+            //         }
+            //     },
+            //     onPageClicked: function (event, originalEvent, type, page) {
+            //         loadTable(page, IMDb_O);
+            //     }
+            // });
         </script>
         <!--End of the pagination bar-->
 
@@ -629,6 +632,26 @@
         var imdb = document.getElementById('IMDb');
         var oscar = document.getElementById('Oscar');
         loadTable(0, IMDb_O);
+        $('#pageLimit').bootstrapPaginator({
+            currentPage: 1,//当前的请求页面。
+            totalPages: 9,//一共多少页。
+            size:"normal",//应该是页眉的大小。
+            bootstrapMajorVersion: 3,//bootstrap的版本要求。
+            alignment:"right",
+            numberOfPages:10,//一页列出多少数据。
+            itemTexts: function (type, page, current) {
+                switch (type) {
+                    case "first": return "First";
+                    case "prev": return "Prev";
+                    case "next": return "Next";
+                    case "last": return "Last";
+                    case "page": return page;
+                }
+            },
+            onPageClicked: function (event, originalEvent, type, page) {
+                loadTable(page-1, IMDb_O);
+            }
+        });
         // $("#paginate_imdb").paginate({
         //     count: 10,
         //     start: 1,
@@ -689,6 +712,8 @@
 
 
     });
+
+    // js for the pagination
 </script>
 
 <jsp:include page="views/common/footer.jsp"></jsp:include>
