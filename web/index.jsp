@@ -688,26 +688,50 @@
             //         location.href = '#top';
             //     }
             // });
+            $('#pageLimit').bootstrapPaginator({
+                currentPage: 1,//当前的请求页面。
+                totalPages: 25,//一共多少页。
+                size:"normal",//应该是页眉的大小。
+                bootstrapMajorVersion: 3,//bootstrap的版本要求。
+                alignment:"right",
+                numberOfPages:10,//一页列出多少数据。
+                itemTexts: function (type, page, current) {
+                    switch (type) {
+                        case "first": return "First";
+                        case "prev": return "Prev";
+                        case "next": return "Next";
+                        case "last": return "Last";
+                        case "page": return page;
+                    }
+                },
+                onPageClicked: function (event, originalEvent, type, page) {
+                    loadTable(page-1, IMDb_O);
+                }
+            });
         };
         oscar.onclick = function () {
             IMDb_O = 1;
             loadTable(0, IMDb_O);
-            // $("#paginate_imdb").paginate({
-            //     count: 10,
-            //     start: 1,
-            //     display: 15,
-            //     border: false,
-            //     text_color: '#79B5E3',
-            //     background_color: 'none',
-            //     text_hover_color: '#2573AF',
-            //     background_hover_color: 'none',
-            //     images: false,
-            //     mouse: 'press',
-            //     onChange: function (page_index) {
-            //         loadTable(page_index - 1, IMDb_O);
-            //         location.href = '#top';
-            //     }
-            // });
+            $('#pageLimit').bootstrapPaginator({
+                currentPage: 1,//当前的请求页面。
+                totalPages: 9,//一共多少页。
+                size:"normal",//应该是页眉的大小。
+                bootstrapMajorVersion: 3,//bootstrap的版本要求。
+                alignment:"right",
+                numberOfPages:10,//一页列出多少数据。
+                itemTexts: function (type, page, current) {
+                    switch (type) {
+                        case "first": return "First";
+                        case "prev": return "Prev";
+                        case "next": return "Next";
+                        case "last": return "Last";
+                        case "page": return page;
+                    }
+                },
+                onPageClicked: function (event, originalEvent, type, page) {
+                    loadTable(page-1, IMDb_O);
+                }
+            });
         }
 
 
