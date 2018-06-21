@@ -652,22 +652,6 @@
                 loadTable(page-1, IMDb_O);
             }
         });
-        // $("#paginate_imdb").paginate({
-        //     count: 10,
-        //     start: 1,
-        //     display: 15,
-        //     border: false,
-        //     text_color: '#79B5E3',
-        //     background_color: 'none',
-        //     text_hover_color: '#2573AF',
-        //     background_hover_color: 'none',
-        //     images: false,
-        //     mouse: 'press',
-        //     onChange: function (page_index) {
-        //         loadTable(page_index - 1, IMDb_O);
-        //         location.href = '#top';
-        //     }
-        // });
 
         imdb.onclick = function () {
             IMDb_O = 0;

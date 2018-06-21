@@ -194,17 +194,21 @@
     <div class="container">
         <div id="filmContainer"></div>
 
-        <div class="clearfix"></div>
-        <div>
-            <div class="content">
-                <div class="demo" style="background: rgba(247,247,247,.1); border-color: rgba(247,247,247,.3);">
-                    <div id="pagination"></div>
-                </div>
-            </div>
-            <script type="text/javascript" src="../js/lib/jquery.paginate.js"></script>
-
+        <div id="example" style="text-align: center">
+            <ul id="pageLimit"></ul>
         </div>
+        <div class="clearfix"></div>
+        <%--<div>--%>
+        <%--<div class="content">--%>
+        <%--<div class="demo" style="background: rgba(247,247,247,.1); border-color: rgba(247,247,247,.3);">--%>
+        <%--<div id="pagination"></div>--%>
+        <%--</div>--%>
+        <%--</div>--%>
+        <%--<script type="text/javascript" src="../js/lib/jquery.paginate.js"></script>--%>
+
+        <%--</div>--%>
         <!--End of the pagination bar-->
+        <script type="text/javascript" src="../js/lib/bootstrap-paginator.js"></script>
     </div>
 </div>
 <!--/ w3l-1 -->
@@ -255,22 +259,48 @@
             type: 'get',
             url: '/film/getLibraryTotalPage.action',
             success: function (data) {
-                $("#pagination").paginate({
-                    count: data,
-                    start: 1,
-                    display: 15,
-                    border: false,
-                    text_color: '#79B5E3',
-                    background_color: 'none',
-                    text_hover_color: '#2573AF',
-                    background_hover_color: 'none',
-                    images: false,
-                    mouse: 'press',
-                    onChange: function (page_index) {
-                        loadLibrary(page_index - 1);
+                $('#pageLimit').bootstrapPaginator({
+                    currentPage: 1,//当前的请求页面。
+                    totalPages: data,//一共多少页。
+                    size: "normal",//应该是页眉的大小。
+                    bootstrapMajorVersion: 3,//bootstrap的版本要求。
+                    alignment: "right",
+                    numberOfPages: 10,//一页列出多少数据。
+                    itemTexts: function (type, page, current) {
+                        switch (type) {
+                            case "first":
+                                return "First";
+                            case "prev":
+                                return "Prev";
+                            case "next":
+                                return "Next";
+                            case "last":
+                                return "Last";
+                            case "page":
+                                return page;
+                        }
+                    },
+                    onPageClicked: function (event, originalEvent, type, page) {
+                        loadLibrary(page - 1);
                         location.href = '#top';
                     }
                 });
+                // $("#pagination").paginate({
+                //     count: data,
+                //     start: 1,
+                //     display: 15,
+                //     border: false,
+                //     text_color: '#79B5E3',
+                //     background_color: 'none',
+                //     text_hover_color: '#2573AF',
+                //     background_hover_color: 'none',
+                //     images: false,
+                //     mouse: 'press',
+                //     onChange: function (page_index) {
+                //         loadLibrary(page_index - 1);
+                //         location.href = '#top';
+                //     }
+                // });
             }
 
         });
@@ -331,7 +361,7 @@
                         '</div>' +
                         '<div class="caption_overlay">' +
                         '<div class="primary">' +
-                        '<a href="' + url + '">' + filmName + '<span style="color: orange">'+'&nbsp;'+filmScore+'</span>' + '</a>' +
+                        '<a href="' + url + '">' + filmName + '<span style="color: orange">' + '&nbsp;' + filmScore + '</span>' + '</a>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
@@ -416,19 +446,45 @@
                     },
                     success: function (data) {
                         console.log(data);
-                        $("#pagination").paginate({
-                            count: data,
-                            start: 1,
-                            display: 10,
-                            border: false,
-                            text_color: '#79B5E3',
-                            background_color: 'none',
-                            text_hover_color: '#2573AF',
-                            background_hover_color: 'none',
-                            images: false,
-                            mouse: 'press',
-                            onChange: function (page_index) {
-                                loadFilter(page_index - 1);
+                        // $("#pagination").paginate({
+                        //     count: data,
+                        //     start: 1,
+                        //     display: 10,
+                        //     border: false,
+                        //     text_color: '#79B5E3',
+                        //     background_color: 'none',
+                        //     text_hover_color: '#2573AF',
+                        //     background_hover_color: 'none',
+                        //     images: false,
+                        //     mouse: 'press',
+                        //     onChange: function (page_index) {
+                        //         loadFilter(page_index - 1);
+                        //         location.href = '#top';
+                        //     }
+                        // });
+                        $('#pageLimit').bootstrapPaginator({
+                            currentPage: 1,//当前的请求页面。
+                            totalPages: data,//一共多少页。
+                            size: "normal",//应该是页眉的大小。
+                            bootstrapMajorVersion: 3,//bootstrap的版本要求。
+                            alignment: "right",
+                            numberOfPages: 10,//一页列出多少数据。
+                            itemTexts: function (type, page, current) {
+                                switch (type) {
+                                    case "first":
+                                        return "First";
+                                    case "prev":
+                                        return "Prev";
+                                    case "next":
+                                        return "Next";
+                                    case "last":
+                                        return "Last";
+                                    case "page":
+                                        return page;
+                                }
+                            },
+                            onPageClicked: function (event, originalEvent, type, page) {
+                                loadFilter(page - 1);
                                 location.href = '#top';
                             }
                         });
@@ -477,7 +533,7 @@
 
     /**
      * 筛选后的加载
-     * @param time 当前页数
+     * @param page 当前页数
      */
     function loadFilter(page) {
         var container = document.getElementById('filmContainer');
@@ -535,7 +591,7 @@
                         '</div>' +
                         '<div class="caption_overlay">' +
                         '<div class="primary">' +
-                        '<a href="' + url + '">' + filmName + '<span style="color: orange">'+'&nbsp;'+filmScore+'</span>' + '</a>' +
+                        '<a href="' + url + '">' + filmName + '<span style="color: orange">' + '&nbsp;' + filmScore + '</span>' + '</a>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
