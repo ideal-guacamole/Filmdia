@@ -30,7 +30,7 @@ public class ReviewDataDaoImpl implements ReviewDataDao {
         q.setParameter("id",imdb_filmID);
         q.setMaxResults(500);
         List<Review> reviewList = q.getResultList();
-        System.out.println("username:"+reviewList.get(0).getUserName());
+//        System.out.println("username:"+reviewList.get(0).getUserName());
         session.close();
         return reviewList;
     }

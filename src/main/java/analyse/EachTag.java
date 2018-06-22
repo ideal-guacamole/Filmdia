@@ -75,8 +75,8 @@ public class EachTag {
 
                     score = nBitFloat(score, 1);
 
-                    System.out.println(tag + ":" + score + "/" + gross + "/" + reviewNumber + "/" +
-                            budget + "/" + runtime + "/" + ratingNum + "/" + year);
+//                    System.out.println(tag + ":" + score + "/" + gross + "/" + reviewNumber + "/" +
+//                            budget + "/" + runtime + "/" + ratingNum + "/" + year);
                 }
             }
         }

@@ -39,11 +39,11 @@ public class HighScoreTagTop {
         //降序排序
         Collections.sort(list, (o1, o2) -> o2.getValue().compareTo(o1.getValue()));
 
-        for(int i =0;i<10;i++) {
-            System.out.print(list.get(i).getKey() + "/" + list.get(i).getValue());
-            if(i != 9)
-                System.out.print(" ");
-        }
-        System.out.println();
+//        for(int i =0;i<10;i++) {
+////            System.out.print(list.get(i).getKey() + "/" + list.get(i).getValue());
+//            if(i != 9)
+////                System.out.print(" ");
+//        }
+//        System.out.println();
     }
 }

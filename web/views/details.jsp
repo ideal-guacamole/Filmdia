@@ -60,16 +60,9 @@
     <script src="../js/lib/echarts.js"></script>
     <script src="../js/world.js"></script>
     <script>
-        var username = <%=userAccount.getUserName()%> + '';
+        var username = '<%=userAccount.getUserName()%>';
         var userid = <%=userAccount.getUserID()%>;
     </script>
-    <!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
-
-    <!-- Star css and js -->
-    <!-- <script type="text/javascript" src="../js/jquery.js"></script> -->
-    <!-- script type="text/javascript" src="jquery.rater.js"></script -->
-    <!-- 	<script type="text/javascript" src="../js/jquery.rater.packed.js"></script>
-        <link rel="stylesheet" type="text/css" href="../css/rater.css" media="all" />  -->
     <!-- Button css -->
     <link rel="stylesheet" href="../css/button.css" type="text/css" media="all">
 </head>
@@ -1098,15 +1091,12 @@
     </div>
 </div>
 
+<script src="../js/details.js"></script>
+
 <!--loginBox-->
 <jsp:include page="common/loginbox.jsp"></jsp:include>
 
 <script src="../js/search.js"></script>
-<script>
-    var username = '<%=userAccount.getUserName()%>';
-    var userid = <%=userAccount.getUserID()%>;
-</script>
-<script src="../js/details.js"></script>
 
 <script>
     layui.use('flow', function(){
