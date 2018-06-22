@@ -9,6 +9,7 @@
         userAccount = initAccount;
     }
 %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Ferriswheel
@@ -57,6 +58,10 @@
     <script type="text/javascript" src="../js/Detail_Tab.js"></script>
     <script src="../js/lib/echarts.js"></script>
     <script src="../js/world.js"></script>
+    <script>
+        var username = <%=userAccount.getUserName()%> + '';
+        var userid = <%=userAccount.getUserID()%>;
+    </script>
     <!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
 
     <!-- Star css and js -->
@@ -309,239 +314,7 @@
                 </form>
                 <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
             </div>
-            <%--Script for User Review--%>
-            <script>
-                var commentBox = document.getElementById('commentForm');
 
-
-                //如果用户未登录则提示登陆
-                if ('<%=userAccount.getUserName()%>' === "") {
-                    commentBox.innerHTML = '<span style="font-size: 20px">Please Sign In First.</span>';
-                } else {
-                    //展示添加评论界面
-                    commentBox.innerHTML = '<h1>Add Your Comment\
-                    <span>Please fill all the texts in the fields.</span>\
-                    </h1>\
-                    <label>\
-                    <span>Score :</span>\
-                </label>\
-                <div id="starBox" style="height: 40px;display: inline-block;padding-top: 8px">\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    <img style="width:18px;" src="../images/star-small-dark.png" />\
-                    </div>\
-                    <label>\
-                    <span>Summary :</span>\
-                <input id="commentSummary" type="text" name="user_summary"\
-                placeholder="Summary of Your Review"/>\
-                    </label>\
-                    <label>\
-                    <span>Text :</span>\
-                <textarea id="commentText" name="text" placeholder="Content of Your Review"></textarea>\
-                    </label>\
-                    <span>&nbsp;</span>\
-                <input id="commitBtn" type="button" class="button" value="Send"/>';
-                    var commentScore = document.getElementById('commentScore');
-                    var commentSummary = document.getElementById('commentSummary');
-                    var commentText = document.getElementById('commentText');
-                    var commitBtn = document.getElementById('commitBtn');
-                    commitBtn.style.float = "right";
-                    commitBtn.style.marginRight = "10%";
-                    var starBox = document.getElementById('starBox');
-                    starBox.stars = 0;
-                    var userStarBox = document.getElementById('userScore');
-                    userStarBox.stars = 0;
-                    var stars = starBox.getElementsByTagName('img');
-                    for (var i = 0; i < stars.length; i++) {
-                        stars[i].index = i + 1;
-                        stars[i].onclick = function () {
-                            var j = 0;
-                            for (; j < this.index; j++) {
-                                stars[j].src = '../images/star-small.png';
-                            }
-                            for (var k = 0; k < (10 - this.index); k++) {
-                                stars[j + k].src = '../images/star-small-dark.png';
-                            }
-                            starBox.stars = j;
-                        }
-                    }
-                    var userStars = userStarBox.getElementsByTagName('img');
-                    for (var i = 0; i < userStars.length; i++) {
-                        userStars[i].index = i + 1;
-                        userStars[i].onclick = function () {
-                            var j = 0;
-                            for (; j < this.index; j++) {
-                                userStars[j].src = '../images/star-small.png';
-                            }
-                            for (var k = 0; k < (10 - this.index); k++) {
-                                userStars[j + k].src = '../images/star-small-dark.png';
-                            }
-                            userStarBox.stars = j;
-                        }
-                    }
-                    //如果有历史评论则展示历史评论
-                    $.ajax({
-                        type: 'post',
-                        url: '/user/getPersonalReview.action',
-                        contentType: 'application/json',
-                        data: '<%=userAccount.getUserID()%>',
-                        success: function (data) {
-                            if (data === null || data.length === 0) {
-                                return false;
-                            }
-
-                            var beCommented = false;
-                            var thisComment;
-                            for (var i = 0; i < data.length; i++) {
-                                if (data[i].imdb_filmID === imdb_filmID) {
-                                    beCommented = true;
-                                    thisComment = data[i];
-                                }
-                            }
-                            if (beCommented) {
-                                //右上角的星星
-                                var upstars = '';
-                                for (var j = 0; j < thisComment.score; j++) {
-                                    upstars += '<img style="width: 15px" src="../images/star-small.png" />';
-                                }
-                                for (var j = 0; j < (10 - thisComment.score); j++) {
-                                    upstars += '<img style="width: 15px" src="../images/star-small-dark.png" />';
-                                }
-                                document.getElementById('userScore').innerHTML = upstars;
-                                for (var i = 0; i < userStars.length; i++) {
-                                    userStars[i].index = i + 1;
-                                    userStars[i].onclick = function () {
-                                        var j = 0;
-                                        for (; j < this.index; j++) {
-                                            userStars[j].src = '../images/star-small.png';
-                                        }
-                                        for (var k = 0; k < (10 - this.index); k++) {
-                                            userStars[j + k].src = '../images/star-small-dark.png';
-                                        }
-                                        userStarBox.stars = j;
-                                        //TODO: 更新评分逻辑待完成
-                                        <%--let date = new Date();--%>
-                                        <%--date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();--%>
-                                        <%--let review = {--%>
-                                        <%--reviewID: null,--%>
-                                        <%--time: date,--%>
-                                        <%--helpfulness: null,--%>
-                                        <%--summary: thisComment.summary,--%>
-                                        <%--text: thisComment.text,--%>
-                                        <%--imdb_filmID: imdb_filmID,--%>
-                                        <%--userName: '<%=userAccount.getUserName()%>',--%>
-                                        <%--userCountry: 'China',--%>
-                                        <%--score: userStarBox.stars,--%>
-                                        <%--userInfo_userID: '<%=userAccount.getUserID()%>'--%>
-                                        <%--};--%>
-                                        <%--$.ajax({--%>
-                                        <%--type: 'post',--%>
-                                        <%--url: '/user/addPersonalReview.action',--%>
-                                        <%--contentType: 'application/json',--%>
-                                        <%--data: JSON.stringify(review),--%>
-                                        <%--success: function (data) {--%>
-                                        <%--if (data.result === 'success') {--%>
-                                        <%--alert('Comment Success!');--%>
-                                        <%--window.location.reload(true);--%>
-                                        <%--}--%>
-                                        <%--else {--%>
-                                        <%--alert('Comment Failed!');--%>
-                                        <%--}--%>
-                                        <%--}--%>
-                                        <%--});--%>
-                                    }
-                                }
-
-                                var stars = '';
-                                for (var j = 0; j < thisComment.score; j++) {
-                                    stars += '<img style="width: 18px" src="../images/star-small.png" />';
-                                }
-                                for (var j = 0; j < (10 - thisComment.score); j++) {
-                                    stars += '<img style="width: 18px" src="../images/star-small-dark.png" />';
-                                }
-                                var reviewDiv = '<form action="" method="post" class="basic-grey">\
-                                <h1>History Review\
-                                </h1>\
-                                <label>\
-                                    <span>Score :</span>\
-                                </label>\
-                                <div id="starBox" style="height: 40px;display: inline-block;padding-top: 8px">\
-                                ' + stars + '\
-                                </div>\
-                                <label>\
-                                    <span>Summary :</span>\
-                                    <label style="color: black;line-height: 35px">' + thisComment.summary + '</label>\
-                                </label>\
-                                <label>\
-                                    <span>Text :</span>\
-                                    <div style="color: black;width: 500px;margin-left: 180px;height: 200px;line-height: 35px;">' + thisComment.text + '</div>\
-                                </label>\
-                            </form>';
-                                commentBox.parentNode.innerHTML = reviewDiv;
-                            }
-                        }
-                    });
-                    commitBtn.addEventListener('click', function (e) {
-                        e.stopPropagation();
-                        if (starBox.stars === 0) {
-                            layer.tips('not null', '#starBox', {
-                                tips: [2, 'red']
-                            });
-                        }
-                        else if (commentSummary.value === '') {
-                            layer.tips('not null', '#commentSummary', {
-                                tips: [2, 'red']
-                            });
-                        }
-                        else if (commentText.value === '') {
-                            layer.tips('not null', '#commentText', {
-                                tips: [2, 'red']
-                            });
-                        }
-                        else {
-                            var date = new Date();
-                            date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                            var review = {
-                                reviewID: null,
-                                time: date,
-                                helpfulness: null,
-                                summary: commentSummary.value,
-                                text: commentText.value,
-                                imdb_filmID: imdb_filmID,
-                                userName: '<%=userAccount.getUserName()%>',
-                                userCountry: 'China',
-                                score: starBox.stars,
-                                userInfo_userID: '<%=userAccount.getUserID()%>'
-                            };
-                            $.ajax({
-                                type: 'post',
-                                url: '/user/addPersonalReview.action',
-                                contentType: 'application/json',
-                                data: JSON.stringify(review),
-                                success: function (data) {
-                                    if (data.result === 'success') {
-                                        layer.msg('Comment Successfully!', {icon: 6}, function () {
-                                            window.location.reload(true);
-                                        });
-                                    }
-                                    else {
-                                        layer.msg('Comment Failed!', {icon: 5}, function () {
-                                        });
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-
-            </script>
             <ul id="sort_option">
                 <li class="selected_sort" id="helpfulness_btn"><a href="#">Helpfulness</a></li>
                 <li id="release_btn"><a href="#">Release Date</a></li>
@@ -1348,6 +1121,10 @@
 <jsp:include page="common/loginbox.jsp"></jsp:include>
 
 <script src="../js/search.js"></script>
+<script>
+    var username = '<%=userAccount.getUserName()%>';
+    var userid = <%=userAccount.getUserID()%>;
+</script>
 <script src="../js/details.js"></script>
 
 <!-- footer -->
