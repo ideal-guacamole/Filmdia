@@ -501,7 +501,7 @@ function splitCatForFav(list) {
 var add_fav = document.getElementById('add_fav');
 
 function addFav(userid) {
-    if (userid == 0) {
+    if (userid === 0) {
         alert('Please sign in first.');
         return;
     }
@@ -538,7 +538,10 @@ var commentBox = document.getElementById('commentForm');
 //如果用户未登录则提示登陆
 
 if (userid === 0) {
-    commentBox.innerHTML = '<span style="font-size: 20px">Please Sign In First.</span>';
+    commentBox.innerHTML = '<span style="font-size: 16px">' +
+        '<button type="button" class="add_button btn btn-primary btn-round" id="SignIn" style="margin: auto 9px;">Sign in</button>' +
+        'and comment'+
+        '</span>';
 } else {
     //展示添加评论界面
     commentBox.innerHTML = '<h1>Add Your Comment\

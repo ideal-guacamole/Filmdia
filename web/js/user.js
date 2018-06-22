@@ -5,7 +5,6 @@
 var loginBox = document.getElementById('loginBox');
 var shield = document.getElementById('shield');
 var userImg = document.getElementById('userCenter');
-
 var userBox = document.getElementById('userBox');
 var underBox = document.getElementById('userUnderBox');
 var underBoxSignOut = underBox.getElementsByTagName('a')[2];
@@ -38,60 +37,39 @@ var toSignIn = document.getElementById('toSignIn');
 var signUpBtn = document.getElementById('signUpSubmit');
 
 var timer = null;
+var signinBeforeComment = document.getElementById('SignIn');
 
+function showLoginBox() {
+    if (!userImg.isSignIn) {
+        console.log("11");
+        loginBox.style.display = 'block';
+        shield.style.display = 'block';
+        doOpacity(shield, 0.1, 0.7, function () {
+            doOpacity(loginBox, 0.2, 1);
+        });
+
+        enterSignIn();
+
+        shield.onclick = function () {
+            doOpacity(loginBox, 0.1, 0, function () {
+                loginBox.style.display = 'none';
+            });
+            doOpacity(shield, 0.1, 0, function () {
+                shield.style.display = 'none';
+            });
+        };
+    }
+}
+if (signinBeforeComment){
+    signinBeforeComment.onclick = showLoginBox;
+}
 function userFunction(userState, userName) {
     userImg.isSignIn = userState;
     userImg.user = userName;
 
     //进入登录框
-    userImg.onclick = function () {
-        if (!userImg.isSignIn) {
-            loginBox.style.display = 'block';
-            shield.style.display = 'block';
-            // doOpacity(shield, 0.1, 0.7, function () {
-            //     doOpacity(loginBox, 1, 1)
-            // });
-            // shield.style.opacity = 0.7;
-            // loginBox.style.opacity = 1;
 
-            //
-            // // initArea.style.display = 'block';
-            // signInForm.style.display = 'block';
-            // signUpForm.style.display = 'none';
-            // initInputArr[0].style.opacity = 1;
-            // initInputArr[1].style.opacity = 0;
-            // initDiv.style.opacity = 0;
-
-            doOpacity(shield, 0.1, 0.7, function () {
-                doOpacity(loginBox, 0.2, 1
-                    // , function () {
-                    // setTimeout(function () {
-                    //     doOpacity(signInForm, 0.6, 1, function () {
-                    //         setTimeout(function () {
-                    //             doOpacity(initDiv, 0.6, 1, function () {
-                    //                 setTimeout(function () {
-                    //                     doOpacity(initInputArr[1], 0.6, 1);
-                    //                 });
-                    //             }, 100);
-                    //         }, 100);
-                    //     });
-                    // }, 100);
-                // }
-                );
-            });
-
-            enterSignIn();
-
-            shield.onclick = function () {
-                doOpacity(loginBox, 0.1, 0, function () {
-                    loginBox.style.display = 'none';
-                });
-                doOpacity(shield, 0.1, 0, function () {
-                    shield.style.display = 'none';
-                });
-            };
-        }
-    };
+    userImg.onclick = showLoginBox;
     userImg.onmouseover = showUnderBox;
     userImg.onmouseout = hideUnderBox;
     underBox.onmouseover = showUnderBox;
@@ -107,12 +85,12 @@ function userFunction(userState, userName) {
 
 
     function signIn() {
-        if(userText1.value === "") {
+        if (userText1.value === "") {
             signInWarning.innerHTML = 'The username cannot be empty';
             return false;
         }
 
-        if(passwordText1.value === "") {
+        if (passwordText1.value === "") {
             signInWarning.innerHTML = 'The password cannot be empty';
             return false;
         }
