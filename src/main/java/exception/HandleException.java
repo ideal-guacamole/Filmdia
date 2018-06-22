@@ -12,7 +12,7 @@ public class HandleException {
 
     @ExceptionHandler
     public ModelAndView handleException(Exception ex){
-        System.out.println("---> 出现异常： " + ex);
+//        System.out.println("---> 出现异常： " + ex);
         ModelAndView mv = new ModelAndView("error");
         mv.addObject("exception",ex);
         return mv;

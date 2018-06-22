@@ -144,8 +144,8 @@ public class ReviewSearchServiceImpl implements ReviewSearchService {
                     e.printStackTrace();
                 }
 
-                System.out.println(a1[0] + " / " + a1[1]);
-                System.out.println(a2[0] + " / " + a2[1]);
+//                System.out.println(a1[0] + " / " + a1[1]);
+//                System.out.println(a2[0] + " / " + a2[1]);
                 Double a1_ = 0.0;
                 Double a2_ = 0.0;
                 if (a1[1] != 0) {
@@ -218,11 +218,11 @@ public class ReviewSearchServiceImpl implements ReviewSearchService {
             new DecimalFormat().parse(str).intValue();
             return true;
         } catch (NumberFormatException e) {
-            System.out.println("异常：\"" + str + "\"不是数字/整数...");
+//            System.out.println("异常：\"" + str + "\"不是数字/整数...");
             return false;
         }
         catch (ParseException e) {
-            System.out.println("转换异常：\"" + str + "\"不是数字/整数...");
+//            System.out.println("转换异常：\"" + str + "\"不是数字/整数...");
             return false;
         }
     }
