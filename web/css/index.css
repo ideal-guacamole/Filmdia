@@ -147,11 +147,13 @@
 #IMDb {
     cursor: pointer;
     color: #3774ab;
+    font-weight: bold;
 }
 
 #Oscar {
     cursor: pointer;
-    color: #3774ab;
+    color: gray;
+    font-weight: bold;
 }
 
 #toptable {

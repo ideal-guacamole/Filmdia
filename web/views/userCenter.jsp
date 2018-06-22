@@ -210,6 +210,7 @@
                                                     url: '/film/getFilmName.action',
                                                     contentType: 'application/json;charset=utf-8',
                                                     data: data[i].imdb_filmID,
+                                                    async: true,
                                                     success: function (data1) {
                                                         filmName = data1;
                                                         var stars = '';
@@ -292,7 +293,7 @@
                                     <div class="row">
                                         <ul class="w3agile">
                                             <li>
-                                                <div style="margin-left: 153px">
+                                                <div style="margin-left: 150px">
                                                     <input type="checkbox" id="brand1" value="">
                                                     <label for="brand1"><span></span>Remember me</label>
                                                 </div>

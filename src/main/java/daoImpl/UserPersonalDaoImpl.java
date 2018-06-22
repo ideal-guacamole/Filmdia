@@ -124,7 +124,7 @@ public class UserPersonalDaoImpl implements UserPersonalDao {
     @Override
     public List<Review> getPersonalReview(int userID) {
         Session session = getSession();
-        Query q = session.createQuery("from Review r where r.userInfo_userID = :userID");
+        Query q = session.createQuery("from Review r where r.userInfo_userID = :userID order by r.time desc");
         q.setParameter("userID",userID);
         List<Review> reviewList = q.getResultList();
         session.close();

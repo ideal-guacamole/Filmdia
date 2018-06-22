@@ -474,10 +474,14 @@
         </div>
         <!-- End of the cinemainfo -->
 
-        <h3 style="font-weight: bold" id="top"><span id="IMDb" title="IMDb Top 250 Chart">IMDb</span> and <span
-                id="Oscar" title="Oscar Best Picture Chart">Oscar</span> Top Films</h3>
-        <p class="ttt">Chart of the top 250 films on IMDb and Best Picture Oscar each year.(Click the light blue title
-            to switch)</p>
+        <h3 style="font-weight: bold" id="top">Top Films</h3>
+
+        <p class="ttt">Chart of the top 250 films on IMDb and Best Picture Oscar each year.</p>
+
+        <h4 class="text-center">
+            <span id="IMDb" title="IMDb Top 250 Chart">IMDb</span> /
+            <span id="Oscar" title="Oscar Best Picture Chart">Oscar</span>
+        </h4>
         <div class="bs-docs-example">
             <table id="toptable" class="table table-hover">
                 <colgroup>
@@ -488,7 +492,7 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th style="text-align: center">Rank&Title</th>
+                    <th style="text-align: center">Title</th>
                     <th style="text-align: center"></th>
                     <th style="text-align: center">Rating</th>
                     <%--<th>Fav</th>--%>
@@ -627,7 +631,7 @@
 <script>
     $(window).load(function () {
 
-        var IMDb_O = 1;
+        var IMDb_O = 0;
         var imdb = document.getElementById('IMDb');
         var oscar = document.getElementById('Oscar');
         loadTable(0, IMDb_O);
@@ -658,6 +662,8 @@
         });
 
         imdb.onclick = function () {
+            imdb.style.color = '#3774ab';
+            oscar.style.color = 'gray';
             IMDb_O = 0;
             loadTable(0, IMDb_O);
             // $("#paginate_imdb").paginate({
@@ -703,6 +709,8 @@
             });
         };
         oscar.onclick = function () {
+            oscar.style.color = '#3774ab';
+            imdb.style.color = 'gray';
             IMDb_O = 1;
             loadTable(0, IMDb_O);
             $('#pageLimit').bootstrapPaginator({
