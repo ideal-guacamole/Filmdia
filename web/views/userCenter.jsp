@@ -312,13 +312,25 @@
                                         var confirmPassword = document.getElementById('confirmPassword');
 
                                         if (originalPassword.value === '') {
-                                            alert('The original password cannot be empty');
-                                        } else if (newPassword.value === '' || confirmPassword.value === '') {
-                                            alert('The password cannot be empty');
+                                            layer.tips('not null', '#originalPassword', {
+                                                tips: [2, 'red']
+                                            });
+                                        } else if (newPassword.value === '') {
+                                            layer.tips('not null', '#newPassword', {
+                                                tips: [2, 'red']
+                                            });
+                                        } else if (confirmPassword.value === '') {
+                                            layer.tips('not null', '#confirmPassword', {
+                                                tips: [2, 'red']
+                                            });
                                         } else if (newPassword.value.length < 6 || newPassword.value.length > 12) {
-                                            alert('The password is invalid');
+                                            layer.tips('invalid', '#newPassword', {
+                                                tips: [2, 'red']
+                                            });
                                         }else if (newPassword.value !== confirmPassword.value) {
-                                            alert("Inconsistent passwords");
+                                            layer.tips('inconsistent passwords', '#confirmPassword', {
+                                                tips: [2, 'red']
+                                            });
                                         }
                                         else {
                                             var data = {
@@ -338,7 +350,8 @@
                                                         });
                                                     }
                                                     else {
-                                                        alert("Wrong original password!");
+                                                        layer.msg('Wrong original password!', {icon: 5}, function () {
+                                                        });
                                                     }
                                                 }
                                             });

@@ -46,6 +46,7 @@
     <!-- Default-JavaScript-File -->
     <script type="text/javascript" src="../js/lib/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/lib/layer/layer.js"></script>
 
     <!-- Own css and js-->
     <link rel="stylesheet" href="../css/details.css" type="text/css" media="all">
@@ -490,13 +491,19 @@
                     commitBtn.addEventListener('click', function (e) {
                         e.stopPropagation();
                         if (starBox.stars === 0) {
-                            alert("Score is empty!");
+                            layer.tips('not null', '#starBox', {
+                                tips: [2, 'red']
+                            });
                         }
                         else if (commentSummary.value === '') {
-                            alert("Summary is empty!");
+                            layer.tips('not null', '#commentSummary', {
+                                tips: [2, 'red']
+                            });
                         }
                         else if (commentText.value === '') {
-                            alert("Text is empty!");
+                            layer.tips('not null', '#commentText', {
+                                tips: [2, 'red']
+                            });
                         }
                         else {
                             var date = new Date();
@@ -520,11 +527,13 @@
                                 data: JSON.stringify(review),
                                 success: function (data) {
                                     if (data.result === 'success') {
-                                        alert('Comment Success!');
-                                        window.location.reload(true);
+                                        layer.msg('Comment Successfully!', {icon: 6}, function () {
+                                            window.location.reload(true);
+                                        });
                                     }
                                     else {
-                                        alert('Comment Failed!');
+                                        layer.msg('Comment Failed!', {icon: 5}, function () {
+                                        });
                                     }
                                 }
                             });
