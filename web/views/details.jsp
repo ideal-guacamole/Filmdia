@@ -576,12 +576,12 @@
             <div id="mapBox" class=""
                  style="float: left;width: 45%;margin-left: 5%;height:60vh;min-height:400px;max-height: 800px">
             </div>
-            <div style="float: left;width: 45%;height: 60vh;min-height:200px;max-height: 800px">
-                <div id="reviewFluctuationBox" class="" style="height: 30vh;min-height:200px;max-height: 400px">
-                </div>
-                <div id="descriptionLengthBox" class="" style="height: 30vh;min-height:200px;max-height: 400px">
-                </div>
+            <%--<div style="float: left;width: 45%;height: 60vh;min-height:200px;max-height: 800px">--%>
+            <div id="reviewFluctuationBox" class="" style="float:left;width: 45%;height: 60vh;min-height:200px;max-height: 800px">
             </div>
+            <%--<div id="descriptionLengthBox" class="" style="height: 30vh;min-height:200px;max-height: 400px">--%>
+            <%--</div>--%>
+            <%--</div>--%>
             <h2 style="color: #40BFDE;margin-left: 5%;margin-top: 5%">Score Statistics</h2>
             <div id="scoreNumBox" class="half_graphs" style="margin-left: 5% !important; margin-bottom: 8%!important;">
             </div>
@@ -641,10 +641,10 @@
                     makeCommentWords();
 
                 }
-                if (!loadingReadyArr[5] && oScroll > 1900) {
-                    loadingReadyArr[5] = true;
-                    makeDescriptionLength();
-                }
+//                if (!loadingReadyArr[5] && oScroll > 1900) {
+//                    loadingReadyArr[5] = true;
+//                    makeDescriptionLength();
+//                }
             };
 
 
@@ -912,7 +912,7 @@
                                     gt: 5,
                                     lte: 100,
                                     color: '#F29C9C',
-                                }, ],
+                                },],
                                 outOfRange: {
                                     color: '#F3E59B'
                                 }
@@ -1262,72 +1262,72 @@
             }
 
             //描述长度分布
-            function makeDescriptionLength() {
-                var descriptionLengthBox = document.getElementById('descriptionLengthBox');
-                var valueData = [];
-                var nameData =
-                    ['0-19 words', '20-39 words', '40-59 words', '60-79 words', '80-99 words', '100-119 words', '120-139 words', '140-159 words', '160-179 words', '180-199 words', '200 words above', '10-49 words',];
-                $.ajax({
-                    type: 'post',
-                    url: '/filmChart/getDescriptionNum.action',
-                    data: {
-                        imdb_filmID: imdb_filmID,
-                        number: 20 + ''
-                    },
-                    success: function (data) {
-                        var seriesData = [];
-                        for (var key in data) {
-                            valueData.push(data[key]);
-                            seriesData.push({value: data[key], name: nameData[key]});
-                        }
-                        var descriptionLengthChart = echarts.init(descriptionLengthBox);
-                        var option = {
-                            title: {
-                                text: 'Description Length Distribution'
-                            },
-                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
-                            tooltip: {
-                                trigger: 'item',
-                                formatter: "{a} <br/>{b}: {c} ({d}%)"
-                            },
-                            legend: {
-                                left: 'left',
-                                top: 'center',
-                                orient: 'vertical',
-                                data: nameData
-                            },
-                            series: [
-                                {
-                                    name: 'Description Length',
-                                    type: 'pie',
-                                    radius: ['50%', '70%'],
-                                    avoidLabelOverlap: false,
-                                    label: {
-                                        normal: {
-                                            show: false,
-                                            position: 'center'
-                                        },
-                                        emphasis: {
-                                            show: true,
-                                            textStyle: {
-                                                fontSize: '24',
-                                            }
-                                        }
-                                    },
-                                    labelLine: {
-                                        normal: {
-                                            show: false
-                                        }
-                                    },
-                                    data: seriesData
-                                }
-                            ]
-                        };
-                        descriptionLengthChart.setOption(option);
-//                        descriptionLengthBox.style.marginLeft = 200 + 'px';
-                    }
-                });
-            }
+            //            function makeDescriptionLength() {
+            //                var descriptionLengthBox = document.getElementById('descriptionLengthBox');
+            //                var valueData = [];
+            //                var nameData =
+            //                    ['0-19 words', '20-39 words', '40-59 words', '60-79 words', '80-99 words', '100-119 words', '120-139 words', '140-159 words', '160-179 words', '180-199 words', '200 words above', '10-49 words',];
+            //                $.ajax({
+            //                    type: 'post',
+            //                    url: '/filmChart/getDescriptionNum.action',
+            //                    data: {
+            //                        imdb_filmID: imdb_filmID,
+            //                        number: 20 + ''
+            //                    },
+            //                    success: function (data) {
+            //                        var seriesData = [];
+            //                        for (var key in data) {
+            //                            valueData.push(data[key]);
+            //                            seriesData.push({value: data[key], name: nameData[key]});
+            //                        }
+            //                        var descriptionLengthChart = echarts.init(descriptionLengthBox);
+            //                        var option = {
+            //                            title: {
+            //                                text: 'Description Length Distribution'
+            //                            },
+            //                            color: ["#0092C7", '#9FE0F6', '#F3E59A', '#F3E59B', '#F29C9C'],
+            //                            tooltip: {
+            //                                trigger: 'item',
+            //                                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            //                            },
+            //                            legend: {
+            //                                left: 'left',
+            //                                top: 'center',
+            //                                orient: 'vertical',
+            //                                data: nameData
+            //                            },
+            //                            series: [
+            //                                {
+            //                                    name: 'Description Length',
+            //                                    type: 'pie',
+            //                                    radius: ['50%', '70%'],
+            //                                    avoidLabelOverlap: false,
+            //                                    label: {
+            //                                        normal: {
+            //                                            show: false,
+            //                                            position: 'center'
+            //                                        },
+            //                                        emphasis: {
+            //                                            show: true,
+            //                                            textStyle: {
+            //                                                fontSize: '24',
+            //                                            }
+            //                                        }
+            //                                    },
+            //                                    labelLine: {
+            //                                        normal: {
+            //                                            show: false
+            //                                        }
+            //                                    },
+            //                                    data: seriesData
+            //                                }
+            //                            ]
+            //                        };
+            //                        descriptionLengthChart.setOption(option);
+            ////                        descriptionLengthBox.style.marginLeft = 200 + 'px';
+            //                    }
+            //                });
+            //            }
 
         </script>
 
