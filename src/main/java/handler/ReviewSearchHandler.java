@@ -32,7 +32,7 @@ public class ReviewSearchHandler {
             imdb_filmID = imdb_filmID.substring(0,imdb_filmID.length()-1);
         }
         List<ReviewVO> reviewVOList = new ArrayList<>();
-        for(Review review : reviewSearchService.getReviews(imdb_filmID,10))
+        for(Review review : reviewSearchService.getReviews(imdb_filmID))
             reviewVOList.add(new ReviewVO(review));
 //        System.out.println(System.currentTimeMillis());
         return reviewVOList;

@@ -37,6 +37,7 @@
     } </script>
     <!-- //Meta-Tags -->
     <!-- Custom-Theme-Files -->
+    <link rel="stylesheet" href="../js/lib/layui/css/layui.css" type="text/css" media="all">
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
     <!-- //Custom-Theme-Files -->
@@ -47,7 +48,7 @@
     <!-- Default-JavaScript-File -->
     <script type="text/javascript" src="../js/lib/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/lib/layer/layer.js"></script>
+    <script type="text/javascript" src="../js/lib/layui/layui.all.js"></script>
 
     <!-- Own css and js-->
     <link rel="stylesheet" href="../css/details.css" type="text/css" media="all">
@@ -322,26 +323,6 @@
                       style="color: #37a; margin-left:15px; font-size: 12px; cursor: pointer"></span>
             </ul>
             <div id="reviewBox" class="reviews">
-                <div class="spinner" id="spinner">
-                    <div class="spinner-container container1">
-                        <div class="circle1"></div>
-                        <div class="circle2"></div>
-                        <div class="circle3"></div>
-                        <div class="circle4"></div>
-                    </div>
-                    <div class="spinner-container container2">
-                        <div class="circle1"></div>
-                        <div class="circle2"></div>
-                        <div class="circle3"></div>
-                        <div class="circle4"></div>
-                    </div>
-                    <div class="spinner-container container3">
-                        <div class="circle1"></div>
-                        <div class="circle2"></div>
-                        <div class="circle3"></div>
-                        <div class="circle4"></div>
-                    </div>
-                </div>
 
             </div>
             <div style="font: 0px/0px sans-serif;clear: both;display: block"></div>
@@ -1126,6 +1107,34 @@
     var userid = <%=userAccount.getUserID()%>;
 </script>
 <script src="../js/details.js"></script>
+
+<script>
+    layui.use('flow', function(){
+        var flow = layui.flow;
+
+        flow.load({
+            elem: '#reviewBox' //流加载容器
+            ,scrollElem: '#reviewBox' //滚动条所在元素。
+            ,done: function(page, next){ //执行下一页的回调
+
+                setTimeout(function(){
+                    var lis = [];
+                    if(reviewNum !== 0) {
+                        for(var i = 0; i < 10; i++){
+                            putReviews();
+                            lis.push(review);
+                        }
+                    }
+
+                    //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+                    //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+                    next(lis.join(''), page < reviewNum / 10);
+                }, 500);
+            }
+        });
+
+    });
+</script>
 
 <!-- footer -->
 <%--<jsp:include page="common/footer.jsp"></jsp:include>--%>

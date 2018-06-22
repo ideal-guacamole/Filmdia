@@ -245,21 +245,21 @@ if (name == 'null') {
 
 
 //加载评论
-var spinner = document.getElementById('spinner');
 var reviewBox = document.getElementById('reviewBox');
 var review = '';
 var reviewNum = 0;
+var reviewData;
+var num;
 $.ajax({
     type: 'post',
     url: '/review/getReviews.action',
     contentType: 'application/json;charset=utf-8',
     data: imdb_filmID,
     success: function (data) {
-        spinner.style.display = 'none';
-        spinner.style.visibility = 'hidden';
         review = '';
         reviewNum = data.length;
-        putReviews(data);
+        reviewData = data;
+        num = 0;
     }
 });
 
@@ -311,8 +311,6 @@ function sortReviews() {
             reviewSort: reviewSort,
         },
         success: function (data) {
-            spinner.style.display = 'none';
-            spinner.style.visibility = 'hidden';
             reviewBox.innerHTML = '';
             review = '';
             putReviews(data);
@@ -321,40 +319,40 @@ function sortReviews() {
         }
     });
 }
-function putReviews(data) {
-    var num = 0;
+function putReviews() {
     var star = '<img style="width: 17px" src="../images/star-small.png" />';
     var star_dark = '<img style="width: 17px" src="../images/star-small-dark.png" />';
     console.log(reviewNum);
-    for (var i = num; i < num + 10; i++) {
-        if (i===reviewNum){
-            break;
-        }
+    var i = num;
+    if(i === reviewNum) {
+        review = '';
+        return;
+    }
         var filmStar = '';
         var j = 0;
-        for (; j < data[i].score; j++) {
+        for (; j < reviewData[i].score; j++) {
             filmStar += star;
         }
         while (j < 10) {
             filmStar += star_dark;
             j++;
         }
-        var helpfulnessArray = data[i].helpfulness.split("/");
+        var helpfulnessArray = reviewData[i].helpfulness.split("/");
         var like = helpfulnessArray[0].replace(/,/g, "");
         var dislike = helpfulnessArray[1].replace(/,/g, "") - like;
-        var fullContentText = data[i].text;
+        var fullContentText = reviewData[i].text;
         var smallContentText;
         if (fullContentText.length > 700) {
-            smallContentText = data[i].text.substr(0, 700) + '... ';
+            smallContentText = reviewData[i].text.substr(0, 700) + '... ';
 
-            review += '' +
+            review = '' +
                 '<div class="review_part">\n' +
                 '  <div class="review_title">\n' +
-                '    <span class="review_userName">' + data[i].userName + '</span>\n' +
-                '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
+                '    <span class="review_userName">' + reviewData[i].userName + '</span>\n' +
+                '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + reviewData[i].time + '</span>   \n' +
                 '    <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + filmStar + '</div>\n' +
                 '  </div>\n' +
-                '  <span class="review_summary">' + data[i].summary + '</span>\n' +
+                '  <span class="review_summary">' + reviewData[i].summary + '</span>\n' +
                 '  <div class="review_text" id="smallContent' + i + '" style="display:block">' + smallContentText + '(\n' +
                 '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >unfold</a> )\n' +
                 '  </div>\n' +
@@ -371,14 +369,14 @@ function putReviews(data) {
         } else {
             smallContentText = fullContentText;
 
-            review += '' +
+            review = '' +
                 '<div class="review_part">\n' +
                 '  <div class="review_title">\n' +
-                '    <span class="review_userName">' + data[i].userName + '</span>\n' +
-                '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
+                '    <span class="review_userName">' + reviewData[i].userName + '</span>\n' +
+                '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + reviewData[i].time + '</span>   \n' +
                 '    <div style="display:inline-block;position:absolute;top:13px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + filmStar + '</div>\n' +
                 '  </div>\n' +
-                '  <span class="review_summary">' + data[i].summary + '</span>\n' +
+                '  <span class="review_summary">' + reviewData[i].summary + '</span>\n' +
                 '  <div class="review_text" id="smallContent' + i + '" style="display:block">' + smallContentText + '\n' +
                 '  </div>\n' +
                 '  <div class="review_text" id="fullContent' + i + '" style="display:none">' + fullContentText + '\n' +
@@ -392,88 +390,8 @@ function putReviews(data) {
                 '</div>';
         }
 
-    }
-    num += 10;
-    reviewBox.innerHTML += review;
+    num += 1;
 
-    var lock = false;
-    var finish = false;
-    reviewBox.parentNode.parentNode.parentNode.onscroll = function () {
-        var oScroll = this.scrollTop;
-        if (finish) {
-            return;
-        }
-        if (!lock && reviewBox.offsetHeight - oScroll < 1300) {
-            lock = true;
-            review = '';
-            for (var i = num; i < num + 10; i++) {
-                if (i === data.length) {
-                    finish = true;
-                    break;
-                }
-                var filmStar = '';
-                for (var j = 0; j < data[i].score; j++) {
-                    filmStar += star;
-                }
-
-                var helpfulnessArray = data[i].helpfulness.split("/");
-                var like = helpfulnessArray[0];
-                var dislike = helpfulnessArray[1] - helpfulnessArray[0];
-                var fullContentText = data[i].text;
-                var smallContentText;
-                if (fullContentText.length > 700) {
-                    smallContentText = data[i].text.substr(0, 700) + '... ';
-
-                    review += '' +
-                        '<div class="review_part">\n' +
-                        '  <div class="review_title">\n' +
-                        '    <span class="review_userName">' + data[i].userName + '</span>\n' +
-                        '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-                        '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + filmStar + '</div>\n' +
-                        '  </div>\n' +
-                        '  <span class="review_summary">' + data[i].summary + '</span>\n' +
-                        '  <div class="review_text" id="smallContent' + i + '" style="display:block">' + smallContentText + '(\n' +
-                        '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >unfold</a> )\n' +
-                        '  </div>\n' +
-                        '  <div class="review_text" id="fullContent' + i + '" style="display:none">' + fullContentText + '(\n' +
-                        '    <a href="javascript:" style="font-weight: bold" onclick="expend(' + i + ')" >fold</a> )\n' +
-                        '  </div>\n' +
-                        '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-                        '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
-                        '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-                        '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
-                        '    <span>' + dislike + '</span>\n' +
-                        '  </div>  \n' +
-                        '</div>';
-                } else {
-                    smallContentText = fullContentText;
-
-                    review += '' +
-                        '<div class="review_part">\n' +
-                        '  <div class="review_title">\n' +
-                        '    <span class="review_userName">' + data[i].userName + '</span>\n' +
-                        '    <span class="review_time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + data[i].time + '</span>   \n' +
-                        '    <div style="display:inline-block;position:absolute;top:9px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + filmStar + '</div>\n' +
-                        '  </div>\n' +
-                        '  <span class="review_summary">' + data[i].summary + '</span>\n' +
-                        '  <div class="review_text" id="smallContent' + i + '" style="display:block">' + smallContentText + '\n' +
-                        '  </div>\n' +
-                        '  <div class="review_text" id="fullContent' + i + '" style="display:none">' + fullContentText + '\n' +
-                        '  </div>\n' +
-                        '  <div class="review_footer">&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-                        '    <span class="glyphicon glyphicon-thumbs-up" style="color: green; margin-right: 5px"></span>   \n' +
-                        '    <span>' + like + '</span>&nbsp;&nbsp;&nbsp;&nbsp;\n' +
-                        '    <span class="glyphicon glyphicon-thumbs-down" style="margin-left: 10px; margin-right: 5px"></span>\n' +
-                        '    <span>' + dislike + '</span>\n' +
-                        '  </div>  \n' +
-                        '</div>';
-                }
-            }
-            num += 10;
-            reviewBox.innerHTML += review;
-            lock = false;
-        }
-    }
 }
 
 function expend(i) {
@@ -533,6 +451,7 @@ function getReviewNum() {
 }
 
 
+// 加载评论
 var commentBox = document.getElementById('commentForm');
 
 //如果用户未登录则提示登陆
