@@ -254,12 +254,20 @@ h3 {
 }
 
 .right {
-    position: absolute;
-    float: right;
-    /*top: 11.5%;*/
-    right: 4.5%;
+    /*position: absolute;*/
+    /*float: right;*/
+    /*!*top: 11.5%;*!*/
+    /*right: 4.5%;*/
+    /*width: 310px;*/
+    /*margin-top: 103px;*/
+
+    /* position: absolute; */
+    /* float: left; */
+    /* top: 11.5%; */
+    display: inline-block;
     width: 310px;
     margin-top: 103px;
+    margin-left: 78px;
 }
 
 .Details {
