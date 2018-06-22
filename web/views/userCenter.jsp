@@ -292,7 +292,7 @@
                                     <div class="row">
                                         <ul class="w3agile">
                                             <li>
-                                                <div style="margin-left: 145px">
+                                                <div style="margin-left: 153px">
                                                     <input type="checkbox" id="brand1" value="">
                                                     <label for="brand1"><span></span>Remember me</label>
                                                 </div>
